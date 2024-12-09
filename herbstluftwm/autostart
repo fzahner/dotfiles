@@ -1,0 +1,7 @@
+#!/bin/bash
+
+~/.config/herbstluftwm/configs/setup
+~/.config/herbstluftwm/configs/keybinds
+~/.config/herbstluftwm/configs/theme
+
+~/.config/eww/launch.sh
