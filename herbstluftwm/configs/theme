@@ -4,6 +4,7 @@ hc() {
     herbstclient "$@"
 }
 
+# Wallpaper
 feh --bg-fill /home/fabio/Desktop/wallpapers/Trees-22.jpg
 
 
