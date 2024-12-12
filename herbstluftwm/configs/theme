@@ -5,7 +5,10 @@ hc() {
 }
 
 # Wallpaper
-feh --bg-fill /home/fabio/Desktop/wallpapers/Trees-22.jpg
+feh --bg-fill ~/.config/herbstluftwm/wallpaper/trees.jpg
+
+# Only on first run
+# betterlockscreen -u ~/.config/herbstluftwm/wallpaper/mountain.jpg
 
 
 hc attr theme.tiling.reset 1
