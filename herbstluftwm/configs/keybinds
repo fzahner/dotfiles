@@ -21,6 +21,7 @@ hc keybind $Mod-t spawn alacritty
 hc keybind $Mod-w spawn firefox
 hc keybind $Mod-e spawn xdg-open .
 hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh" -modes combi
+hc keybind $Mod-s spawn rofi -show ssh
 
 # focusing clients
 hc keybind $Mod-Left  focus left
@@ -67,7 +68,7 @@ hc keybind $Mod-period  use_index +1 --skip-visible
 
 # layouting
 hc keybind $Mod-q remove
-hc keybind $Mod-s floating toggle
+hc keybind $Mod-f floating toggle
 hc keybind $Mod-m fullscreen toggle
 hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
@@ -95,7 +96,21 @@ hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-i jumpto urgent
 
 # Fn Keys and other buttons
-hc keybind XF86AudioRaiseVolume fullscreen toggle
+hc keybind XF86AudioRaiseVolume spawn amixer -M set Master 5%+
+hc keybind XF86AudioLowerVolume spawn amixer -M set Master 5%-
+hc keybind XF86AudioMute spawn amixer -q sset Master toggle
+
+# TODO:
+# hc keybind XF86MyComputer
+# hc keybind XF86HomePage
+# hc keybind XF86Calculator
+# hc keybind XF86AudioMedia
+# hc keybind XF86AudioPrev
+# hc keybind XF86AudioNext
+# hc keybind XF86AudioPlay
+# hc keybind XF86AudioStop
+# hc keybind XF86MonBrightnessDown
+# hc keybind XF86MonBrightnessUp
 
 # ---------- Tags ---------------
 tag_names=( {1..9} )

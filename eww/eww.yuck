@@ -14,8 +14,8 @@
 (defvar tag-8 "tag-passive")
 (defvar tag-9 "tag-passive")
 
-
 (defpoll battery-percentage :interval "30s" "cat /sys/class/power_supply/BAT0/capacity")
+(defpoll audio-volume :interval "2s" "amixer sget 'Master' | awk -F'[\\[\\]]' '/%/ { gsub(\"%\", \"\", $2); print $2; exit }'")
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
@@ -27,6 +27,9 @@
             :onchange "")
     (metric :label "󰂀"
             :value battery-percentage
+            :onchange "")
+    (metric :label ""
+            :value audio-volume
             :onchange "")
     time))
 
