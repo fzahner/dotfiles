@@ -20,7 +20,7 @@ hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xter
 hc keybind $Mod-t spawn alacritty
 hc keybind $Mod-w spawn firefox
 hc keybind $Mod-e spawn xdg-open .
-hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh" -modes combi
+hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh,drun" -modes combi
 hc keybind $Mod-s spawn rofi -show ssh
 
 # Lockscreen
