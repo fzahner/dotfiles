@@ -1,3 +1,7 @@
+$background-color: #3a3a3a;
+$primary: #b0b4bc;
+$primary-accent: #A7C080;
+
 * {
   all: unset; // Unsets everything so you can style everything from scratch
 }
@@ -5,21 +9,14 @@
 // Global Styles
 .bar {
   font-family: 'JetBrainsMono Nerd Font';
-  background-color: #3a3a3a;
-  color: #b0b4bc;
+  background-color: $background-color;
+  color: $primary;
   padding: 10px;
-}
-
-// Styles on classes (see eww.yuck for more information)
-
-.sidestuff slider {
-  all: unset;
-  color: #ffd5cd;
 }
 
 .metric scale trough highlight {
   all: unset;
-  background-color: #D35D6E;
+  background-color: $primary-accent;
   color: #000000;
   border-radius: 10px;
 }
