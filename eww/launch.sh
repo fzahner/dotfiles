@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sleep 5
 eww daemon
