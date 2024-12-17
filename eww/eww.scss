@@ -1,5 +1,5 @@
 $background-color: #3a3a3a;
-$primary: #b0b4bc;
+$primary: #e3e3e3;
 $primary-accent: #A7C080;
 
 * {
@@ -11,7 +11,8 @@ $primary-accent: #A7C080;
   background-color: $background-color;
   font-family: 'JetBrainsMono Nerd Font';
   color: $primary;
-  padding: 10px;
+  padding: 8px 10px;
+  font-size: 14px;
 }
 
 
@@ -34,27 +35,40 @@ $primary-accent: #A7C080;
 }
 
 // Time and Date
-.time {
+.dateTime {
   color: #aa00ff;
   background-color: #aabb00;
 }
 
-.tag-active {
-  background-color: #00aa00
+$tag-border-radius: 8px;
+
+.workspaces button {
+  padding: 1px 6px;
 }
 
+.tag-active {
+  background-color: $primary-accent;
+  border-radius: $tag-border-radius;
+  color: $background-color;
+}
+
+
 .tag-used {
-  background-color: #000077;
+  border: solid $primary 1px;
+  border-radius: $tag-border-radius;
 }
 
 .tag-urgent {
-  background-color: #ff0000;
+  border: solid #fa0000;
+  border-radius: $tag-border-radius;
 }
 
 .tag-passive {
   // background-color: #666666;
+  border-radius: $tag-border-radius;
 }
 
 .tag-unknown {
   background-color: #ff0000;
+  border-radius: $tag-border-radius;
 }

@@ -77,7 +77,7 @@
   "scripts/getvol")
 
 (defpoll time :interval "10s"
-  :class "time"
+  :class "dateTime"
   "date '+%H:%M %b %d, %Y'")
 
 (defwindow bar
