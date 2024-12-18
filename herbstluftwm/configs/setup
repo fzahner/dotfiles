@@ -25,7 +25,7 @@ hc emit_hook reload
 # eww daemon
 # eww reload
 # eww open bar
-#
+
 # --------- rules ---------
 hc unrule -F
 hc rule focus=on # normally focus new clients
@@ -37,7 +37,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule fixedsize floating=on
 
 # One of these regulates the direction new windows open
-hc set_layout horizontal
+hc set_layout vertical
 hc set default_frame_layout horizontal
 
 hc set focus_follows_mouse 1
