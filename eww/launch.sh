@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sleep 5
+sleep 2
 eww daemon
 sleep 2
 eww open bar
-sleep 2
+sleep 1
 ~/.config/eww/scripts/active_tag.sh &
