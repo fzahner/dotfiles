@@ -7,9 +7,10 @@
 # track this file
 !.gitignore
 
-# track herbstluftwm and eww folders
+# track specific folders
 !herbstluftwm/**
 !eww/**
+!fish/config.fish
 
 # ignore the otherconfigs folder
 eww/otherConfigs/
