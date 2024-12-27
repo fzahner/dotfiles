@@ -24,8 +24,7 @@
 
 (defwindow power-buttons
   :monitor 0
-  :windowtype "dock"
-  :geometry (geometry :x "-20px"
+  :geometry (geometry :x "-50px"
                       :y "70px"
                       :width "400px"
                       :height "70px"

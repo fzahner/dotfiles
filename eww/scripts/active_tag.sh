@@ -25,6 +25,9 @@ herbstclient --idle | while read -r hook args; do
         "!")  # Urgent tag
           eww update tag-$number="tag-urgent"
           ;;
+        "-")  # Other Monitor tag
+          eww update tag-$number="tag-monitor"
+          ;;
         *)
           eww update tag-$number="tag-unknown"
           ;;

@@ -16,6 +16,10 @@ $primary-accent: #A7C080;
 }
 
 
+.sidestuff {
+  font-size: 16px;
+}
+
 // Metrics
 .metric scale highlight {
   all: unset;
@@ -68,7 +72,32 @@ $tag-border-radius: 8px;
   border-radius: $tag-border-radius;
 }
 
-.tag-unknown {
-  background-color: #ff0000;
+.tag-monitor {
+  background-color: #6a6a6a;
   border-radius: $tag-border-radius;
+}
+
+.tag-unknown {
+  background-color: #00ff00;
+  border-radius: $tag-border-radius;
+}
+
+// Powermenu button styling
+
+.powermenu-box {
+
+  .powermenu-toggle {
+    margin: 0 16px;
+    padding: 8px 16px 8px 12px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+}
+
+.hover-effect {
+    &:hover {
+      background-color: $primary-accent;
+      color: $background-color;
+    }
 }

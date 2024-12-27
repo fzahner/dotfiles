@@ -13,13 +13,14 @@
 (defvar tag-7 "tag-passive")
 (defvar tag-8 "tag-passive")
 (defvar tag-9 "tag-passive")
+(defvar powermenu-visible "invisible-powermenu")
 
 (defpoll battery-percentage :interval "30s" "cat /sys/class/power_supply/BAT0/capacity")
 (defpoll audio-volume :interval "2s" "amixer sget 'Master' | awk -F'[\\[\\]]' '/%/ { gsub(\"%\", \"\", $2); print $2; exit }'")
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label ""
+    (metric :label " "
             :value {EWW_RAM.used_mem_perc}
             :onchange "")
     (metric :label ""
@@ -31,7 +32,12 @@
     (metric :label ""
             :value audio-volume
             :onchange "")
-    time))
+    time
+    (box :class "powermenu-box {powermenu-visible}"
+        (button :class "powermenu-toggle hover-effect {powermenu-visible}"  :onclick "~/.config/eww/powermenu/toggle_powermenu" "⏻")
+
+    )
+    ))
 
 (defwidget workspaces []
   (box :class "workspaces"
