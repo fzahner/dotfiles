@@ -12,7 +12,7 @@ $primary-accent: #A7C080;
   font-family: 'JetBrainsMono Nerd Font';
   color: $primary;
   padding: 8px 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 
@@ -44,10 +44,15 @@ $primary-accent: #A7C080;
   background-color: #aabb00;
 }
 
-$tag-border-radius: 8px;
+// Tag selector
+$tag-border-radius: 16px;
+
+.workspaces {
+  margin: 4px 0px;
+}
 
 .workspaces button {
-  padding: 1px 6px;
+  padding: 3px 8px;
 }
 
 .tag-active {
@@ -88,7 +93,7 @@ $tag-border-radius: 8px;
 
   .powermenu-toggle {
     margin: 0 16px;
-    padding: 8px 16px 8px 12px;
+    padding: 6px 16px 6px 12px;
     font-size: 18px;
     border-radius: 12px;
   }

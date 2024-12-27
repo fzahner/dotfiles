@@ -94,5 +94,5 @@
                       :width "100%"
                       :height "10px"
                       :anchor "top center")
-  :reserve (struts :side "top" :distance "2.5%")
+  :reserve (struts :side "top" :distance "3.5%")
   (bar))
