@@ -21,7 +21,7 @@ hc set frame_bg_transparent on
 hc set frame_transparent_width 0
 hc set frame_gap 10
 hc set frame_bg_normal_color '#425047'
-hc set frame_bg_active_color '#A7CO80'
+hc set frame_bg_active_color '#A7C080'
 
 hc attr theme.title_height 0
 hc attr theme.padding_top 0
