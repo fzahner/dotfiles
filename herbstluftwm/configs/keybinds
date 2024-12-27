@@ -103,6 +103,8 @@ hc keybind $Mod-i jumpto urgent
 hc keybind XF86AudioRaiseVolume spawn amixer -M set Master 5%+
 hc keybind XF86AudioLowerVolume spawn amixer -M set Master 5%-
 hc keybind XF86AudioMute spawn amixer -q sset Master toggle
+hc keybind XF86MonBrightnessDown spawn brightnessctl -d "intel_backlight" set 10%-
+hc keybind XF86MonBrightnessUp spawn brightnessctl -d "intel_backlight" set +10%
 
 # TODO:
 # hc keybind XF86MyComputer
@@ -113,8 +115,6 @@ hc keybind XF86AudioMute spawn amixer -q sset Master toggle
 # hc keybind XF86AudioNext
 # hc keybind XF86AudioPlay
 # hc keybind XF86AudioStop
-# hc keybind XF86MonBrightnessDown
-# hc keybind XF86MonBrightnessUp
 
 # ---------- Tags ---------------
 tag_names=( {1..9} )
