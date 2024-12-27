@@ -1,0 +1,33 @@
+
+(defwidget logout []
+	(box :class "power-button" :vexpand "false" :hexpand "false"
+		(button :class "btn_logout" :onclick "openbox --exit" "")))
+(defwidget sleep []
+	(box :class "power-button" :vexpand "false" :hexpand "false"
+		(button :class "btn_sleep" :onclick "systemctl suspend" "󰤄")))
+(defwidget reboot []
+	(box :class "power-button" :vexpand "false" :hexpand "false"
+		(button :class "btn_reboot" :onclick "systemctl reboot" "")))
+(defwidget poweroff []
+	(box :class "power-button" :vexpand "false" :hexpand "false"
+		(button :class "btn_poweroff" :onclick "systemctl poweroff" "")))
+
+
+(defwidget power-buttons []
+  (box :class "power-buttons-container" :orientation "horizontal" :spacing 10
+    (logout)
+    (sleep)
+    (reboot)
+    (poweroff)
+  ))
+
+
+(defwindow power-buttons
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "-20px"
+                      :y "70px"
+                      :width "400px"
+                      :height "70px"
+                      :anchor "top right")
+  (power-buttons))

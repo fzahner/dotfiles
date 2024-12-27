@@ -1,0 +1,28 @@
+
+$background-color: #3a3a3a;
+$primary: #e3e3e3;
+$primary-accent: #A7C080;
+
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+// Global Styles
+.power-buttons {
+  background-color: $background-color;
+  font-family: 'JetBrainsMono Nerd Font';
+  color: $primary;
+  padding: 8px 10px;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.power-button {
+  border: solid 1px $primary;
+  border-radius: 8px;
+}
+
+.power-button button:hover {
+  background-color: $primary-accent;
+  color: $background-color;
+}
