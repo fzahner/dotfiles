@@ -20,6 +20,13 @@ $primary-accent: #A7C080;
   font-size: 16px;
 }
 
+.hover-effect {
+    &:hover {
+      background-color: $primary-accent;
+      color: $background-color;
+    }
+}
+
 // Metrics
 .metric scale highlight {
   all: unset;
@@ -90,19 +97,10 @@ $tag-border-radius: 16px;
 // Powermenu button styling
 
 .powermenu-box {
-
   .powermenu-toggle {
-    margin: 0 16px;
+    margin: 0 4px 0 8px;
     padding: 6px 16px 6px 12px;
     font-size: 18px;
     border-radius: 12px;
   }
-
-}
-
-.hover-effect {
-    &:hover {
-      background-color: $primary-accent;
-      color: $background-color;
-    }
 }
