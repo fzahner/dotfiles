@@ -7,7 +7,6 @@ eww open bar
 sleep 1
 
 # open scripts
-~/.config/eww/powermenu/launch_powermenu
+~/.config/eww/powermenu/launch_powermenu &
 ~/.config/eww/scripts/active_tag.sh &
-
 

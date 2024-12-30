@@ -7,7 +7,7 @@ EWW=`which eww`
 ## Run eww daemon if not running already
 if [[ ! `pidof eww` ]]; then
 	${EWW} daemon
-	sleep 1
+	sleep 0.3
 fi
 
 ## Open widgets
