@@ -34,3 +34,6 @@ end
 export PATH="$HOME/.eww:$PATH"
 
 set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
+
+# add starship support
+# starship init fish | source
