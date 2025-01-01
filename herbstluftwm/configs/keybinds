@@ -23,6 +23,7 @@ hc keybind $Mod-e spawn xdg-open .
 hc keybind $Mod-r spawn ~/.config/rofi/launchers/type-1/launcher.sh
 # hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh,drun" -modes combi
 hc keybind $Mod-s spawn rofi -show ssh
+hc keybind $Mod-Shift-s spawn gnome-screenshot -i
 
 # Lockscreen
 hc keybind $Mod-b spawn betterlockscreen --lock blur
