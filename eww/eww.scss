@@ -35,6 +35,10 @@ $primary-accent: #A7C080;
   border-radius: 10px;
 }
 
+.metric-label {
+  color: $primary;
+  padding: 0 8px;
+}
 .metric scale trough {
   all: unset;
   background-color: #4e4e4e;
