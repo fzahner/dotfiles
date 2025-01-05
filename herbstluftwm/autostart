@@ -4,4 +4,6 @@
 ~/.config/herbstluftwm/configs/keybinds
 ~/.config/herbstluftwm/configs/theme
 
-~/.config/eww/launch.sh
+
+~/.config/herbstluftwm/scripts/battery/battery_health_launcher.sh &
+~/.config/eww/launch.sh &
