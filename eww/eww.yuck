@@ -20,25 +20,28 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    ; Metric slider
+    ; Label metrics
+    (label :class "metric-label" :text "  ${round(EWW_RAM.used_mem / 1000000000, 1)}G")
+;    (label :class "metric-label" :text " ${round(EWW_DISK["/"].used_perc,1)}%")
+    (label :class "metric-label" :text "󰂀 ${battery-percentage}%")
+;    (label :class "metric-label" :text " ${audio-volume}%")
+    (label :class "metric-label" :text " ${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}C")
+
+    (label :class "spacer" :text " | ")
+; Metric slider
 ;    (metric :label " "
 ;            :value {EWW_RAM.used_mem_perc}
 ;            :onchange "")
-;    (metric :label ""
-;            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-;            :onchange "")
+    (metric :label ""
+            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+            :onchange "")
 ;    (metric :label "󰂀"
 ;            :value battery-percentage
 ;            :onchange "")
-;    (metric :label ""
-;            :value audio-volume
-;            :onchange "")
-    (label :class "metric-label" :text "  ${round(EWW_RAM.used_mem / 1000000000, 1)} GB")
-    (label :class "metric-label" :text " ${round(EWW_DISK["/"].used_perc,1)}%")
-    (label :class "metric-label" :text "󰂀 ${battery-percentage}%")
-    (label :class "metric-label" :text " ${audio-volume}%")
+    (metric :label ""
+            :value audio-volume
+            :onchange "")
 
-    ; Label metrics
     time
     (box :class "powermenu-box {powermenu-visible}"
         (button :class "powermenu-toggle hover-effect {powermenu-visible}"  :onclick "~/.config/eww/powermenu/toggle_powermenu" "⏻")
