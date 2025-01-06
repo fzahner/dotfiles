@@ -7,10 +7,6 @@ hc() {
 # Wallpaper
 feh --bg-fill ~/.config/herbstluftwm/wallpaper/trees.jpg
 
-# Only on first run
-# betterlockscreen -u ~/.config/herbstluftwm/wallpaper/mountain.jpg
-
-
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#052CA3'
