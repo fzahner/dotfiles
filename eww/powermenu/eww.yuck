@@ -1,16 +1,16 @@
 
 (defwidget logout []
 	(box :class "power-button" :vexpand "false" :hexpand "false"
-		(button :class "btn_logout" :onclick "openbox --exit" "")))
+		(button :class "btn_logout" :onclick "~/.config/eww/powermenu/toggle_powermenu && betterlockscreen --lock blur" "")))
 (defwidget sleep []
 	(box :class "power-button" :vexpand "false" :hexpand "false"
-		(button :class "btn_sleep" :onclick "systemctl suspend" "󰤄")))
+		(button :class "btn_sleep" :onclick "~/.config/eww/powermenu/toggle_powermenu && systemctl suspend" "󰤄")))
 (defwidget reboot []
 	(box :class "power-button" :vexpand "false" :hexpand "false"
-		(button :class "btn_reboot" :onclick "systemctl reboot" "")))
+		(button :class "btn_reboot" :onclick "~/.config/eww/powermenu/toggle_powermenu && systemctl reboot" "")))
 (defwidget poweroff []
 	(box :class "power-button" :vexpand "false" :hexpand "false"
-		(button :class "btn_poweroff" :onclick "systemctl poweroff" "")))
+		(button :class "btn_poweroff" :onclick "~/.config/eww/powermenu/toggle_powermenu && systemctl poweroff" "")))
 
 
 (defwidget power-buttons []
