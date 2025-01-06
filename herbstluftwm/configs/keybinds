@@ -107,15 +107,15 @@ hc keybind XF86AudioLowerVolume spawn amixer -M set Master 5%-
 hc keybind XF86AudioMute spawn amixer -q sset Master toggle
 hc keybind XF86MonBrightnessDown spawn brightnessctl -d "intel_backlight" set 10%-
 hc keybind XF86MonBrightnessUp spawn brightnessctl -d "intel_backlight" set +10%
+hc keybind XF86AudioPrev spawn playerctl previous
+hc keybind XF86AudioNext spawn playerctl next
+hc keybind XF86AudioPlay spawn playerctl play-pause
 
 # TODO:
 # hc keybind XF86MyComputer
 # hc keybind XF86HomePage
 # hc keybind XF86Calculator
 # hc keybind XF86AudioMedia
-# hc keybind XF86AudioPrev
-# hc keybind XF86AudioNext
-# hc keybind XF86AudioPlay
 # hc keybind XF86AudioStop
 
 # ---------- Tags ---------------
