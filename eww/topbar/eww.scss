@@ -1,0 +1,110 @@
+$background-color: #3a3a3a;
+$primary: #e3e3e3;
+$primary-accent: #A7C080;
+
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+// Global Styles
+.bar {
+  background-color: $background-color;
+  font-family: 'JetBrainsMono Nerd Font';
+  color: $primary;
+  padding: 8px 10px;
+  font-size: 16px;
+}
+
+
+.sidestuff {
+  font-size: 16px;
+}
+
+.hover-effect {
+    &:hover {
+      background-color: $primary-accent;
+      color: $background-color;
+    }
+}
+
+// Metrics
+.metric scale highlight {
+  all: unset;
+  background-color: $primary-accent;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.metric-label {
+  color: $primary;
+  padding: 0 8px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+// Time and Date
+.dateTime {
+  color: #aa00ff;
+  background-color: #aabb00;
+}
+
+// Tag selector
+$tag-border-radius: 16px;
+
+.workspaces {
+  margin: 4px 0px;
+}
+
+.workspaces button {
+  padding: 3px 8px;
+}
+
+.tag-active {
+  background-color: $primary-accent;
+  border-radius: $tag-border-radius;
+  color: $background-color;
+}
+
+
+.tag-used {
+  border: solid $primary 1px;
+  border-radius: $tag-border-radius;
+}
+
+.tag-urgent {
+  border: solid #fa0000;
+  border-radius: $tag-border-radius;
+}
+
+.tag-passive {
+  // background-color: #666666;
+  border-radius: $tag-border-radius;
+}
+
+.tag-monitor {
+  background-color: #6a6a6a;
+  border-radius: $tag-border-radius;
+}
+
+.tag-unknown {
+  background-color: #00ff00;
+  border-radius: $tag-border-radius;
+}
+
+// Powermenu button styling
+
+.powermenu-box {
+  .powermenu-toggle {
+    margin: 0 4px 0 8px;
+    padding: 6px 16px 6px 12px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+}

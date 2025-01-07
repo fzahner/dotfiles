@@ -14,9 +14,6 @@ hc() {
 xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
 xrandr --output DP-2 --mode 1920x1080 --pos 0x0
 
-
-hc detect_monitors
-
 # --------- Panel Settings ---------
 # panel=~/.config/herbstluftwm/panel.sh
 # [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh

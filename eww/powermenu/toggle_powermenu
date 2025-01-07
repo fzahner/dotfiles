@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ## Files and cmd
-CFG="$HOME/.config/eww/powermenu"
 EWW=`which eww`
 
 ## Run eww daemon if not running already
@@ -12,11 +11,11 @@ fi
 
 ## Open widgets
 toggle_menu() {
-    if ${EWW} --config "$CFG" active-windows | grep -q "power-buttons"; then
-        ${EWW} --config "$CFG" close-all
+    if ${EWW} active-windows | grep -q "power-buttons"; then
+        ${EWW} close power-buttons
         ${EWW} update powermenu-visible=visible-powermenu
     else
-        ${EWW} --config "$CFG" open power-buttons
+        ${EWW} open power-buttons
         ${EWW} update powermenu-visible=invisible-powermenu
     fi
 }
