@@ -48,6 +48,11 @@ hc keybind $Mod-Shift-j     shift down
 hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
 
+# Move the focused window to a tag
+for i in $(seq 1 9); do
+    hc keybind $Mod-Shift-$i move $i
+done
+
 # splitting frames
 # create an empty frame at the specified direction
 hc keybind $Mod-u       chain , split bottom 0.5 , focus down

@@ -27,11 +27,6 @@ hc detect_monitors
 
 hc emit_hook reload
 
-# EWW
-# eww daemon
-# eww reload
-# eww open bar
-
 # --------- rules ---------
 hc unrule -F
 hc rule focus=on # normally focus new clients
