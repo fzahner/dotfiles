@@ -15,9 +15,9 @@
 (defvar tag-9 "tag-passive")
 (defvar powermenu-visible "invisible-powermenu")
 
-(defpoll battery-percentage :interval "30s" "cat /sys/class/power_supply/BAT0/capacity")
+
 (defpoll audio-volume :interval "2s" "amixer sget 'Master' | awk -F'[\\[\\]]' '/%/ { gsub(\"%\", \"\", $2); print $2; exit }'")
-(defpoll volume :interval "5s" "scripts/getvol")
+(defpoll volume :interval "5s" "scripts/getvol") ; TODO: remove
 (defpoll time :interval "10s" :class "dateTime" "date '+%H:%M %b %d, %Y'")
 
 (deflisten music :initial ""
@@ -26,24 +26,21 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    ; Label metrics
+
     (label :class "metric-label" :text "  ${round(EWW_RAM.used_mem / 1000000000, 1)}G")
-;    (label :class "metric-label" :text " ${round(EWW_DISK["/"].used_perc,1)}%")
-    (label :class "metric-label" :text "󰂀 ${battery-percentage}%")
-;    (label :class "metric-label" :text " ${audio-volume}%")
+    (label :class "metric-label" :text "${
+        (
+            EWW_BATTERY.BAT0.status == "Charging" ? "󰂄" :
+            ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][round(EWW_BATTERY.total_avg/10,0)]
+        )
+        + " " + round(EWW_BATTERY.total_avg, 0) + "%"
+    }")
     (label :class "metric-label" :text " ${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}C")
 
     (label :class "spacer" :text " | ")
-; Metric slider
-;    (metric :label " "
-;            :value {EWW_RAM.used_mem_perc}
-;            :onchange "")
     (metric :label ""
             :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
             :onchange "")
-;    (metric :label "󰂀"
-;            :value battery-percentage
-;            :onchange "")
     (metric :label ""
             :value audio-volume
             :onchange "")
