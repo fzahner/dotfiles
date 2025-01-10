@@ -24,10 +24,10 @@ if [[ $CABLE_PLUGGED == 'yes' ]]; then
 else
     echo "cable is not plugged"
     if [[ $BATTERY_PERCENTAGE -lt 10 ]]; then
-        notify-send --urgency=critical "Battery low" "Battery is below 10%. Plug in the power cable."
+        notify-send --urgency=critical -i emblem-important "Battery low" "Battery is below 10%. Plug in the power cable."
     fi
     if [[ $BATTERY_PERCENTAGE -lt 20 ]]; then
-        notify-send --urgency=normal -t 30000 "Battery optimization" "Battery is below 20%. Plug in the power cable to optimize battery life."
+        notify-send --urgency=normal -i battery -t 30000 "Battery optimization" "Battery is below 20%. Plug in the power cable to optimize battery life."
     fi
 
 fi
