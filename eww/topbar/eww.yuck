@@ -17,7 +17,6 @@
 
 
 (defpoll audio-volume :interval "2s" "amixer sget 'Master' | awk -F'[\\[\\]]' '/%/ { gsub(\"%\", \"\", $2); print $2; exit }'")
-(defpoll volume :interval "5s" "scripts/getvol") ; TODO: remove
 (defpoll time :interval "10s" :class "dateTime" "date '+%H:%M %b %d, %Y'")
 
 (deflisten music :initial ""
