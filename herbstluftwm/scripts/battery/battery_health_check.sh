@@ -2,11 +2,6 @@
 
 # from https://gitlab.com/gitaarik/battery-health-notifications
 
-# Run this script as a cronjob every 5 minutes or so, to get notifications when
-# battery percentage goes below 30% or above 80%.
-# Cronjob line example:
-# */5 * * * * /bin/bash /path/to/battery_health_notifications.sh
-
 # This line is to make notify-send always work, also when run in a crontab.
 # https://askubuntu.com/questions/298608/notify-send-doesnt-work-from-crontab/346580#346580
 
@@ -18,7 +13,7 @@ CABLE_PLUGGED=$(upower -i $LINE_POWER_PATH | grep -A2 'line-power' | grep online
 if [[ $CABLE_PLUGGED == 'yes' ]]; then
     echo "cable is plugged"
     if [[ $BATTERY_PERCENTAGE -gt 80 ]]; then
-        notify-send --urgency=normal -t 30000 "Battery optimization" "Battery reached 80%, unplug the power cable to optimize battery life."
+        notify-send --urgency=normal -i battery -t 30000 "Battery optimization" "Battery reached 80%, unplug the power cable to optimize battery life."
     fi
 
 else
