@@ -7,7 +7,7 @@
 APT Packages:
 
 ```
-sudo apt-get install -y playerctl rofi
+sudo apt-get install -y playerctl rofi onboard
 ```
 
 - Start playerctl daemon using ´playerctld daemon´
