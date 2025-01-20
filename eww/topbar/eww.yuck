@@ -65,7 +65,12 @@
     (button :class tag-6 :onclick "wmctrl -s 5" 6)
     (button :class tag-7 :onclick "wmctrl -s 6" 7)
     (button :class tag-8 :onclick "wmctrl -s 7" 8)
-    (button :class tag-9 :onclick "wmctrl -s 8" 9)))
+    (button :class tag-9 :onclick "wmctrl -s 8" 9)
+    (label :class "spacer" :text " |")
+    (button :class "virtual-keyboard"
+        :onclick "~/.config/eww/topbar/scripts/toggle-keyboard.sh"
+        "󰌌")
+    ))
 
 (defwidget music []
   (box :class "music"
