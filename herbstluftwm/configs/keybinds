@@ -106,10 +106,10 @@ hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-i jumpto urgent
 
 # Fn Keys and other buttons
-# hc keybind XF86AudioRaiseVolume spawn amixer -M set Master 5%+
-# hc keybind XF86AudioLowerVolume spawn amixer -M set Master 5%-
-hc keybind XF86AudioRaiseVolume spawn onboard -s 1500x500 -y 920 -x 550
-hc keybind XF86AudioLowerVolume spawn pkill onboard
+hc keybind XF86AudioRaiseVolume spawn amixer -M set Master 5%+
+hc keybind XF86AudioLowerVolume spawn amixer -M set Master 5%-
+# hc keybind XF86AudioRaiseVolume spawn onboard -s 1500x500 -y 920 -x 550
+# hc keybind XF86AudioLowerVolume spawn pkill onboard
 hc keybind XF86AudioMute spawn amixer -q sset Master toggle
 hc keybind XF86MonBrightnessDown spawn brightnessctl -d "intel_backlight" set 10%-
 hc keybind XF86MonBrightnessUp spawn brightnessctl -d "intel_backlight" set +10%
