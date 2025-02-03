@@ -5,14 +5,20 @@ hc() {
 }
 
 # ------- Montior setup ----------
+# Configured with the help of https://blog.summercat.com/configuring-mixed-dpi-monitors-with-xrandr.html
 
 # OST Widescreen setup
 # xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
 # xrandr --output DP-1 --mode 3440x1440 --pos 0x0
 
 # Home Setup
+xrandr --dpi 221
 xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
-xrandr --output DP-2 --mode 1920x1080 --pos 0x0
+xrandr --output DP-2 --scale 1.25x1.25 --mode 1920x1080 --pos 0x0
+
+# xrandr --dpi 221 --fb 4960x2790 \
+#     --output eDP-1 --primary --mode 2560x1440 \
+#     --output DP-1 --scale 1.25x1.25 --pos 0x0 --panning 2400x1350+0+0
 
 # --------- Panel Settings ---------
 # panel=~/.config/herbstluftwm/panel.sh
