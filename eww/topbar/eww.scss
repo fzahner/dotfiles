@@ -1,11 +1,7 @@
-$background-color: #3a3a3a;
-$primary: #e3e3e3;
-$primary-accent: #A7C080;
-
+@import "../_variables.scss";
 * {
   all: unset; // Unsets everything so you can style everything from scratch
 }
-
 // Global Styles
 .bar {
   background-color: $background-color;

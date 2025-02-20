@@ -42,6 +42,8 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule class="Gnome-screenshot" floating=on # float screenshot app
 hc rule class="Onboard" floating=on # float virtual keyboard app
 hc rule title="Qalculate!" floating=on # float calculator app
+hc rule title="Picture-in-Picture" sticky=on # float calculator app
+
 
 # hc rule fixedsize floating=on
 
