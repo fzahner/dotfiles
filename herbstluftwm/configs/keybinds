@@ -77,9 +77,9 @@ hc keybind $Mod-period  use_index +1 --skip-visible
 
 # layouting
 hc keybind $Mod-q remove
-hc keybind $Mod-f floating toggle
+hc keybind $Mod-Shift-f floating toggle
 hc keybind $Mod-m fullscreen toggle
-hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
+hc keybind $Mod-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-d set_attr clients.focus.decorated toggle
 hc keybind $Mod-c set_attr clients.focus.minimized true
 hc keybind $Mod-Shift-c jumpto last-minimized
