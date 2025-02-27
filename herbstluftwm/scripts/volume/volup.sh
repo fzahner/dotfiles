@@ -1,5 +1,5 @@
 #!/bin/sh
 
-amixer -M set Master 5%+
+amixer -M set Master 10%+
 
-./polling.sh # Update volume eww variable
+~/.config/herbstluftwm/scripts/volume/polling.sh # Update volume eww variable

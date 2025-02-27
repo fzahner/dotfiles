@@ -14,9 +14,8 @@
 (defvar tag-8 "tag-passive")
 (defvar tag-9 "tag-passive")
 (defvar powermenu-visible "invisible-powermenu")
+(defvar audio-volume "0")
 
-
-(defpoll audio-volume :interval "2s" "amixer sget 'Master' | awk -F'[\\[\\]]' '/%/ { gsub(\"%\", \"\", $2); print $2; exit }'")
 (defpoll time :interval "10s" :class "dateTime" "date '+%H:%M %b %d, %Y'")
 
 (deflisten music :initial ""

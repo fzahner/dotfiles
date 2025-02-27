@@ -8,4 +8,3 @@
 # ~/.config/herbstluftwm/scripts/spotify/playerctl_launcher.sh
 ~/.config/herbstluftwm/scripts/late_monitor_detect.sh &
 ~/.config/herbstluftwm/services/start_services.sh
-
