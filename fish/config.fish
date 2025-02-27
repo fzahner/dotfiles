@@ -8,6 +8,11 @@ if status is-interactive
 
     # define pls to rerun previous command with sudo
     alias pls="sudo !!"
+
+    # CldOps Kubernetes shit
+    kubectl completion fish | source
+    alias k=kubectl
+    export KUBECONFIG=$HOME/.kube/cldop-stud-25.config
 end
 
 # pls define
