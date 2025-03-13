@@ -51,6 +51,8 @@ hc keybind $Mod-Shift-l     shift right
 for i in $(seq 1 9); do
     hc keybind $Mod-Shift-$i move $i
 done
+hc keybind $Mod-Shift-period chain , move_index +1 , use_index +1
+hc keybind $Mod-Shift-comma chain , move_index -1 , use_index -1
 
 # splitting frames
 # create an empty frame at the specified direction
