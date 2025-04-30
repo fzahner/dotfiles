@@ -5,6 +5,8 @@ if status is-interactive
     abbr --add ost "cd ~/OneDrive/OST/"
     abbr --add pdf --set-cursor "zathura % & "
     abbr --add pdfe --set-cursor "xournalpp % & "
+    abbr --add rm "trash"
+    abbr --add dsa "docker stop $(docker ps -a -q | tr '\n' ' ') "
 
     # define pls to rerun previous command with sudo
     alias pls="sudo !!"
