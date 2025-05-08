@@ -34,7 +34,13 @@ hc emit_hook reload
 hc unrule -F
 hc rule focus=on # normally focus new clients
 hc rule floatplacement=smart
-# give focus to most common terminals
+
+# auto-assign certain applications to tags
+hc rule class='thunderbird-esr' tag=8 focus=off
+hc rule class='teams-for-linux' tag=8 focus=off
+
+
+# float and give focus to important windows
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
