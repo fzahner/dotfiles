@@ -12,8 +12,6 @@
 " you will need to change this setting.
 
 set vicmd=vim
-" set vicmd=elvis\ -G\ termcap
-" set vicmd=vile
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -197,28 +195,20 @@ command! reload :write | restart full
 "           \<video/*>
 "          \ ffprobe -pretty %c 2>&1
 "
-" " Web
-" filextype {*.html,*.htm},<text/html>
-"         \ {Open with dwb}
-"         \ dwb %f %i &,
-"         \ {Open with firefox}
-"         \ firefox %f &,
-"         \ {Open with uzbl}
-"         \ uzbl-browser %f %i &,
-" filetype {*.html,*.htm},<text/html> links, lynx
-"
-" " Images
-" filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-"         \ {View in sxiv}
-"         \ sxiv %f,
-"         \ {View in gpicview}
-"         \ gpicview %c,
-"         \ {View in shotwell}
-"         \ shotwell,
-" fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-"          \ identify %f
-"
-"
+" Web
+filextype {*.html,*.htm},<text/html>
+        \ {Open with firefox}
+        \ firefox %f &,
+filetype {*.html,*.htm},<text/html> links, lynx
+
+" Images
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+        \ {View in sxiv}
+        \ feh %f,
+fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+         \ identify %f
+
+
 " " Office files
 " filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
 "          \<application/vnd.openxmlformats-officedocument.*,
@@ -256,14 +246,14 @@ fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 " settings).  By default all unknown files are opened with 'vi[x]cmd'
 " uncommenting one of lines below will result in ignoring 'vi[x]cmd' option
 " for unknown file types.
-" For *nix:
-filetype * xdg-open
+
+filetype * nvim
 
 " ------------------------------------------------------------------------------
 
 " What should be saved automatically between vifm sessions.  Drop "savedirs"
 " value if you don't want vifm to remember last visited directories for you.
-set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
+set vifminfo=dhistory,chistory,state,tui,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " ------------------------------------------------------------------------------
