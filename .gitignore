@@ -11,6 +11,7 @@
 !herbstluftwm/**
 !eww/**
 !fish/config.fish
+!vifm/**
 
 # ignore the otherconfigs folder
 eww/otherConfigs/
