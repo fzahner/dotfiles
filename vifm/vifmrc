@@ -282,14 +282,6 @@ nnoremap S :sort<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
-" Open file in existing instance of gvim
-nnoremap o :!gvim --remote-tab-silent %f<cr>
-" Open file in new instance of gvim
-nnoremap O :!gvim %f<cr>
-
-" Open file in the background using its default program
-nnoremap gb :file &<cr>l
-
 " Interaction with system clipboard
 if has('win')
     " Yank current directory path to Windows clipboard with forward slashes
@@ -310,6 +302,9 @@ elseif executable('xsel')
                 \ echo -n %c:p | xsel --clipboard --input %i<cr>
 endif
 
+" Move file to other pane (with delete ask)
+nnoremap <Space> yy<Tab>p<Tab>dd
+
 " Mappings for faster renaming
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
@@ -317,11 +312,6 @@ nnoremap A cw
 
 " Open console in current directory
 nnoremap ,t :!xterm &<cr>
-
-" Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap ,c :write | edit $MYVIFMRC | restart full<cr>
-" Open gvim to edit vifmrc
-nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
 
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
@@ -341,28 +331,3 @@ nnoremap <a-i> :sync<cr>
 nnoremap <a-o> :sync %c<cr>
 " Swap panes
 nnoremap <c-u> <c-w>x
-
-" ------------------------------------------------------------------------------
-
-" Various customization examples
-
-" Use ag (the silver searcher) instead of grep
-"
-" set grepprg='ag --line-numbers %i %a %s'
-
-" Add additional place to look for executables
-"
-" let $PATH = $HOME.'/bin/fuse:'.$PATH
-
-" Block particular shortcut
-"
-" nnoremap <left> <nop>
-
-" Export IPC name of current instance as environment variable and use it to
-" communicate with the instance later.
-"
-" It can be used in some shell script that gets run from inside vifm, for
-" example, like this:
-"     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
-"
-" let $VIFM_SERVER_NAME = v:servername
