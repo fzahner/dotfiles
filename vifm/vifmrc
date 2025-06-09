@@ -1,23 +1,5 @@
 " vim: filetype=vifm :
-" Sample configuration file for vifm (last updated: 31 August, 2021)
-" You can edit this file by hand.
-" The " character at the beginning of a line comments out the line.
-" Blank lines are ignored.
-" The basic format for each item is shown with an example.
-
-" ------------------------------------------------------------------------------
-
-" Command used to edit files in various contexts.  The default is vim.
-" If you would like to use another vi clone such as Elvis or Vile
-" you will need to change this setting.
-
 set vicmd=vim
-
-" This makes vifm perform file operations on its own instead of relying on
-" standard utilities like `cp`.  While using `cp` and alike is a more universal
-" solution, it's also much slower when processing large amounts of files and
-" doesn't support progress measuring.
-
 set syscalls
 
 " Trash Directory
@@ -28,82 +10,28 @@ set syscalls
 " This probably shouldn't be an option.
 
 set trash
-
-" This is how many directories to store in the directory history.
-
 set history=100
-
-" Automatically resolve symbolic links on l or Enter.
-
 set nofollowlinks
-
-" Natural sort of (version) numbers within text.
-
 set sortnumbers
-
-" Maximum number of changes that can be undone.
-
 set undolevels=100
-
-" Use Vim's format of help file (has highlighting and "hyperlinks").
-" If you would rather use a plain text help file set novimhelp.
-
 set vimhelp
-
-" If you would like to run an executable file when you
-" press Enter, l or Right Arrow, set this.
-
 set norunexec
-
-" List of color schemes to try (picks the first one supported by the terminal)
-
 colorscheme Afterglow Default-256 Default
-
-" Format for displaying time in file list. For example:
-" TIME_STAMP_FORMAT=%m/%d-%H:%M
-" See man date or man strftime for details.
-
 set timefmt=%m/%d\ %H:%M
-
-" Show list of matches on tab completion in command-line mode
-
 set wildmenu
-
-" Display completions in a form of popup with descriptions of the matches
-
 set wildstyle=popup
-
-" Display suggestions in normal, visual and view modes for keys, marks and
-" registers (at most 5 files).  In other view, when available.
-
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
-
-" Ignore case in search patterns unless it contains at least one uppercase
-" letter
-
 set ignorecase
 set smartcase
-
-" Don't highlight search results automatically
-
 set nohlsearch
-
-" Use increment searching (search while typing)
 set incsearch
-
-" Try to leave some space from cursor to upper/lower border in lists
-
 set scrolloff=4
-
-" Don't do too many requests to slow file systems
-
 if !has('win')
     set slowfs=curlftpfs
 endif
-
-" Set custom status line look
-
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set vifminfo=dhistory,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " ------------------------------------------------------------------------------
 
@@ -112,7 +40,7 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 mark b ~/bin/
 mark h ~/
 
-" ------------------------------------------------------------------------------
+" -- Custom Commands -----------------------------------------------------------------------
 
 " :com[mand][!] command_name action
 " The following macros can be used in a command
@@ -134,8 +62,10 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
+command! extract extract %a %f %n
+command! extract! extract -f %a %f %n
 
-" ------------------------------------------------------------------------------
+" -- Default Applications -----------------------------------------------------------------------
 
 " The file type is for the default programs to be used with
 " a file extension.
@@ -249,28 +179,7 @@ fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
 filetype * nvim
 
-" ------------------------------------------------------------------------------
-
-" What should be saved automatically between vifm sessions.  Drop "savedirs"
-" value if you don't want vifm to remember last visited directories for you.
-set vifminfo=dhistory,chistory,state,tui,shistory,
-    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
-
-" ------------------------------------------------------------------------------
-
-" Examples of configuring both panels
-
-" Customize view columns a bit (enable ellipsis for truncated file names)
-"
-" set viewcolumns=-{name}..,6{}.
-
-" Filter-out build and temporary files
-"
-" filter! {*.lo,*.o,*.d,*.class,*.pyc,*.pyo,.*~}
-
-" ------------------------------------------------------------------------------
-
-" Sample mappings
+" -- Keybinds ---------------------------------------------------------------------
 
 " Start shell in current directory
 nnoremap s :shell<cr>
