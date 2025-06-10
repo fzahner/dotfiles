@@ -18,7 +18,8 @@ hc keybind $Mod-x close
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-t spawn alacritty
 hc keybind $Mod-w spawn firefox
-hc keybind $Mod-e spawn xdg-open .
+hc keybind $Mod-Shift-e spawn xdg-open .
+hc keybind $Mod-e spawn alacritty -e vifm
 hc keybind $Mod-r spawn ~/.config/rofi/launchers/type-1/launcher.sh
 # hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh,drun" -modes combi
 hc keybind $Mod-s spawn rofi -show ssh
