@@ -8,6 +8,7 @@ if status is-interactive
     abbr --add rm "trash"
     abbr --add dsa "docker stop $(docker ps -a -q | tr '\n' ' ') "
     abbr --add k "kubectl"
+    abbr --add vifm "vifm . ~"
 
     # define pls to rerun previous command with sudo
     alias pls="sudo !!"
