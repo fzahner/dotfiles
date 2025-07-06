@@ -11,13 +11,11 @@ BATTERY_PERCENTAGE=$(upower -i $BATTERY_PATH | grep 'percentage:' | awk '{ print
 CABLE_PLUGGED=$(upower -i $LINE_POWER_PATH | grep -A2 'line-power' | grep online | awk '{ print $2 }')
 
 if [[ $CABLE_PLUGGED == 'yes' ]]; then
-    echo "cable is plugged"
     if [[ $BATTERY_PERCENTAGE -gt 80 ]]; then
         notify-send --urgency=normal -i battery -t 30000 "Battery optimization" "Battery reached 80%, unplug the power cable to optimize battery life."
     fi
 
 else
-    echo "cable is not plugged"
     if [[ $BATTERY_PERCENTAGE -lt 10 ]]; then
         notify-send --urgency=critical -i emblem-important "Battery low" "Battery is below 10%. Plug in the power cable."
     fi
