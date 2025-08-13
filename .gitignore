@@ -12,6 +12,8 @@
 !eww/**
 !fish/config.fish
 !vifm/**
+!alacritty/**
 
-# ignore the otherconfigs folder
+# ignore unneeded folders/files
 eww/otherConfigs/
+vifm/vifminfo*
