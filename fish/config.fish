@@ -46,6 +46,7 @@ function cd --argument dir
 end
 
 set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
+set fish_greeting ""
 
 # add starship support
 # starship init fish | source
