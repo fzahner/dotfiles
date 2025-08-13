@@ -13,6 +13,7 @@
 !fish/config.fish
 !vifm/**
 !alacritty/**
+!kitty/**
 
 # ignore unneeded folders/files
 eww/otherConfigs/
