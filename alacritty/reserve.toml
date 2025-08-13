@@ -1,0 +1,50 @@
+live_config_reload = true
+
+[window]
+decorations = "Full"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size =  11.5
+
+[colors]
+    
+  # Default colors
+  [colors.primary]
+  background = "#272822"
+  foreground = "#fff1f3"
+
+  # Normal colors
+  [colors.normal]
+  black   = "#2c2525"
+  red     = "#ff4e6e"
+  green   = "#9ed45d"
+  yellow  = "#f9cc6c"
+  blue    = "#f38d70"
+  magenta = "#a8a9eb"
+  cyan    = "#85dacc"
+  white   = "#fff1f3"
+
+  # Bright colors
+  [colors.bright]
+  black   = "#414141"
+  red     = "#ff8198"
+  green   = "#b6df85"
+  yellow  = "#fbdd9d"
+  blue    = "#f7b39f"
+  magenta = "#d1d2f5"
+  cyan    = "#ace6dc"
+  white   = "#ffffff"
+
+
+[colors.dim]
+black = "#000000"
+red = "#712b2b"
+green = "#9ed45d"
+yellow = "#a17e4d"
+blue = "#456877"
+magenta = "#704d68"
+cyan = "#4d7770"
+white = "#8e8e8e"
+
+
