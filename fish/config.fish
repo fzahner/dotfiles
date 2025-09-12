@@ -6,7 +6,7 @@ if status is-interactive
     abbr --add pdf --set-cursor "zathura % & "
     abbr --add pdfe --set-cursor "xournalpp % > /dev/null 2>&1 &" # since xournalapp prints to stdout, we redirect it to keep the console clean
     abbr --add rm "trash"
-    abbr --add dsa "docker stop $(docker ps -a -q | tr '\n' ' ') "
+    abbr --add dsa "docker stop \$(docker ps -a -q) "
     abbr --add k "kubectl"
     abbr --add vifm "vifm . ~"
 
