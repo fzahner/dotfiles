@@ -1,0 +1,24 @@
+# Ignore all files per default
+*
+
+# Check all subfolders for rules
+!*/
+
+# track this file
+!.gitignore
+
+# track specific folders
+!nvim/**
+!herbstluftwm/**
+!eww/**
+!fish/config.fish
+!vifm/**
+!superfile/**
+!alacritty/**
+!kitty/**
+!zathura/**
+!lazygit/**
+
+# ignore unneeded folders/files
+eww/otherConfigs/
+vifm/vifminfo*

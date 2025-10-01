@@ -8,17 +8,4 @@
 !.gitignore
 
 # track specific folders
-!nvim/**
-!herbstluftwm/**
-!eww/**
-!fish/config.fish
-!vifm/**
-!superfile/**
-!alacritty/**
-!kitty/**
-!zathura/**
-!lazygit/**
-
-# ignore unneeded folders/files
-eww/otherConfigs/
-vifm/vifminfo*
+!.config/**
