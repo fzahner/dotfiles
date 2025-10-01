@@ -1,9 +1,6 @@
 # Ignore all files per default
 *
 
-# Check all subfolders for rules
-!*/
-
 # track this file
 !.gitignore
 
