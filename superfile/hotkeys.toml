@@ -39,6 +39,7 @@ open_file_with_editor = ['e', '']
 open_current_directory_with_editor = ['E', '']
 # other
 pinned_directory = ['P', '']
+open_spf_prompt = ['>', '']
 toggle_dot_file = ['.', '']
 change_panel_mode = ['m', '']
 open_help_menu = ['?', '']
