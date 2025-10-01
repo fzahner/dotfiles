@@ -8,6 +8,7 @@
 !.gitignore
 
 # track specific folders
+!nvim/**
 !herbstluftwm/**
 !eww/**
 !fish/config.fish
