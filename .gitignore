@@ -12,9 +12,11 @@
 !eww/**
 !fish/config.fish
 !vifm/**
+!superfile/**
 !alacritty/**
 !kitty/**
 !zathura/**
+!lazygit/**
 
 # ignore unneeded folders/files
 eww/otherConfigs/
