@@ -2,8 +2,8 @@
 Description=Run battery health check every 10 minutes
 
 [Timer]
-OnBootSec=1m
-OnUnitActiveSec=10m
+OnBootSec=30m
+OnUnitActiveSec=1m
 Persistent=true
 
 [Install]

@@ -16,6 +16,12 @@ xrandr --dpi 118
 xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
 xrandr --output DP-2 --scale 1.25x1.25 --mode 1920x1080 --pos 0x0
 
+# OST SA Room
+# xrandr --dpi 118
+# xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
+# xrandr --output DP-1  --mode 1920x1080 --pos 0x0
+
+# Experimental
 # xrandr --dpi 221 --fb 4960x2790 \
 #     --output eDP-1 --primary --mode 2560x1440 \
 #     --output DP-1 --scale 1.25x1.25 --pos 0x0 --panning 2400x1350+0+0
@@ -40,7 +46,7 @@ hc rule class='thunderbird-esr' tag=8 focus=off
 hc rule class='teams-for-linux' tag=8 focus=off
 
 
-# float and give focus to important windows
+# float and give focus to important windows (use xprop)
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
@@ -50,6 +56,7 @@ hc rule class="Onboard" floating=on # float virtual keyboard app
 hc rule title="Qalculate!" floating=on # float calculator app
 hc rule title="splash" floating=on # jetbrains splash screens
 hc rule title="Picture-in-Picture" sticky=on # sticky PIP app
+hc rule title="blueman-manager" floating=on # sticky PIP app
 
 
 # hc rule fixedsize floating=on
