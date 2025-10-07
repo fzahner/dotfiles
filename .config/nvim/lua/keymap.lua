@@ -129,7 +129,7 @@ map("n", "<leader>sdz", "<cmd>NoNeckPain<CR>", { desc = "Center currently focued
 
 -- Git
 map("n", "<leader>gl", "<cmd>LazyGit<cr>", { desc = "Open lazy git" }) -- also configured with plugin
-map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle git blame" })
+map("n", "<leader>gb", "<cmd>Gitsigns blame<cr>", { desc = "Show git blame" })
 map("n", "<leader>gD", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })

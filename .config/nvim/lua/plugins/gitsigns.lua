@@ -3,7 +3,7 @@ return {
 	config = function()
 		-- Setup at https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#installation--usage
 		require("gitsigns").setup({
-			current_line_blame = true,
+			current_line_blame = false,
 		})
 	end,
 }
