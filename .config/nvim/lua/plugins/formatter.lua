@@ -90,6 +90,14 @@ return {
 							}
 						end,
 					},
+					go = {
+						function()
+							return {
+								exe = "gofumpt",
+								stdin = true,
+							}
+						end,
+					}, -- Go Formatting handeled by go plugin
 					-- Use the special "*" filetype for defining formatter configurations on any filetype
 					["*"] = {
 						require("formatter.filetypes.any").remove_trailing_whitespace,

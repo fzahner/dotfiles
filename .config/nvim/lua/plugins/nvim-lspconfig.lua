@@ -36,6 +36,7 @@ return {
 					"marksman",
 					"cssls",
 					"pylsp", -- requires flake8 linter installed
+					"gopls",
 					-- "sqls",
 
 					-- Spellchecker
