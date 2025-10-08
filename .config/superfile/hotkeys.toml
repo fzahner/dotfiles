@@ -1,36 +1,34 @@
-# This is maintained by github.com/nonepork
-# I know this is not really that "vim", but the control flow is different.
-# =================================================================================================
 # Global hotkeys (cannot conflict with other hotkeys)
-confirm = ['enter', '']
 quit = ['Q', '']
 cd_quit = ['esc', '']
 # movement
 list_up = ['k', '']
 list_down = ['j', '']
-page_up = ['pgup','']
-page_down = ['pgdown','']
+confirm = ['l', 'enter']
+parent_directory = ['h', '-']
+page_up = ['ctrl+u','']
+page_down = ['ctrl+d','']
+search_bar = ['/', '']
 # file panel control
 create_new_file_panel = ['n', '']
 close_file_panel = ['q', '']
 next_file_panel = ['tab', '']
 previous_file_panel = ['shift+tab', '']
 toggle_file_preview_panel = ['f', '']
-open_sort_options_menu = ['o', '']
+open_sort_options_menu = ['s', '']
 toggle_reverse_sort = ['R', '']
 # change focus
 focus_on_process_bar = ['ctrl+p', '']
 focus_on_sidebar = ['ctrl+s', '']
-focus_on_metadata = ['ctrl+d', '']
-# create file/directory and rename
+focus_on_metadata = ['ctrl+m', '']
+# file operations
 file_panel_item_create = ['a', '']
 file_panel_item_rename = ['r', '']
-# file operations
 copy_items = ['y', '']
 cut_items = ['x', '']
 paste_items = ['p', '']
 delete_items = ['d', '']
-permanently_delete_items = ['D', '']
+permanently_delete_items = ['', '']
 # compress and extract
 extract_file = ['ctrl+e', '']
 compress_file = ['ctrl+a', '']
@@ -41,7 +39,7 @@ open_current_directory_with_editor = ['E', '']
 pinned_directory = ['P', '']
 open_spf_prompt = ['>', '']
 toggle_dot_file = ['.', '']
-change_panel_mode = ['m', '']
+change_panel_mode = ['v', '']
 open_help_menu = ['?', '']
 open_command_line = [':', '']
 open_zoxide = ['z', '']
@@ -54,8 +52,6 @@ confirm_typing = ['enter', '']
 cancel_typing = ['esc', '']
 # =================================================================================================
 # Normal mode hotkeys (can conflict with other modes, cannot conflict with global hotkeys)
-parent_directory = ['-', '']
-search_bar = ['/', '']
 # =================================================================================================
 # Select mode hotkeys (can conflict with other modes, cannot conflict with global hotkeys)
 file_panel_select_mode_items_select_down = ['J', '']
