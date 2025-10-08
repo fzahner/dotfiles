@@ -78,3 +78,10 @@ live_config_reload = true
   #  magenta = "#704d68"
   #  cyan = "#4d7770"
   #  white = "#8e8e8e"
+
+[keyboard]
+bindings = [
+    { key="+", mods = "Control|Shift", action="IncreaseFontSize"  },
+    { key="_", mods = "Control|Shift", action="DecreaseFontSize"  },
+    { key="=", mods = "Control|Shift", action="ResetFontSize"  },
+]
