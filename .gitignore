@@ -1,9 +1,0 @@
-# Ignore all files per default
-*
-
-# track specific files
-!.gitignore
-!README.md
-
-# track specific folders
-!.config/**

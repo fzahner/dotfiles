@@ -1,0 +1,10 @@
+quitOnTopLevelReturn: true
+
+# what do do when opened when not in a repo
+notARepository: 'skip'
+
+# delta as pager
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
