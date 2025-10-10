@@ -1,5 +1,0 @@
-[Unit]
-Description=Battery health check
-
-[Service]
-ExecStart=%h/.config/herbstluftwm/scripts/battery/battery_health_check.sh

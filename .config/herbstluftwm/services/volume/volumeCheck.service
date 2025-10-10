@@ -1,5 +1,0 @@
-[Unit]
-Description=Polls the volume into the eww variable volume
-
-[Service]
-ExecStart=%h/.config/herbstluftwm/scripts/volume/polling.sh
