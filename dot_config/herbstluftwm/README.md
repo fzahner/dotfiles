@@ -9,5 +9,5 @@ APT Packages:
 sudo apt-get install -y playerctl rofi onboard unclutter
 ```
 
-- Edit `/etc/default/unclutter` to preferences
+- Edit `/etc/default/unclutter` to personal preferences
 - Start playerctl daemon using ´playerctld daemon´
