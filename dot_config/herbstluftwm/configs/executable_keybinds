@@ -94,7 +94,7 @@ hc keybind $Mod-space                                                           
             or , and . compare tags.focus.curframe_wcount = 2                   \
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
-hc keybind $Mod-v spawn ~/.config/herbstluftwm/scripts/toggle-minimal-frames.sh
+hc keybind $Mod-v spawn ~/.config/herbstluftwm/scripts/toggle_minimal_frames.sh
 
 # mouse
 hc mouseunbind --all
