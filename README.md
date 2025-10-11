@@ -5,9 +5,11 @@
 My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I am running Linux Mint as my OS, but the config should work regardless of installed Operating System.
 
 > [!IMPORTANT]
-> To use the herbstluftwm config, supporting software is needed. See `herbstluftwm/README.md` for more information.
+> To use the herbstluftwm and/or eww config, supporting software is needed. See `herbstluftwm/README.md` for more information.
 
-## Usage with Chezmoi
+## Installation
+
+### Usage with Chezmoi
 
 1. Install [chezmoi](https://www.chezmoi.io/):
 2. Apply dotfiles:
@@ -17,11 +19,25 @@ chezmoi init https://github.com/fzahner/dotfiles.git
 chezmoi apply -v
 ```
 
-3. Update changes:
+### Manual installation
 
-```bash
+1. Clone this repo
+2. Copy desired files to from `dot-config/` to `~/.config/`
+
+### Troubleshooting
+
+If any part of herbstluftwm or eww are not working correctly, double check file permissions to ensure all files which need to be executed have correct permissions. To find all files which should be marked as executable, use:
+
+```sh
 chezmoi cd
-git add . && git commit -m "update" && git push
+find . -name "*.sh"
+# Also search for files without any endings like herbstluftwm/autostart
+find .  -not -name "*.*" -type f
+
+# Check file permissions
+ls -la
+# Set file permissions
+sudo chmod +x exampleFile.sh
 ```
 
 ## Features
@@ -52,6 +68,7 @@ git add . && git commit -m "update" && git push
 - **Terminal:**
   - Alacritty & Kitty configurations
   - Fish shell configuration
+  - Custom `clone-term` command to open one or multiple terminals at the same directory location
 - **File Manager:** Superfile with custom vim-based keybinds and gruvbox colorscheme.
 
 ## More Screenshots

@@ -40,10 +40,12 @@ end
 
 ## do ls after cd
 function cd --argument dir
-     if [ "dir" = "" ]
-         builtin cd $HOME
-     end
-     ls -A
+    if [ "dir" = "" ]
+        builtin cd $HOME
+    else
+        builtin cd $dir
+    end
+    ls -A
 end
 
 set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
