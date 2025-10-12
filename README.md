@@ -23,6 +23,7 @@ chezmoi apply -v
 
 1. Clone this repo
 2. Copy desired files to from `dot-config/` to `~/.config/`
+3. Find all files starting with `executable_`, remove the `executable_` part of the filename and ensure the file has execution permissions set
 
 ### Troubleshooting
 

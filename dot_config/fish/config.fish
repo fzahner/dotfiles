@@ -49,6 +49,4 @@ function cd --argument dir
 end
 
 set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
-set -Ux GOBIN (go env GOPATH)/bin
-set -Ux PATH $PATH $GOBIN
 fish_add_path /home/fabio/.spicetify
