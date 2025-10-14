@@ -1,4 +1,4 @@
--- Default configs at https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/defaults
+-- Default configs at https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/jefaults
 return {
 	{
 		"mhartington/formatter.nvim",
@@ -19,21 +19,6 @@ return {
 					lua = {
 						-- "formatter.filetypes.lua" defines default configurations for the "lua" filetype
 						require("formatter.filetypes.lua").stylua,
-
-						-- You can also define your own configuration
-						function()
-							return {
-								exe = "stylua",
-								args = {
-									"--search-parent-directories",
-									"--stdin-filepath",
-									util.escape_path(util.get_current_buffer_file_path()),
-									"--",
-									"-",
-								},
-								stdin = true,
-							}
-						end,
 					},
 
 					tex = {

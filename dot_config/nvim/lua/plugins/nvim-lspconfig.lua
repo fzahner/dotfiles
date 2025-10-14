@@ -59,7 +59,7 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.config("pslsp", {
+			vim.lsp.config("pylsp", {
 				settings = {
 					pylsp = {
 						configurationSources = { "flake8" },

@@ -7,12 +7,11 @@ wk.add({
 	{ "<leader>f", group = "Find" },
 	{ "<leader>w", group = "Window" },
 	{ "<leader>e", group = "Explorer" },
-	-- TODO: { "<leader>t", group = "Tabs" },
 	{ "<leader>s", group = "Editor settings" },
 	{ "<leader>b", group = "Buffers" },
 	{ "<leader>x", group = "Trouble.nvim" },
 	{ "<leader>c", group = "File Specific" },
-	{ "<leader>a", group = "Avante" },
+	-- { "<leader>a", group = "Avante" },
 })
 
 -----------------------------------------------

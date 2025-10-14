@@ -12,7 +12,7 @@ CABLE_PLUGGED=$(upower -i $LINE_POWER_PATH | grep -A2 'line-power' | grep online
 
 if [[ $CABLE_PLUGGED == 'yes' ]]; then
     if [[ $BATTERY_PERCENTAGE -gt 80 ]]; then
-        notify-send --urgency=normal -i battery -t 30000 "Battery optimization" "Battery reached 80%, unplug the power cable to optimize battery life."
+        notify-send --urgency=normal -i battery -t 5000 "Battery optimization" "Battery reached 80%, unplug the power cable to optimize battery life."
     fi
 
 else

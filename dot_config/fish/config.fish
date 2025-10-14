@@ -6,10 +6,8 @@ if status is-interactive
     abbr --add pdf --set-cursor "zathura % & && disown"
     abbr --add pdfe --set-cursor "xournalpp % > /dev/null 2>&1 & && disown" # since xournalapp prints to stdout, we redirect it to keep the console clean
     abbr --add rm "trash"
-    abbr --add dsa "docker stop \$(docker ps -a -q) "
     abbr --add k "kubectl"
-    abbr --add spf "spf . ~"
-    abbr --add spf "spf . ~"
+    abbr --add dsa "docker stop \$(docker ps -a -q) "
     abbr --add --position anywhere ... "../.."
     abbr --add --position anywhere .... "../../.."
     abbr --add --position anywhere ..... "../../../.."
@@ -36,6 +34,17 @@ function clone-term
     for i in (seq $count)
         herbstclient spawn alacritty --working-directory $cwd
     end
+end
+
+## Yazi File manager shell wrapper
+## see https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
 end
 
 ## do ls after cd
