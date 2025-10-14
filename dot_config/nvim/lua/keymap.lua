@@ -11,6 +11,7 @@ wk.add({
 	{ "<leader>b", group = "Buffers" },
 	{ "<leader>x", group = "Trouble.nvim" },
 	{ "<leader>c", group = "File Specific" },
+	{ "<leader>d", group = "Debug" },
 	-- { "<leader>a", group = "Avante" },
 })
 
@@ -167,3 +168,32 @@ map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location Lis
 map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 map("n", "<leader>l", "<cmd>:lua vim.lsp.buf.code_action()<cr>", { desc = "Code actions list" })
 map("n", "<leader>1", vim.diagnostic.open_float, { desc = "Show diagnostic popup" })
+
+-- Debugging
+map("n", "<leader>dd", "<cmd>DapNew<CR>", { desc = "New Debug" })
+map("n", "<leader>db", "<CMD>DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
+map("n", "<leader>dc", "<CMD>DapContinue<CR>", { desc = "Continue" })
+map("n", "<leader>dT", "<CMD>DapTerminate<CR>", { desc = "Terminate" })
+
+wk.add({
+	{ "<leader>ds", group = "Step ..." },
+})
+map("n", "<leader>dso", "<CMD>DapStepOver<CR>", { desc = "Step over" })
+map("n", "<leader>dsi", "<CMD>DapStepInto<CR>", { desc = "Step into" })
+map("n", "<leader>dsu", "<CMD>DapStepOut<CR>", { desc = "Step out" })
+
+map("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>", { desc = "Toggle DAP UI" })
+map({ "n", "v" }, "<Leader>dh", "<CMD>lua require('dap.ui.widgets').hover()<CR>", { desc = "DAP Hover" })
+map({ "n", "v" }, "<Leader>dp", "<CMD>lua require('dap.ui.widgets').preview()<CR>", { desc = "DAP Preview" })
+map(
+	"n",
+	"<Leader>df",
+	"<CMD>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<CR>",
+	{ desc = "Show DAP Frames" }
+)
+map(
+	"n",
+	"<Leader>ds",
+	"<CMD>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').scopes)<CR>",
+	{ desc = "Show DAP Scopes" }
+)
