@@ -174,6 +174,7 @@ map("n", "<leader>dd", "<cmd>DapNew<CR>", { desc = "New Debug" })
 map("n", "<leader>db", "<CMD>DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint" })
 map("n", "<leader>dc", "<CMD>DapContinue<CR>", { desc = "Continue" })
 map("n", "<leader>dT", "<CMD>DapTerminate<CR>", { desc = "Terminate" })
+map("n", "<leader>dl", "<CMD>lua require('dap').run_last()<CR>", { desc = "Run last" })
 
 wk.add({
 	{ "<leader>ds", group = "Step ..." },
@@ -183,17 +184,17 @@ map("n", "<leader>dsi", "<CMD>DapStepInto<CR>", { desc = "Step into" })
 map("n", "<leader>dsu", "<CMD>DapStepOut<CR>", { desc = "Step out" })
 
 map("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>", { desc = "Toggle DAP UI" })
-map({ "n", "v" }, "<Leader>dh", "<CMD>lua require('dap.ui.widgets').hover()<CR>", { desc = "DAP Hover" })
-map({ "n", "v" }, "<Leader>dp", "<CMD>lua require('dap.ui.widgets').preview()<CR>", { desc = "DAP Preview" })
+map({ "n", "v" }, "<leader>dh", "<CMD>lua require('dap.ui.widgets').hover()<CR>", { desc = "DAP Hover" })
+map({ "n", "v" }, "<leader>dp", "<CMD>lua require('dap.ui.widgets').preview()<CR>", { desc = "DAP Preview" })
 map(
 	"n",
-	"<Leader>df",
+	"<leader>df",
 	"<CMD>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').frames)<CR>",
 	{ desc = "Show DAP Frames" }
 )
 map(
 	"n",
-	"<Leader>ds",
+	"<leader>da",
 	"<CMD>lua require('dap.ui.widgets').centered_float(require('dap.ui.widgets').scopes)<CR>",
 	{ desc = "Show DAP Scopes" }
 )

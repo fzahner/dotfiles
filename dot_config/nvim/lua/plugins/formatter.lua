@@ -1,4 +1,4 @@
--- Default configs at https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/jefaults
+-- https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/filetypes
 return {
 	{
 		"mhartington/formatter.nvim",
@@ -78,11 +78,11 @@ return {
 					go = {
 						function()
 							return {
-								exe = "gofumpt",
+								exe = "goimports",
 								stdin = true,
 							}
 						end,
-					}, -- Go Formatting handeled by go plugin
+					},
 					-- Use the special "*" filetype for defining formatter configurations on any filetype
 					["*"] = {
 						require("formatter.filetypes.any").remove_trailing_whitespace,
