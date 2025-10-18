@@ -1,8 +1,8 @@
 [Unit]
-Description=Run battery health check every 10 minutes
+Description=Run battery health check periodically
 
 [Timer]
-OnBootSec=30m
+OnBootSec=1m
 OnUnitActiveSec=1m
 Persistent=true
 
