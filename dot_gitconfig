@@ -1,3 +1,6 @@
+[user]
+	name = Fabio Zahner
+	email = zahnerfabio@gmail.com
 [credential]
     credentialStore = gpg
     helper = store
