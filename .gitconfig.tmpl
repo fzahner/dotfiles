@@ -1,0 +1,32 @@
+[user]
+    email = {{prompt "Enter your Git email"}}
+    name = {{prompt "Enter your Git name"}}
+[credential]
+    credentialStore = gpg
+    helper = store
+[pull]
+    rebase = false
+[init]
+    defaultbranch = main
+[core]
+    autocrlf = input
+    pager = delta
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[merge]
+    conflictStyle = zdiff3
+    tool = meld
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    side-by-side = true
+    dark = true
+    minus-style = "#ea6962" bold "#3c1f1e"
+    plus-style = "#a9b665" bold "#1f2d1f"
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"

@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "o" ]
+run  = "cd ~/OneDrive/OST/"
+desc = "Cd to ~/OneDrive/OST"
