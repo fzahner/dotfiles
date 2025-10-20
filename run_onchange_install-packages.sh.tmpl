@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -e
+
+if command -v pacman >/dev/null; then
+  sudo pacman -Sy --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.arch.pacman }}{{ . }} {{ end }}
+  if command -v yay >/dev/null; then
+    yay -Sy --noconfirm {{ range .packages.linux.arch.yay }}{{ . }} {{ end }}
+  fi
+elif command -v apt >/dev/null; then
+  sudo apt update
+  sudo apt install -y {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.debian.apt }}{{ . }} {{ end }}
+fi
+
+
+chsh -s /bin/fish       # set fish as default shell
+playerctld daemon       # start playerctl
+betterlockscreen -u ~/.config/herbstluftwm/wallpaper/mountain.jpg # render lockscreen image

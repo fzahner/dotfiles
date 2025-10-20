@@ -1,0 +1,36 @@
+packages:
+  common:
+    - git
+    - alacritty
+    - docker
+    - feh
+    - firefox
+    - fish
+    - herbstluftwm
+    - lazygit
+    - npm
+    - rofi
+    - tldr
+    - onboard
+    - flameshot
+    - unclutter
+    - playerctl
+    - nautilus
+    - brightnessctl
+  linux:
+    arch:
+      pacman:
+      - neovim
+      - xclip
+      - ttf-jetbrains-mono-nerd
+      yay:
+      - eww
+      - betterlockscreen
+    debian:
+      apt:
+      # - nerdfonts
+      # - trash
+      # - neovim
+      # - eww
+      # - betterlockscreen
+      # - xclip?
