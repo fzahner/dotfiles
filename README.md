@@ -5,7 +5,7 @@
 My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I am running Linux Mint as my OS, but the config should work regardless of installed Operating System.
 
 > [!IMPORTANT]
-> To use the herbstluftwm and/or eww config, supporting software is needed. See `herbstluftwm/README.md` for more information.
+> To use the herbstluftwm and/or eww config, supporting software is needed. See _Installation_ for more information.
 
 ## Installation
 
@@ -18,6 +18,9 @@ My collection of dotfiles with Herbstluftwm window manager and Neovim config, as
 chezmoi init https://github.com/fzahner/dotfiles.git
 chezmoi apply -v
 ```
+
+> [!IMPORTANT]
+> When installing on debian, some packages cannot be installed with apt. See the `debian.manual` section in `.chezmoidata/packages.yaml` for packages which have to be installed manually.
 
 ### Manual installation
 

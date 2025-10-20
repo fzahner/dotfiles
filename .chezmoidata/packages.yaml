@@ -2,15 +2,12 @@ packages:
   common:
     - git
     - alacritty
-    - docker
     - feh
     - firefox
     - fish
     - herbstluftwm
-    - lazygit
     - npm
     - rofi
-    - tldr
     - onboard
     - flameshot
     - unclutter
@@ -21,6 +18,8 @@ packages:
   linux:
     arch:
       pacman:
+      - docker
+      - lazygit
       - neovim
       - xclip
       - ttf-jetbrains-mono-nerd
@@ -29,9 +28,13 @@ packages:
       - betterlockscreen
     debian:
       apt:
-      # - nerdfonts
-      # - trash
-      # - neovim
-      # - eww
-      # - betterlockscreen
-      # - xclip?
+        - trash-cli
+        - xclip
+      manual:
+        - docker
+        - lazygit
+        - tldr
+        - jetbrains mono nerdfonts
+        - neovim
+        - eww
+        - betterlockscreen
