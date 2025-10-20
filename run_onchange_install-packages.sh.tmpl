@@ -2,9 +2,9 @@
 set -e
 
 if command -v pacman >/dev/null; then
-  sudo pacman -Sy --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.arch.pacman }}{{ . }} {{ end }}
+  sudo pacman -Sy --needed --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.arch.pacman }}{{ . }} {{ end }}
   if command -v yay >/dev/null; then
-    yay -Sy --noconfirm {{ range .packages.linux.arch.yay }}{{ . }} {{ end }}
+    yay -Sy --needed --noconfirm {{ range .packages.linux.arch.yay }}{{ . }} {{ end }}
   fi
 elif command -v apt >/dev/null; then
   sudo apt update
