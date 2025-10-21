@@ -28,6 +28,7 @@ fi
 # for debugging
 tmpfile=/tmp/powerstatus.txt
 {
-  echo "percentage: $BATTERY_PERCENTAGE"
-  echo "plugged in: $CABLE_PLUGGED"
+    echo $(date +"%Y-%m-%d %H:%M:%S")
+    echo "percentage: $BATTERY_PERCENTAGE"
+    echo "plugged in: $CABLE_PLUGGED"
 } > "$tmpfile"

@@ -23,6 +23,9 @@ packages:
       - neovim
       - xclip
       - ttf-jetbrains-mono-nerd
+      - dunst
+      - fisher
+      - yazi
       yay:
       - eww
       - betterlockscreen
@@ -38,3 +41,5 @@ packages:
         - neovim
         - eww
         - betterlockscreen
+        - fisher
+        - yazi
