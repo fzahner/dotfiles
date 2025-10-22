@@ -2,7 +2,7 @@
 
 ![Screenshot Neofetch/Spotify](./screenshots/spotify.png)
 
-My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I am running Linux Mint as my OS, but the config should work regardless of installed Operating System.
+My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I have used this configuration actively on Arch Linux and Linux Mint (Ubuntu), both on X11. For these Operating Systems, the chezmoi config can also automatically install required packages.
 
 > [!IMPORTANT]
 > To use the herbstluftwm and/or eww config, supporting software is needed. See _Installation_ for more information.

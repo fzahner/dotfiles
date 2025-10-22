@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Open Link (Firefox with focus)
+Exec=~/.config/herbstluftwm/scripts/open-link.sh %u
+Type=Application
+Terminal=false
+MimeType=x-scheme-handler/http;x-scheme-handler/https;
