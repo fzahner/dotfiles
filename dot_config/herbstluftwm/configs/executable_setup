@@ -14,10 +14,10 @@ xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
 # xrandr --output DP-1 --mode 3440x1440 --pos 0x0
 
 # Home Setup
-xrandr --output DP-2 --scale 1.25x1.25 --mode 1920x1080 --pos 0x0
+# xrandr --output DP-2 --scale 1.25x1.25 --mode 1920x1080 --pos 0x0
 
 # OST SA Room
-# xrandr --output DP-1  --mode 1920x1080 --pos 0x0
+xrandr --output DP-1  --mode 1920x1080 --pos 0x0
 
 hc emit_hook reload
 
@@ -29,10 +29,11 @@ hc rule floatplacement=smart
 # auto-assign certain applications to tags
 hc rule class='thunderbird-esr' tag=8 focus=off
 hc rule class='teams-for-linux' tag=8 focus=off
+hc rule class='thunderbird' tag=8 focus=off
 
 
 # float and give focus to important windows (use xprop)
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on floatplacement=center
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 

@@ -16,10 +16,10 @@ hc keybind $Mod-x close
 
 # Launch apps
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-t spawn alacritty
+hc keybind $Mod-t spawn kitty
 hc keybind $Mod-w spawn firefox
 hc keybind $Mod-Shift-e spawn nautilus .
-hc keybind $Mod-e spawn alacritty -e yazi
+hc keybind $Mod-e spawn kitty -e yazi
 hc keybind $Mod-r spawn ~/.config/rofi/launchers/type-1/launcher.sh
 # hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh,drun" -modes combi
 hc keybind $Mod-s spawn rofi -show ssh

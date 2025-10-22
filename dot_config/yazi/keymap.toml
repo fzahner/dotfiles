@@ -1,4 +1,11 @@
+# quick switch locations
 [[mgr.prepend_keymap]]
 on   = [ "g", "o" ]
-run  = "cd ~/OneDrive/OST/"
-desc = "Cd to ~/OneDrive/OST"
+run  = "cd ~/OneDrive/OST"
+desc = "cd to ~/OneDrive/OST"
+
+# ouch commands
+[[mgr.prepend_keymap]]
+on = ["C"]
+run = "plugin ouch"
+desc = "Compress with ouch"

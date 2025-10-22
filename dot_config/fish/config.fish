@@ -3,7 +3,7 @@ if status is-interactive
 
     # Abbreviations
     abbr --add ost "cd ~/OneDrive/OST/"
-    abbr --add pdf --set-cursor "zathura % & && disown"
+    abbr --add pdf --set-cursor "zathura % & disown"
     abbr --add pdfe --set-cursor "xournalpp % > /dev/null 2>&1 & && disown" # since xournalapp prints to stdout, we redirect it to keep the console clean
     abbr --add rm "trash"
     abbr --add k "kubectl"
@@ -32,7 +32,7 @@ function clone-term
     if test -z "$count"; set count 1; end
     set cwd (pwd)
     for i in (seq $count)
-        herbstclient spawn alacritty --working-directory $cwd
+        herbstclient spawn kitty $cwd
     end
 end
 
