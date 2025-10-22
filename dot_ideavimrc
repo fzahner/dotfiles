@@ -1,0 +1,135 @@
+" .ideavimrc configuration for Rider/JetBrains IDEs
+" Translated from Neovim Lua config
+
+" Set leader key to space
+let mapleader = " "
+
+" Enable IdeaVim extensions
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+" Basic vim settings
+set number
+set relativenumber
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set scrolloff=5
+set sidescrolloff=5
+
+
+" Custom Vim Commands
+nnoremap o o<Esc>
+nnoremap O O<Esc>
+
+" LSP-like commands using IntelliJ actions
+nnoremap cr :action RenameElement<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gI :action GotoImplementation<CR>
+nnoremap gr :action FindUsages<CR>
+
+" Comment
+nnoremap <leader>/ :action CommentByLineComment<CR>
+vnoremap <leader>/ :action CommentByLineComment<CR>
+
+" File Explorer (Project Tool Window)
+nnoremap <leader>ee :action ActivateProjectToolWindow<CR>
+nnoremap <leader>ex :action HideActiveWindow<CR>
+
+" Terminal
+nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
+" Sorry: <leader>ws (vertical terminal split)
+" Sorry: terminal mode escape and navigation
+
+" Window management
+nnoremap <leader>wv :action SplitVertically<CR>
+nnoremap <leader>wh :action SplitHorizontally<CR>
+nnoremap <leader>wx :action Unsplit<CR>
+nnoremap <leader>w0 :action UnsplitAll<CR>
+
+" Sorry: <leader>w1, <leader>w2, <leader>w3, <leader>w4 (manual window resizing)
+
+" Window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+" Buffer/Tab navigation
+nnoremap <leader>bb :action NewScratchFile<CR>
+nnoremap <leader>bx :action CloseContent<CR>
+nnoremap <leader>bco :action CloseAllEditorsButActive<CR>
+" Sorry: <leader>bcr, <leader>bcl (close buffers to right/left)
+nnoremap <Tab> :action NextTab<CR>
+nnoremap <S-Tab> :action PreviousTab<CR>
+
+" Editor settings
+" Sorry: <leader>pt (toggle tabwidth)
+" Sorry: <leader>pr (clear registers)
+" Sorry: <leader>pf (toggle auto-formatting)
+" Sorry: <leader>ps (toggle autosave)
+
+" Display settings
+nnoremap <leader>pdw :set wrap!<CR>
+nnoremap <leader>pdt :action ChangeLaf<CR>
+nnoremap <leader>pdn :set nu!<CR>
+nnoremap <leader>pdr :set rnu!<CR>
+
+" Git actions
+nnoremap <leader>gl :action ActivateVersionControlToolWindow<CR>
+nnoremap <leader>gb :action Annotate<CR>
+nnoremap <leader>gd :action Compare.SameVersion<CR>
+nnoremap <leader>gt :action Vcs.Show.Local.Changes<CR>
+nnoremap <leader>gc :action Vcs.Show.Log<CR>
+
+" Search/Find actions (replacing Telescope)
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fa :action GotoFile<CR>
+nnoremap <leader>fw :action FindInPath<CR>
+nnoremap <leader>fb :action RecentFiles<CR>
+nnoremap <leader>fh :action HelpTopics<CR>
+nnoremap <leader>fo :action RecentFiles<CR>
+nnoremap <leader>fz :action Find<CR>
+" Sorry: <leader>gm (telescope notifications)
+
+" File Specific actions
+nnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>cF :action ReformatCode<CR>
+
+" Code analysis and navigation (replacing Trouble)
+nnoremap <leader>xd :action ActivateProblemsViewToolWindow<CR>
+" Sorry: <leader>xD (buffer diagnostics)
+nnoremap <leader>xx :action HideActiveWindow<CR>
+nnoremap <leader>xs :action FileStructurePopup<CR>
+nnoremap <leader>xl :action QuickImplementations<CR>
+" Sorry: <leader>xL (location list)
+" Sorry: <leader>xQ (quickfix list)
+nnoremap <leader>l :action ShowIntentionActions<CR>
+
+" Additional useful IntelliJ actions
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>rd :action Debug<CR>
+nnoremap <leader>rs :action Stop<CR>
+nnoremap <leader>rc :action RunClass<CR>
+nnoremap <leader>rt :action RunTests<CR>
+
+" Autosave and format (needs to be chained quickly)
+nnoremap :w<CR> :action ReformatCode<CR>:w<CR>
+
+" Refactoring shortcuts
+nnoremap <leader>re :action ExtractMethod<CR>
+nnoremap <leader>ri :action Inline<CR>
+nnoremap <leader>rv :action IntroduceVariable<CR>
+nnoremap <leader>rf :action IntroduceField<CR>
+
+" Navigation shortcuts
+nnoremap <leader>ns :action GotoSymbol<CR>
+nnoremap <leader>nc :action GotoClass<CR>
+nnoremap <leader>na :action GotoAction<CR>
+
+" Code generation
+nnoremap <leader>cg :action Generate<CR>
+nnoremap <leader>co :action OverrideMethods<CR>
+nnoremap <leader>ci :action ImplementMethods<CR>
