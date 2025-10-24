@@ -1,11 +1,10 @@
 return {
 	"yetone/avante.nvim",
 	event = "VeryLazy",
-	enabled = false,
 	version = false, -- Never set this value to "*"! Never!
 	build = "make",
 	opts = {
-		provider = "ollama",
+		provider = "copilot",
 		providers = {
 			ollama = {
 				endpoint = "http://localhost:11434",

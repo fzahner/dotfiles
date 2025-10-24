@@ -12,7 +12,7 @@ wk.add({
 	{ "<leader>x", group = "Trouble.nvim" },
 	{ "<leader>c", group = "File Specific" },
 	{ "<leader>d", group = "Debug" },
-	-- { "<leader>a", group = "Avante" },
+	{ "<leader>a", group = "Avante" },
 })
 
 -----------------------------------------------
@@ -46,6 +46,7 @@ map(
 )
 map("n", "cr", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = bufnr, desc = "Rename (LSP)" })
 map("i", "<S-Tab>", "<C-d>")
+map("n", "dp", "<cmd>diffput 2<cr>", { noremap = true, silent = true, desc = "Diffput to no. 2 buffer" })
 
 -- LSP Go commands
 map(
@@ -86,17 +87,6 @@ map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], { noremap = true, silent = true })
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], { noremap = true, silent = true })
 
 -- windows & window navigation
-map("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
-map("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
-map("n", "<leader>wx", ":close<CR>", { desc = "Close current splitted window" })
-
-map("n", "<leader>w0", "<C-w>=", { desc = "Reset splitted window width / height" })
-
-map("n", "<leader>w1", ":vertical resize +10<CR>", { desc = "Increase width of splitted window" })
-map("n", "<leader>w2", ":vertical resize -10<CR>", { desc = "Decrease width of splitted window" })
-map("n", "<leader>w3", ":resize +5<CR>", { desc = "Increase height of splitted window" })
-map("n", "<leader>w4", ":resize -5<CR>", { desc = "Decrease height of splitted window" })
-
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
@@ -130,9 +120,14 @@ map("n", "<leader>sdz", "<cmd>NoNeckPain<CR>", { desc = "Center currently focued
 -- Git
 map("n", "<leader>gl", "<cmd>LazyGit<cr>", { desc = "Open lazy git" }) -- also configured with plugin
 map("n", "<leader>gb", "<cmd>Gitsigns blame<cr>", { desc = "Show git blame" })
-map("n", "<leader>gD", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
+wk.add({
+	{ "<leader>gd", group = "Git diff" },
+})
+map({ "n", "v" }, "<leader>gdp", "<cmd>diffput 2<cr>", { desc = "git diff put" })
+map({ "n", "v" }, "<leader>gdl", "<cmd>diffget 1<cr>", { desc = "git diff get 1 (local)" })
+map({ "n", "v" }, "<leader>gdr", "<cmd>diffget 3<cr>", { desc = "git diff get 3 (remote)" })
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
@@ -168,6 +163,9 @@ map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location Lis
 map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 map("n", "<leader>l", "<cmd>:lua vim.lsp.buf.code_action()<cr>", { desc = "Code actions list" })
 map("n", "<leader>1", vim.diagnostic.open_float, { desc = "Show diagnostic popup" })
+
+-- AI/Avante
+map("n", "<leader>ac", "<cmd>Copilot toggle<CR>", { desc = "Toggle Copilot" })
 
 -- Debugging
 map("n", "<leader>dd", "<cmd>DapNew<CR>", { desc = "New Debug" })

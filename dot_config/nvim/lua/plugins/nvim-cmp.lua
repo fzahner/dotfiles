@@ -26,15 +26,20 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<Tab>"] = cmp.mapping(function(fallback)
-					-- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-					-- Exception: First checks if luasnip offers a expandable (like .div auto classname, see luasnip.lua)
 					local entry = cmp.get_selected_entry()
+					-- If copilot is visible and no entry is selected, accept its suggestion with tab
+					if require("copilot.suggestion").is_visible() and not entry then
+						return require("copilot.suggestion").accept()
+					end
+					-- Then checks if luasnip offers a expandable (like .div auto classname, see luasnip.lua)
 					if require("luasnip").expand_or_jumpable() and not entry then
 						require("luasnip").expand_or_jump()
 					elseif cmp.visible() then
+						--  if no entry is selected, will confirm the first item
 						if not entry then
 							cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
 						end
+						-- confirm cmp entry
 						cmp.confirm()
 					else
 						fallback()
