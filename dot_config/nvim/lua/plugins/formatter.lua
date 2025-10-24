@@ -25,7 +25,7 @@ return {
 						function()
 							return {
 								exe = "latexindent",
-								args = { "-m" },
+								args = { "-m -rv -l" },
 								stdin = true,
 							}
 						end,

@@ -1,0 +1,6 @@
+export EDITOR=nvim
+export BROWSER=firefox
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/fabio-arch/.local/share/JetBrains/Toolbox/scripts"

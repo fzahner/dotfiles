@@ -13,6 +13,11 @@ return {
 					dotfiles = false,
 					git_ignored = false,
 				},
+				actions = {
+					open_file = {
+						quit_on_open = true,
+					},
+				},
 			})
 			-- -- Crossclip attachement
 			-- local function on_attach(bufnr)
