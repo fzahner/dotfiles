@@ -11,13 +11,13 @@
 [core]
     autocrlf = input
     pager = delta
+[merge]
+    tool = nvimdiff
+    conflictStyle = zdiff3
 [diff]
-    tool = meld
+	tool = nvimdiff
 [difftool]
     prompt = false
-[merge]
-    conflictStyle = zdiff3
-    tool = meld
 [interactive]
     diffFilter = delta --color-only
 [delta]
@@ -26,7 +26,7 @@
     dark = true
     minus-style = "#ea6962" bold "#3c1f1e"
     plus-style = "#a9b665" bold "#1f2d1f"
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\"

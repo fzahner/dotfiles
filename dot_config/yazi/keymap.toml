@@ -9,3 +9,9 @@ desc = "cd to ~/OneDrive/OST"
 on = ["C"]
 run = "plugin ouch"
 desc = "Compress with ouch"
+
+# search options
+[[mgr.prepend_keymap]]
+on   = "F"
+run  = 'search_do --via=fd '
+desc = "Search with fd"

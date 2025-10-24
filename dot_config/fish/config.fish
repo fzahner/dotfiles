@@ -59,3 +59,4 @@ end
 
 set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
 fish_add_path /home/fabio/.spicetify
+fish_add_path "/home/fabio-arch/.local/bin"
