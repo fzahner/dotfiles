@@ -22,6 +22,7 @@ return {
 					"markdown",
 					"markdown_inline",
 					"yaml",
+					"go",
 				},
 				sync_install = false,
 				highlight = { enable = true },

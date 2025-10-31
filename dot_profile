@@ -4,3 +4,4 @@ export BROWSER=firefox
 
 # Added by Toolbox App
 export PATH="$PATH:/home/fabio-arch/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:$HOME/go/bin"

@@ -47,6 +47,8 @@ map(
 map("n", "cr", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = bufnr, desc = "Rename (LSP)" })
 map("i", "<S-Tab>", "<C-d>")
 map("n", "dp", "<cmd>diffput 2<cr>", { noremap = true, silent = true, desc = "Diffput to no. 2 buffer" })
+map("n", "j", "gj", { noremap = true, silent = true })
+map("n", "k", "gk", { noremap = true, silent = true })
 
 -- LSP Go commands
 map(
@@ -125,9 +127,12 @@ map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git
 wk.add({
 	{ "<leader>gd", group = "Git diff" },
 })
-map({ "n", "v" }, "<leader>gdp", "<cmd>diffput 2<cr>", { desc = "git diff put" })
-map({ "n", "v" }, "<leader>gdl", "<cmd>diffget 1<cr>", { desc = "git diff get 1 (local)" })
-map({ "n", "v" }, "<leader>gdr", "<cmd>diffget 3<cr>", { desc = "git diff get 3 (remote)" })
+map({ "n" }, "<leader>gdp", "<cmd>diffput 2<cr>", { desc = "diff put (to buffer 2)" })
+map({ "n" }, "<leader>gdl", "<cmd>diffget 1<cr>", { desc = "diff get 1 (local)" })
+map({ "n" }, "<leader>gdr", "<cmd>diffget 3<cr>", { desc = "diff get 3 (remote)" })
+map({ "v" }, "<leader>gdp", "<Esc><cmd>'<,'>diffput 2<cr>", { desc = "diff put (to buffer 2)" })
+map({ "v" }, "<leader>gdl", "<Esc><cmd>'<,'>diffget 1<cr>", { desc = "diff get 1 (local)" })
+map({ "v" }, "<leader>gdr", "<Esc><cmd>'<,'>diffget 3<cr>", { desc = "diff get 3 (remote)" })
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
@@ -180,6 +185,9 @@ wk.add({
 map("n", "<leader>dso", "<CMD>DapStepOver<CR>", { desc = "Step over" })
 map("n", "<leader>dsi", "<CMD>DapStepInto<CR>", { desc = "Step into" })
 map("n", "<leader>dsu", "<CMD>DapStepOut<CR>", { desc = "Step out" })
+map("n", "<F7>", "<CMD>DapStepOver<CR>", { desc = "Step over" })
+map("n", "<F8>", "<CMD>DapStepInto<CR>", { desc = "Step into" })
+map("n", "<F9>", "<CMD>DapStepOut<CR>", { desc = "Step out" })
 
 map("n", "<leader>du", "<CMD>lua require('dapui').toggle()<CR>", { desc = "Toggle DAP UI" })
 map({ "n", "v" }, "<leader>dh", "<CMD>lua require('dap.ui.widgets').hover()<CR>", { desc = "DAP Hover" })
