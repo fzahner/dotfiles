@@ -170,7 +170,7 @@ map("n", "<leader>l", "<cmd>:lua vim.lsp.buf.code_action()<cr>", { desc = "Code 
 map("n", "<leader>1", vim.diagnostic.open_float, { desc = "Show diagnostic popup" })
 
 -- AI/Avante
-map("n", "<leader>ac", "<cmd>Copilot toggle<CR>", { desc = "Toggle Copilot" })
+map("n", "<leader>aA", "<cmd>Copilot toggle<CR>", { desc = "Toggle Copilot" })
 
 -- Debugging
 map("n", "<leader>dd", "<cmd>DapNew<CR>", { desc = "New Debug" })

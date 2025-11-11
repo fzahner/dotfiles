@@ -4,6 +4,8 @@
 " Set leader key to space
 let mapleader = " "
 
+set clipboard+=unnamed
+
 " Enable IdeaVim extensions
 set ideajoin
 set ideastatusicon=gray
