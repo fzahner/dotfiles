@@ -113,8 +113,8 @@ hc keybind $Mod-i jumpto urgent
 hc keybind XF86AudioRaiseVolume     spawn ~/.config/herbstluftwm/scripts/volume/volume.sh i 5
 hc keybind XF86AudioLowerVolume     spawn ~/.config/herbstluftwm/scripts/volume/volume.sh d 5
 hc keybind XF86AudioMute            spawn ~/.config/herbstluftwm/scripts/volume/volume.sh m
-hc keybind XF86MonBrightnessDown    spawn ~/.config/herbstluftwm/scripts/brightness/brightnesscontrol.sh d 5
-hc keybind XF86MonBrightnessUp      spawn ~/.config/herbstluftwm/scripts/brightness/brightnesscontrol.sh i 5
+hc keybind XF86MonBrightnessDown    spawn ~/.config/herbstluftwm/scripts/brightness/brightness_control.sh d 5
+hc keybind XF86MonBrightnessUp      spawn ~/.config/herbstluftwm/scripts/brightness/brightness_control.sh i 5
 hc keybind XF86AudioPrev            spawn playerctl previous
 hc keybind XF86AudioNext            spawn playerctl next
 hc keybind XF86AudioPlay            spawn playerctl play-pause
