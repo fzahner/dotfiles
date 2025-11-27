@@ -57,6 +57,8 @@ function cd --argument dir
     ls -A
 end
 
-set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
-fish_add_path /home/fabio/.spicetify
-fish_add_path "/home/fabio-arch/.local/bin"
+set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths  # Neovim
+set -gx PATH $PATH $HOME/.krew/bin                              # kubectl krew (plugin manager)
+fish_add_path /home/fabio-arch/.kubescape/bin
+fish_add_path /home/fabio/.spicetify                            # Spicetify
+fish_add_path "/home/fabio-arch/.local/bin"                     # Local bin

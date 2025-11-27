@@ -19,6 +19,8 @@ hc rule floatplacement=smart
 hc rule class='thunderbird-esr' tag=8 focus=off
 hc rule class='teams-for-linux' tag=8 focus=off
 hc rule class='thunderbird' tag=8 focus=off
+hc rule class='thunderbird-esr' tag=8 focus=off
+hc rule class='org.mozilla.Thunderbird' tag=8 focus=off
 
 
 # float and give focus to important windows (use xprop)
@@ -37,8 +39,8 @@ hc rule title="blueman-manager" floating=on # floating blueman manager
 # hc rule fixedsize floating=on
 
 # One of these regulates the direction new windows open
-hc set_layout vertical
-hc set default_frame_layout horizontal
+hc set_layout grid
+hc set default_frame_layout grid
 
 hc set focus_follows_mouse 1
 
