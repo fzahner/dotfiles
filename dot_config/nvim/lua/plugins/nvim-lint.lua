@@ -19,6 +19,8 @@ return {
 			require("lint").linters_by_ft = {
 				html = { "htmlhint" },
 				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
 			}
 		end,
 	},

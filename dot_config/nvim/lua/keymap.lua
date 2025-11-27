@@ -49,6 +49,10 @@ map("i", "<S-Tab>", "<C-d>")
 map("n", "dp", "<cmd>diffput 2<cr>", { noremap = true, silent = true, desc = "Diffput to no. 2 buffer" })
 map("n", "j", "gj", { noremap = true, silent = true })
 map("n", "k", "gk", { noremap = true, silent = true })
+local diag = require("scripts.diagnostics_navigation")
+
+map("n", "]e", diag.next_error_then_hint)
+map("n", "[e", diag.prev_error_then_hint)
 
 -- LSP Go commands
 map(
