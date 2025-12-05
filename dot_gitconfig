@@ -16,8 +16,6 @@
     conflictStyle = zdiff3
 [diff]
 	tool = nvimdiff
-[difftool]
-    prompt = false
 [interactive]
     diffFilter = delta --color-only
 [delta]

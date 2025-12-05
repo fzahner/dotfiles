@@ -15,3 +15,13 @@ desc = "Compress with ouch"
 on   = "F"
 run  = 'search_do --via=fd '
 desc = "Search with fd"
+
+# drag and drop with dragon
+[[mgr.prepend_keymap]]
+on  = "<C-n>"
+run = 'shell -- dragon-drop -x -i -T "$0"'
+
+# yank file paths to clipboard
+[[mgr.prepend_keymap]]
+on  = "y"
+run = [ 'shell -- echo "$@" | xclip -i -selection clipboard -t text/uri-list', "yank" ]

@@ -16,7 +16,6 @@ hc rule focus=on # normally focus new clients
 hc rule floatplacement=smart
 
 # auto-assign certain applications to tags
-hc rule class='thunderbird-esr' tag=8 focus=off
 hc rule class='teams-for-linux' tag=8 focus=off
 hc rule class='thunderbird' tag=8 focus=off
 hc rule class='thunderbird-esr' tag=8 focus=off
@@ -28,12 +27,14 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on flo
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
+# class: the second word from xprop WM_CLASS
 hc rule class="Gnome-screenshot" floating=on # float screenshot app
 hc rule class="Onboard" floating=on # float virtual keyboard app
-hc rule title="Qalculate!" floating=on # float calculator app
+hc rule title="Qalculate!" floating=off # float calculator app
 hc rule title="splash" floating=on # jetbrains splash screens
-hc rule title="Picture-in-Picture" sticky=on # sticky PIP app
-hc rule title="blueman-manager" floating=on # floating blueman manager
+hc rule class="Blueman-manager" floating=on # floating blueman manager
+hc rule class="Dragon-drop" floating=on floatplacement=center # floating dragon-drop
+hc rule instance="Toolkit" sticky=on # sticky PIP app
 
 
 # hc rule fixedsize floating=on
