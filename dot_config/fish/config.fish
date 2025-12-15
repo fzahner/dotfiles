@@ -57,6 +57,9 @@ function cd --argument dir
     ls -A
 end
 
+# Load additional environment variables (secrets)
+source ~/.config/env/env.fish
+
 set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths  # Neovim
 set -gx PATH $PATH $HOME/.krew/bin                              # kubectl krew (plugin manager)
 fish_add_path /home/fabio-arch/.kubescape/bin
