@@ -20,6 +20,8 @@ set fish_greeting ""
 # Set variables
 ## Show Done notifications for tasks that take longer than (ms)
 set -U __done_min_cmd_duration 30000
+## Options for Ctrl-Alt-F fzf file search
+set fzf_fd_opts --hidden --no-ignore
 
 # Functions
 ## sudo the last command

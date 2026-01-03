@@ -1,13 +1,13 @@
-output DP-1
-off
 output HDMI-1
 off
 output DP-2
+off
+output DP-1
 crtc 1
 filter bilinear
 mode 1920x1080
 pos 0x0
-rate 120.00
+rate 60.00
 transform 1.250000,0.000000,0.000000,0.000000,1.250000,0.000000,0.000000,0.000000,1.000000
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
@@ -17,7 +17,7 @@ x-prop-non_desktop 0
 output eDP-1
 crtc 0
 mode 2560x1440
-pos 0x1440
+pos 440x1440
 primary
 rate 59.96
 x-prop-broadcast_rgb Automatic
