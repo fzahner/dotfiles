@@ -27,3 +27,20 @@ prepend_previewers = [
 	{ mime = "application/zstd",            run = "ouch" },
 	{ mime = "application/java-archive",    run = "ouch" },
 ]
+
+[opener]
+open = [
+    { run = "xdg-open %s", desc = "Open" },
+    { run = "firefox %s", desc = "Open with Firefox"},
+    { run = "nvim %s", block = true, desc = "Open with Neovim" },
+]
+xournal = [
+    { run = "xournalapp %s", orphan = true, desc = "Open with Xournal++"}
+]
+
+
+[open]
+prepend_rules = [
+    { url = "*.xopp", use = "xournal" },
+    { url = "*.pdf", use = [ "open", "xournal", "reveal" ] },
+]
