@@ -54,12 +54,3 @@ else
     fi
 
 fi
-
-# for debugging
-tmpfile=/var/tmp/powerstatus.txt
-{
-
-    echo $(date +"%Y-%m-%d %H:%M:%S")
-    echo "percentage: $BATTERY_PERCENTAGE"
-    echo "plugged in: $CABLE_PLUGGED"
-} >> "$tmpfile"

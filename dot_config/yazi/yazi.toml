@@ -35,7 +35,12 @@ open = [
     { run = "nvim %s", block = true, desc = "Open with Neovim" },
 ]
 xournal = [
-    { run = "xournalapp %s", orphan = true, desc = "Open with Xournal++"}
+    { run = "xournalpp %s", orphan = true, desc = "Open with Xournal++"}
+]
+play = [
+    { run = "xdg-open %s", desc = "Play" },
+    { run = "vlc %s", orphan = true, desc = "Play with VLC" },
+    { run = "mpv %s", orphan = true, desc = "Play with MPV" },
 ]
 
 

@@ -1,27 +1,20 @@
-# quick switch locations
-[[mgr.prepend_keymap]]
-on   = [ "g", "o" ]
-run  = "cd ~/OneDrive/OST"
-desc = "cd to ~/OneDrive/OST"
-
-# ouch commands
-[[mgr.prepend_keymap]]
-on = ["C"]
-run = "plugin ouch"
-desc = "Compress with ouch"
-
-# search options
-[[mgr.prepend_keymap]]
-on   = "F"
-run  = 'search_do --via=fd '
-desc = "Search with fd"
-
-# drag and drop with dragon
-[[mgr.prepend_keymap]]
-on  = "<C-n>"
-run = 'shell -- dragon-drop -x -i -T "$0"'
-
-# yank file paths to clipboard
-[[mgr.prepend_keymap]]
-on  = "y"
-run = [ 'shell -- echo "$@" | xclip -i -selection clipboard -t text/uri-list', "yank" ]
+[mgr]
+prepend_keymap = [
+	# --- quick switch locations ---
+	{ on = [ "g", "o" ], run = "cd ~/OneDrive/OST", desc = "cd to ~/OneDrive/OST" },
+	{ on = [ "g", "D" ], run = "cd ~/Desktop", desc = "cd to Desktop" },
+	# ouch commands
+	{ on = ["C"], run = "plugin ouch", desc = "Compress with ouch" },
+	# search options
+	{ on = "F", run = "search_do --via=fd ", desc = "Search with fd" },
+	# drag and drop with dragon
+	{ on = "<C-n>", run = "shell -- dragon-drop --on-top --all-compact --and-exit %s", desc = "Drag and drop with dragon" },
+	# yank file paths to clipboard
+	{ on = "y", run = [ "shell -- echo \"$@\" | xclip -i -selection clipboard -t text/uri-list", "yank" ], desc = "Yank file paths to clipboard" },
+	# open shell here
+	{ on = "!", run = "shell \"$SHELL\" --block", desc = "Open $SHELL here", for = "unix" },
+    # override spacebar behavior
+    { on = "<Space>", run = "toggle", desc = "Toggle the current selection state" },
+    # interactive jump
+    { on = "<A-Space>", run = "cd --interactive", desc = "Jump interactively" },
+]
