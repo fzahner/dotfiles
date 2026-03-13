@@ -49,8 +49,8 @@ map("i", "<S-Tab>", "<C-d>")
 map("n", "dp", "<cmd>diffput 2<cr>", { noremap = true, silent = true, desc = "Diffput to no. 2 buffer" })
 map("n", "j", "gj", { noremap = true, silent = true })
 map("n", "k", "gk", { noremap = true, silent = true })
-local diag = require("scripts.diagnostics_navigation")
 
+local diag = require("scripts.diagnostics_navigation")
 map("n", "]e", diag.next_error_then_hint)
 map("n", "[e", diag.prev_error_then_hint)
 
@@ -97,6 +97,10 @@ map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+map("n", "<A-k>", "<cmd>resize +4<CR>", { desc = "Increase window height" })
+map("n", "<A-j>", "<cmd>resize -4<CR>", { desc = "Decrease window height" })
+map("n", "<A-h>", "<cmd>vertical resize -4<CR>", { desc = "Decrease window width" })
+map("n", "<A-l>", "<cmd>vertical resize +4<CR>", { desc = "Increase window width" })
 
 -- buffer navigation navigation
 map("n", "<leader>bb", ":enew<CR>", { desc = "Open new buffer" })

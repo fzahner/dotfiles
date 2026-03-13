@@ -10,4 +10,16 @@ wk.add({
 		buffer = buf,
 		desc = "Toggle follow cursor",
 	},
+	{
+		"<leader>cb",
+		"<cmd>TermExec cmd='typst compile %' name='Typst Compile'<cr>",
+		buffer = buf,
+		desc = "Build (typst compile)",
+	},
+	{
+		"<leader>cw",
+		"<cmd>TermExec cmd='typst watch %' name='Typst Compile'<cr>",
+		buffer = buf,
+		desc = "Watch (typst watch)",
+	},
 })
