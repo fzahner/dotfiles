@@ -49,7 +49,7 @@ sudo chmod +x exampleFile.sh
 
 - Productivity focused setup for school and work
 - Lightweight and performant desktop environement
-- [Everforest](https://github.com/sainnhe/everforest)/[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) based colors (green and dark) have been used throughout: In window manager, widgets, neovim, superfile file explorer, spotify, ...
+- [Everforest](https://github.com/sainnhe/everforest)/[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) based colors (green and dark) have been used throughout: In window manager, widgets, neovim, yazi file explorer, spotify, ...
 
 ### Desktop Environment
 
@@ -74,7 +74,7 @@ sudo chmod +x exampleFile.sh
   - Alacritty & Kitty configurations
   - Fish shell configuration
   - Custom `clone-term` command to open one or multiple terminals at the same directory location
-- **File Manager:** Superfile with custom vim-based keybinds and gruvbox colorscheme.
+- **File Manager:** Yazi with custom vim-based keybinds and gruvbox colorscheme.
 
 ## More Screenshots
 
