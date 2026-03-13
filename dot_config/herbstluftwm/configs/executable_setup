@@ -30,7 +30,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 # class: the second word from xprop WM_CLASS
 hc rule class="Gnome-screenshot" floating=on # float screenshot app
 hc rule class="Onboard" floating=on # float virtual keyboard app
-hc rule title="Qalculate!" floating=off # float calculator app
+hc rule title="Qalculate!" floating=on # float calculator app
 hc rule title="splash" floating=on # jetbrains splash screens
 hc rule class="Blueman-manager" floating=on # floating blueman manager
 hc rule class="Dragon-drop" floating=on floatplacement=center # floating dragon-drop

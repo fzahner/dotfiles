@@ -4,7 +4,7 @@
 		(button :class "btn_logout" :onclick "~/.config/eww/powermenu/toggle_powermenu && nohup betterlockscreen --lock blur >/dev/null 2>&1 &" "")))
 (defwidget sleep []
 	(box :class "power-button" :vexpand "false" :hexpand "false"
-		(button :class "btn_sleep" :onclick "~/.config/eww/powermenu/toggle_powermenu && nohup systemctl suspend >/dev/null 2>&1 &" "󰤄")))
+		(button :class "btn_sleep" :onclick "~/.config/eww/powermenu/toggle_powermenu  && nohup systemctl suspend >/dev/null 2>&1 && nohup betterlockscreen --lock blur &" "󰤄")))
 (defwidget reboot []
 	(box :class "power-button" :vexpand "false" :hexpand "false"
 		(button :class "btn_reboot" :onclick "~/.config/eww/powermenu/toggle_powermenu && nohup systemctl reboot >/dev/null 2>&1 &" "")))
