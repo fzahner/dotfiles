@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+# install packages based on package manager
 if command -v pacman >/dev/null; then
   sudo pacman -Sy --needed --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.arch.pacman }}{{ . }} {{ end }}
   if command -v yay >/dev/null; then

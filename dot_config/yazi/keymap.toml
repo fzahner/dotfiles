@@ -12,7 +12,7 @@ prepend_keymap = [
 	# yank file paths to clipboard
 	{ on = "y", run = [ "shell -- echo \"$@\" | xclip -i -selection clipboard -t text/uri-list", "yank" ], desc = "Yank file paths to clipboard" },
 	# open shell here
-	{ on = "!", run = "shell \"$SHELL\" --block", desc = "Open $SHELL here", for = "unix" },
+	{ on = "$", run = "shell \"$SHELL\" --block", desc = "Open $SHELL here", for = "unix" },
     # override spacebar behavior
     { on = "<Space>", run = "toggle", desc = "Toggle the current selection state" },
     # interactive jump

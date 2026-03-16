@@ -42,10 +42,19 @@ play = [
     { run = "vlc %s", orphan = true, desc = "Play with VLC" },
     { run = "mpv %s", orphan = true, desc = "Play with MPV" },
 ]
+image = [
+    { run = "feh %s", orphan = true, desc = "Open with feh" },
+    { run = "nomacs %s", orphan = true, desc = "Open with nomacs" },
+    { run = "xnviewmp %s", orphan = true, desc = "Edit with XnViewMP" },
+    { run = "gimp %s", orphan = true, desc = "Edit with GIMP" },
+]
 
 
 [open]
 prepend_rules = [
     { url = "*.xopp", use = "xournal" },
     { url = "*.pdf", use = [ "open", "xournal", "reveal" ] },
+    { url = "*.jpg", use = [ "image", "open", "reveal" ] },
+    { url = "*.jpeg", use = [ "image", "open", "reveal" ] },
+    { url = "*.png", use = [ "image", "open", "reveal" ] },
 ]
