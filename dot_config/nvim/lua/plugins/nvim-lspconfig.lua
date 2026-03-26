@@ -37,6 +37,7 @@ return {
 					"cssls",
 					"pylsp", -- requires flake8 linter installed
 					"gopls",
+					"omnisharp",
 					-- "sqls",
 
 					-- Spellchecker
@@ -72,7 +73,16 @@ return {
 					},
 				},
 			})
-
+			vim.lsp.config("omnisharp", {
+				settings = {
+					dotnet = {
+						backgroundAnalysis = {
+							analyzerDiagnosticsScope = "fullSolution",
+							compilerDiagnosticsScope = "fullSolution",
+						},
+					},
+				},
+			})
 			vim.lsp.config("ts_ls", {
 				init_options = {
 					plugins = {
