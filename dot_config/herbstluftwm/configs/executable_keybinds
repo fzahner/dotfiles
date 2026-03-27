@@ -24,6 +24,7 @@ hc keybind $Mod-r spawn ~/.config/rofi/launchers/type-1/launcher.sh
 # hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh,drun" -modes combi
 hc keybind $Mod-Shift-s spawn flameshot gui
 hc keybind $Mod-Shift-Control-s spawn flameshot launcher
+hc keybind $Mod-Shift-Control-Alt-l spawn firefox https://linkedin.com
 
 # Lockscreen
 hc keybind $Mod-b spawn betterlockscreen --lock blur
