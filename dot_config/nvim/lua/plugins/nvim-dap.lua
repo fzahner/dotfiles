@@ -25,7 +25,7 @@ return {
 				automatic_installation = {
 					exclude = {},
 				},
-				ensure_installed = { "delve" },
+				ensure_installed = { "delve", "java-debug-adapter", "java-test" },
 			},
 		},
 	},

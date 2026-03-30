@@ -7,6 +7,7 @@ return {
 			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-treesitter",
 		},
+		ft = { "go", "gomod" },
 		config = function(_, opts)
 			require("go").setup({
 				lsp_document_formatting = true,

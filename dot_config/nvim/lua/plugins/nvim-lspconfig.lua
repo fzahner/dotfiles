@@ -38,6 +38,8 @@ return {
 					"pylsp", -- requires flake8 linter installed
 					"gopls",
 					"omnisharp",
+					"jdtls",
+
 					-- "sqls",
 
 					-- Spellchecker
