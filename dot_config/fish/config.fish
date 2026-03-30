@@ -8,6 +8,8 @@ if status is-interactive
     abbr --add rm "trash"
     abbr --add k "kubectl"
     abbr --add dsa "docker stop \$(docker ps -a -q) "
+    abbr --add dda "docker rm \$(docker ps -a -q) "
+    abbr --add ddav "docker volume rm \$(docker volume ls -q) "
     abbr --add --position anywhere ... "../.."
     abbr --add --position anywhere .... "../../.."
     abbr --add --position anywhere ..... "../../../.."
