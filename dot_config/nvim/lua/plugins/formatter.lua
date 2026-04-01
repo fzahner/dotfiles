@@ -83,6 +83,15 @@ return {
 							}
 						end,
 					},
+					java = {
+						function()
+							return {
+								exe = "clang-format",
+								args = { "--assume-filename=.java" },
+								stdin = true,
+							}
+						end,
+					},
 					-- Use the special "*" filetype for defining formatter configurations on any filetype
 					["*"] = {
 						require("formatter.filetypes.any").remove_trailing_whitespace,

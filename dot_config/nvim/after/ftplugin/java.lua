@@ -1,4 +1,5 @@
 -- All code below is almost completely AI. I do not understand it. For me it works
+local wk = require("which-key")
 wk.add({
 	{ "<leader>c", group = "Java", buffer = 0 },
 	{ "<leader>ct", group = "Test", buffer = 0 },
@@ -91,14 +92,8 @@ local config = {
 		-- 2. Discover main classes (This populates dap.configurations.java)
 		-- This is the step that fixes the "No configuration found" error
 		require("jdtls.dap").setup_dap_main_class_configs()
-
-		-- 3. Load vscode-style launch.json if it exists in the project
-		require("jdtls.setup").add_configs()
 	end,
 }
-
--- 4. Keymaps (Which-Key)
-local wk = require("which-key")
 
 -- 5. Start or Attach
 jdtls.start_or_attach(config)
