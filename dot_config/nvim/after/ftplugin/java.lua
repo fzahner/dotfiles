@@ -78,7 +78,7 @@ local config = {
 		"-data",
 		workspace_dir,
 	},
-	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+	root_dir = vim.fs.root(0, { "mvnw", "gradlew", "pom.xml", "build.gradle" }),
 
 	-- This is correctly passed to the server to load the debug/test extensions
 	init_options = {
@@ -99,13 +99,13 @@ local config = {
 jdtls.start_or_attach(config)
 
 -- DAP Fallback config
-local dap = require("dap")
-dap.configurations.java = {
-	{
-		type = "java",
-		request = "launch",
-		name = "Fallback Debug (Attach) - Remote",
-		hostName = "127.0.0.1",
-		port = 5005,
-	},
-}
+-- local dap = require("dap")
+-- dap.configurations.java = {
+-- 	{
+-- 		type = "java",
+-- 		request = "launch",
+-- 		name = "Fallback Debug (Attach) - Remote",
+-- 		hostName = "127.0.0.1",
+-- 		port = 5005,
+-- 	},
+-- }

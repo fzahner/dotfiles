@@ -34,6 +34,7 @@ return {
 					css = util.withl(defaults.prettier, "css"),
 					javascript = util.copyf(defaults.prettier),
 					json = util.copyf(defaults.prettier),
+					jsonc = util.copyf(defaults.prettier),
 					markdown = util.copyf(defaults.prettier),
 					typescript = util.withl(defaults.prettier, "typescript"),
 					typescriptreact = util.withl(defaults.prettier, "typescript"),

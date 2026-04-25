@@ -7,14 +7,18 @@ if status is-interactive
     abbr --add pdfe --set-cursor "xournalpp % > /dev/null 2>&1 & && disown" # since xournalapp prints to stdout, we redirect it to keep the console clean
     abbr --add rm "trash"
     abbr --add k "kubectl"
-    abbr --add dsa "docker stop \$(docker ps -a -q) "
-    abbr --add dda "docker rm \$(docker ps -a -q) "
-    abbr --add ddav "docker volume rm \$(docker volume ls -q) "
     abbr --add --position anywhere ... "../.."
     abbr --add --position anywhere .... "../../.."
     abbr --add --position anywhere ..... "../../../.."
     abbr --add --position anywhere ...... "../../../../.."
     abbr --add pls --function sudo_last
+    abbr --add ct "clone-term"
+
+    ## Docker abbreviations
+    abbr --add dsa "docker stop \$(docker ps -a -q) "
+    abbr --add dda "docker rm \$(docker ps -a -q) "
+    abbr --add ddav "docker volume rm \$(docker volume ls -q) "
+    abbr --add dcu "docker compose up"
 end
 
 set fish_greeting ""
@@ -67,3 +71,10 @@ source ~/.config/env/env.fish
 
 # Add path variables like this:
 # set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths  # Neovim
+
+# pnpm
+set -gx PNPM_HOME "/home/fabio-arch/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
