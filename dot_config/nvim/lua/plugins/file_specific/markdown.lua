@@ -17,6 +17,12 @@ return {
 				-- Highlight for the bullet icon
 				highlight = "RenderMarkdownBullet",
 			},
+			latex = {
+				enabled = false,
+			},
+			injections = {
+				enabled = false,
+			},
 		})
 	end,
 }

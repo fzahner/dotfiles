@@ -10,7 +10,7 @@ wk.add({
 		desc = "Run without terminal",
 	},
 	{
-		"<leader>ct",
+		"<leader>cr",
 		"<cmd>TermExec cmd='python3 %' name='PythonRun'<cr>",
 		buffer = buf,
 		desc = "Run with terminal",

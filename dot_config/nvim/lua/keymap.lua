@@ -160,6 +160,17 @@ map("n", "<leader>gm", "<cmd>Telescope notifications<CR>", { desc = "telescope g
 -- File Specific
 map("n", "<leader>cf", "<cmd>Format<CR>", { desc = "Format file" })
 map("n", "<leader>cF", "<cmd>FormatWrite<CR>", { desc = "Format and Save file" })
+wk.add({
+	{ "<leader>ct", group = "NeoTest" },
+})
+map("n", "<leader>cts", "<CMD>lua require('neotest').summary.toggle()<CR>", { desc = "Toggle NeoTest summary" })
+map("n", "<leader>ctt", "<CMD>lua require('neotest').run.run()<CR>", { desc = "Run nearest test" })
+map(
+	"n",
+	"<leader>ctd",
+	"<CMD>lua require('neotest').run.run({strategy = \"dap\"})<CR>",
+	{ desc = "Run nearest test (Debug)" }
+)
 
 -- trouble
 map("n", "<leader>xd", "<cmd>Trouble diagnostics focus<cr>", { desc = "Diagnostics (Trouble)" })
