@@ -7,24 +7,76 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "agent_buffer_font_size": 7.0,
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "window_decorations": "client",
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "contained",
+  "tab_bar": {
+    "show": true
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "cursor_position_button": true,
+    "active_encoding_button": "non_utf8"
+  },
+  "buffer_line_height": {
+    "custom": 1.5
+  },
+  "agent_ui_font_size": 8.0,
+  "tabs": {
+    "git_status": true
+  },
+  "project_panel": {
+    "button": true
+  },
+  "title_bar": {
+    "show_user_menu": true,
+    "show_user_picture": true,
+    "show_branch_name": true,
+    "show_project_items": true,
+    "show_onboarding_banner": true,
+    "show_sign_in": true,
+    "show_menus": false,
+    "button_layout": "platform_default",
+    "show_branch_status_icon": true
+  },
+  "vim_mode": true,
+  "proxy": "",
+  "prettier": {
+    "allowed": true,
+  },
+  "relative_line_numbers": "enabled",
+  "which_key": {
+    "enabled": true,
+  },
   "ui_font_weight": 400.0,
   "ui_font_family": ".ZedSans",
   "base_keymap": "VSCode",
   "telemetry": {
-    "diagnostics": true,
-    "metrics": false
+    "diagnostics": false,
+    "metrics": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
-  "vim_mode": true,
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
-  "ui_font_size": 11.0,
-  "buffer_font_size": 11.0,
+  "ui_font_size": 9.0,
+  "buffer_font_size": 8.0,
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light",
