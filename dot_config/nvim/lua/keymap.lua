@@ -93,6 +93,7 @@ map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], { noremap = true, silent = true })
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], { noremap = true, silent = true })
 
 -- windows & window navigation
+map("n", "<leader>wd", "<cmd>:windo diffthis", { desc = "Diff all visible windows" })
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })

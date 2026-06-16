@@ -26,6 +26,8 @@ set zoom-min 10
 
 set incremental-search "true"
 
+# keybindings
+map D exec "zathura '$FILE'"
 # zathurarc-dark (uncomment for dark mode pdf)
 
 # set font "inconsolata 15"
