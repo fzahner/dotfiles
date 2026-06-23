@@ -1,36 +1,35 @@
 packages:
-  common:
-    - git
-    - alacritty
-    - feh
-    - firefox
-    - fish
-    - herbstluftwm
-    - npm
-    - rofi
-    - onboard
-    - flameshot
-    - unclutter
-    - playerctl
-    - nautilus
-    - brightnessctl
-    - git-delta
-    - xdotool # TODO: check for ubuntu support
-    - autorandr
-  linux:
+  # Agnostic tools that belong on every installation
+  general:
+    # Can be installed via pacman and apt
+    common:
+      - git
+      - alacritty
+      - firefox
+      - fish
+      - npm
+      - rofi
+      - playerctl
+      - nautilus
+      - brightnessctl
+      - git-delta
     arch:
+      # Can be installed via pacman but not via apt
       pacman:
-      - docker
-      - lazygit
-      - neovim
-      - xclip
-      - ttf-jetbrains-mono-nerd
-      - dunst
-      - fisher
-      - yazi
+        - docker
+        - lazygit
+        - neovim
+        - ttf-jetbrains-mono-nerd
+        - ttf-nerd-fonts-symbols
+        - ttf-iosevka-nerd
+        - ttf-google-fonts-git
+        - dunst
+        - fisher
+        - yazi
       yay:
-      - eww
-      - betterlockscreen
+        - ttf-google-fonts-git
+
+    # Applications requiring special installation on arch/debian (X11 & Herbstluftwm only)
     debian:
       apt:
         - trash-cli
@@ -45,3 +44,37 @@ packages:
         - betterlockscreen
         - fisher
         - yazi
+
+
+
+  # X11 / Herbstluftwm tools (pacman)
+  x11:
+    - herbstluftwm
+    - feh
+    - onboard
+    - flameshot
+    - unclutter
+    - xdotool
+    - autorandr
+    - xclip
+
+  # X11 / Herbstluftwm tools (yay)
+  yay_x11:
+    - betterlockscreen
+    - eww
+
+  #  Wayland / Hyprland tools (pacman)
+  wayland:
+    - hyprland
+    - wl-clipboard
+    - quickshell
+    - hypridle
+    - hyprland-plugins
+    - xdg-utils
+    - papirus-icon-theme
+  # TODO: add screenshot/screen recording
+
+  # Wayland / Hyprland tools (yay)
+  wayland_yay:
+    - hyprshade
+    - volantes_cursors

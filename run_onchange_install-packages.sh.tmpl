@@ -1,18 +1,54 @@
 #!/usr/bin/env bash
 set -e
 
-# install packages based on package manager
+# 1. Define the environment rule based on your sandbox user
+{{ $is_wayland := eq .chezmoi.username "fabio-hypr" }}
+
+# 2. Arch Linux Execution Block (EndeavourOS)
 if command -v pacman >/dev/null; then
-  sudo pacman -Sy --needed --noconfirm {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.arch.pacman }}{{ . }} {{ end }}
+
+  # Base system & Window Manager specific pacman packages
+  sudo pacman -Sy --needed --noconfirm \
+    {{ range .packages.general.common }}{{ . }} {{ end }} \
+    {{ range .packages.general.arch.pacman }}{{ . }} {{ end }} \
+    {{ if $is_wayland }} \
+      {{ range .packages.wayland }}{{ . }} {{ end }} \
+    {{ else }} \
+      {{ range .packages.x11 }}{{ . }} {{ end }} \
+    {{ end }}
+
+  # AUR specific packages via yay
   if command -v yay >/dev/null; then
-    yay -Sy --needed --noconfirm {{ range .packages.linux.arch.yay }}{{ . }} {{ end }}
+    yay -Sy --needed --noconfirm \
+      {{ range .packages.general.arch.yay }}{{ . }} {{ end }} \
+      {{ if $is_wayland }} \
+        {{ range .packages.wayland_yay }}{{ . }} {{ end }} \
+      {{ else }} \
+        {{ range .packages.yay_x11 }}{{ . }} {{ end }} \
+      {{ end }}
   fi
+
+# 3. Debian Execution Block (Linux Mint)
 elif command -v apt >/dev/null; then
   sudo apt update
-  sudo apt install -y {{ range .packages.common }}{{ . }} {{ end }}{{ range .packages.linux.debian.apt }}{{ . }} {{ end }}
+  sudo apt install -y \
+    {{ range .packages.general.common }}{{ . }} {{ end }} \
+    {{ range .packages.general.debian.apt }}{{ . }} {{ end }}
+
+  # Note: Since your 'general.debian.manual' list requires custom scripts
+  # or curl commands, you can loop through them or handle them downstream.
 fi
 
+# --- Global Post-Installation Tasks ---
+chsh -s /usr/bin/fish       # Set fish as default shell
 
-chsh -s /usr/bin/fish       # set fish as default shell
-playerctld daemon       # start playerctl
-betterlockscreen -u ~/.config/herbstluftwm/wallpaper/mountain.jpg # render lockscreen image
+if command -v playerctld >/dev/null; then
+  playerctld daemon         # Start playerctl daemon if present
+fi
+
+# --- X11 Specific Post-Installation Tasks ---
+{{ if not $is_wayland }}
+if command -v betterlockscreen >/dev/null; then
+  betterlockscreen -u ~/.config/herbstluftwm/wallpaper/mountain.jpg
+fi
+{{ end }}
