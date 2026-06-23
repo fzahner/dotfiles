@@ -142,8 +142,8 @@ hl.config({
 		},
 	},
 	input = {
-		kb_layout = "de",
-		kb_variant = "",
+        kb_layout = "ch", 
+        kb_model = "pc104",
 		follow_mouse = 1,
 		sensitivity = 0.35,
 		repeat_rate = 50,
