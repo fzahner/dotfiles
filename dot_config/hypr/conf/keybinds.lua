@@ -1,5 +1,7 @@
 local mod = "SUPER"
 local alt = "ALT"
+local home = "/home/fabio-hypr/"
+local scripts = home .. "/.config/hypr/scripts"
 -- =========================================================================
 -- Gestures
 -- =========================================================================
