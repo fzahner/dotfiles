@@ -22,7 +22,6 @@ packages:
         - ttf-jetbrains-mono-nerd
         - ttf-nerd-fonts-symbols
         - ttf-iosevka-nerd
-        - ttf-google-fonts-git
         - dunst
         - fisher
         - yazi
@@ -69,7 +68,6 @@ packages:
     - wl-clipboard
     - quickshell
     - hypridle
-    - hyprland-plugins
     - xdg-utils
     - papirus-icon-theme
   # TODO: add screenshot/screen recording
