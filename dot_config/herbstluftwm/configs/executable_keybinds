@@ -13,6 +13,7 @@ Mod=Mod4   # Use the super key as the main modifier
 
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-x close
+hc keybind $Mod-Shift-q quit
 
 # Launch apps
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
