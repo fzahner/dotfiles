@@ -3,9 +3,7 @@
 -- =========================================================================
 hl.window_rule({
 	match = { class = "^kitty$" },
-	float = true,
-	size = "700 400",
-	center = true,
+	float = false,
 	rounding = 8,
 	opacity = "0.9 0.9",
 })

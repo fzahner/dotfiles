@@ -16,17 +16,17 @@ hl.gesture({ fingers = 3, direction = "vertical", action = "fullscreen" })
 hl.bind(mod .. " + SPACE", hl.dsp.global("quickshell:hubToggle"))
 
 -- Apps
-hl.bind(mod .. " + Q", hl.dsp.exec_cmd("kitty"))
+hl.bind(mod .. " + T", hl.dsp.exec_cmd("kitty"))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd(home .. "/.config/rofi/rofi_wide.sh"))
-hl.bind(mod .. " + B", hl.dsp.exec_cmd("firefox"))
+hl.bind(mod .. " + W", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mod .. " + S", hl.dsp.exec_cmd("lens --no-decorations --sniper"))
 
 -- Window Actions
 hl.bind(mod .. " + X", hl.dsp.window.close())
 hl.bind(mod .. " + F", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mod .. " + " .. alt .. " + F", function()
+hl.bind(mod .. " + " .. alt .. " + F", function() -- Window float and center
 	hl.dispatch(hl.dsp.window.float({ action = "set" }))
 	hl.dispatch(hl.dsp.window.resize({ x = 900, y = 600 }))
 	hl.dispatch(hl.dsp.window.center())
@@ -39,31 +39,20 @@ hl.bind(mod .. " + DOWN", hl.dsp.layout("togglesplit"))
 hl.bind(mod .. " + UP", hl.dsp.layout("togglesplit"))
 hl.bind(mod .. " + G", hl.dsp.group.toggle())
 
-hl.bind(mod .. " + L", function()
-	hl.dispatch(hl.dsp.window.float({ action = "set" }))
-	hl.dispatch(hl.dsp.window.resize_pixel({ exact = true, x = 1440, y = 1080 }))
-end)
-
-hl.bind(mod .. " + CTRL + left", function()
-	hl.dispatch(hl.dsp.group.change_active({ direction = "next" }))
-end)
-hl.bind(mod .. " + CTRL + right", function()
-	hl.dispatch(hl.dsp.group.change_active({ direction = "prev" }))
-end)
-
 hl.bind(mod .. " + " .. alt .. " + F4", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(alt .. " + F4", hl.dsp.exec_cmd("quickshell -p ~/.config/quickshell/task-bar/utils/PowerMenu.qml"))
 
-hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mod .. " + SHIFT + up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. " + SHIFT + down", hl.dsp.focus({ direction = "down" }))
+-- Focus (Vim)
+hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
 
-hl.bind(mod .. " + H", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
-
-hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+-- Move windows (vim)
+hl.bind(mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(scripts .. "/brightnesscontrol.sh d"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(scripts .. "/brightnesscontrol.sh i"))
@@ -71,11 +60,6 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scripts .. "/audiocontrol.sh i")
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(scripts .. "/audiocontrol.sh d"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(scripts .. "/audiocontrol.sh m"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(scripts .. "/mediacontrol.sh"))
-
-hl.bind("Print", hl.dsp.exec_cmd(scripts .. "/screenshot.sh s"))
-hl.bind(mod .. " + Print", hl.dsp.exec_cmd(scripts .. "/screenshot.sh p"))
-hl.bind(mod .. " + SHIFT + Print", hl.dsp.exec_cmd(scripts .. "/screenshot.sh sf"))
-hl.bind(mod .. " + O", hl.dsp.exec_cmd(scripts .. "/screenshot.sh m"))
 
 -- =========================================================================
 -- Workspace Binds
@@ -86,6 +70,12 @@ for i = 1, 9 do
 end
 hl.bind(mod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
+
+hl.bind(mod .. " + PERIOD", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mod .. " + COMMA", hl.dsp.focus({ workspace = "-1" }))
+
+hl.bind(mod .. " + SHIFT + PERIOD", hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mod .. " + SHIFT + COMMA", hl.dsp.window.move({ workspace = "-1" }))
 
 -- =========================================================================
 -- Mouse Binds

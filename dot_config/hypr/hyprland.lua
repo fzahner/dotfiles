@@ -44,32 +44,19 @@ local scripts = home .. "/.config/hypr/scripts"
 -- =========================================================================
 -- Autostart
 -- =========================================================================
--- hl.on("hyprland.start", function()
--- 	hl.exec_cmd("sleep 1 && mpv --no-video --volume=100 " .. home .. "/.config/hypr/sounds/startup.wav")
--- 	shader.toggle("Main")
--- 	hl.exec_cmd("dunst")
--- 	hl.exec_cmd("blueman-applet")
--- 	hl.exec_cmd("vdirsyncer sync")
--- 	hl.exec_cmd("qs -c task-bar")
--- 	hl.exec_cmd("hyprpaper -c " .. home .. "/.config/hypr/hyprpaper.conf")
--- 	hl.exec_cmd("hypridle")
--- 	hl.exec_cmd("awww-daemon")
--- 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
--- 	hl.exec_cmd("hyprctl plugin load " .. home .. "/hyprselect/hyprselect.so")
--- 	hl.exec_cmd("awww img -o eDP-1 " .. home .. "/Pictures/desktop/wpdark.jpg")
--- 	hl.exec_cmd("awww img -o DP-2 " .. home .. "/Pictures/desktop/2.png")
--- end)
-
--- =========================================================================
--- Workspace Rules
--- =========================================================================
--- for i = 1, 5 do
--- 	hl.workspace_rule({ workspace = tostring(i), monitor = "eDP-1" })
--- end
--- for i = 6, 10 do
--- 	hl.workspace_rule({ workspace = tostring(i), monitor = "DP-2" })
--- end
-
+hl.on("hyprland.start", function()
+	-- 	hl.exec_cmd("sleep 1 && mpv --no-video --volume=100 " .. home .. "/.config/hypr/sounds/startup.wav")
+	-- 	shader.toggle("Main")
+	hl.exec_cmd("dunst")
+	hl.exec_cmd("blueman-applet")
+	hl.exec_cmd("qs -c task-bar")
+	hl.exec_cmd("hyprpaper -c " .. home .. "/.config/hypr/hyprpaper.conf")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+	-- hl.exec_cmd("awww img -o eDP-1 " .. home .. "/Pictures/desktop/wpdark.jpg")
+	-- hl.exec_cmd("awww img -o DP-2 " .. home .. "/Pictures/desktop/2.png")
+end)
 
 -- =========================================================================
 -- Core Config
@@ -142,8 +129,8 @@ hl.config({
 		},
 	},
 	input = {
-        kb_layout = "ch", 
-        kb_model = "pc104",
+		kb_layout = "ch",
+		kb_model = "pc104",
 		follow_mouse = 1,
 		sensitivity = 0.35,
 		repeat_rate = 50,
