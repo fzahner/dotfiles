@@ -22,6 +22,7 @@ packages:
         - ttf-jetbrains-mono-nerd
         - ttf-nerd-fonts-symbols
         - ttf-iosevka-nerd
+        - flameshot
         - dunst
         - fisher
         - yazi
@@ -51,7 +52,6 @@ packages:
     - herbstluftwm
     - feh
     - onboard
-    - flameshot
     - unclutter
     - xdotool
     - autorandr
@@ -71,7 +71,7 @@ packages:
     - hyprlock
     - xdg-utils
     - papirus-icon-theme
-  # TODO: add screenshot/screen recording
+    - xdg-desktop-portal-hyprland
 
   # Wayland / Hyprland tools (yay)
   wayland_yay:
