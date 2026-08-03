@@ -57,6 +57,24 @@ hl.window_rule({
 	border_color = "rgb(87b158)",
 })
 hl.window_rule({ match = { class = "^xdg-desktop-portal-gtk$" }, float = true, center = true, size = "700 400" })
+-- Flameshot window rules
+hl.window_rule({
+	match = { class = "flameshot" },
+	no_anim = true,
+	pin = true,
+	float = true,
+	decorate = false,
+	no_blur = true,
+	no_shadow = true,
+})
+hl.window_rule({
+	match = { class = "flameshot", title = "flameshot" },
+	move = { 0, 0 },
+})
+hl.window_rule({
+	match = { class = "flameshot", title = "flameshot-pin" },
+	move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
+})
 
 local portals = {
 	"^(xdg-desktop-portal-gtk|xdg-desktop-portal-kde|xdg-desktop-portal-hyprland|org.freedesktop.impl.portal.desktop.gtk|org.freedesktop.impl.portal.desktop.kde)$",

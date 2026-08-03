@@ -36,7 +36,8 @@ local scripts = home .. "/.config/hypr/scripts"
 -- hl.env("GDK_SCALE", "2")
 -- hl.env("GDK_BACKEND", "wayland,x11,*")
 -- hl.env("CLUTTER_BACKEND", "wayland")
--- hl.env("TERMINAL", "kitty")
+hl.env("TERMINAL", "kitty")
+hl.env("EDITOR", "nvim")
 -- hl.env("QT_QPA_PLATFORMTHEME", "kde")
 -- hl.env("QT_STYLE_OVERRIDE", "kvantum")
 -- hl.env("QT_QPA_PLATFORM", "wayland;xcb")
@@ -54,8 +55,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-	-- hl.exec_cmd("awww img -o eDP-1 " .. home .. "/Pictures/desktop/wpdark.jpg")
-	-- hl.exec_cmd("awww img -o DP-2 " .. home .. "/Pictures/desktop/2.png")
 end)
 
 -- =========================================================================

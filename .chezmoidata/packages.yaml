@@ -4,6 +4,7 @@ packages:
       - git
       - alacritty
       - firefox
+      - kitty
       - fish
       - npm
       - rofi
@@ -22,13 +23,16 @@ packages:
       - fisher
       - yazi
       - hyprland
+      - hyprpaper
       - wl-clipboard
+      - qt6-5compat
       - quickshell
       - hypridle
       - hyprlock
       - xdg-utils
       - papirus-icon-theme
       - xdg-desktop-portal-hyprland
+      - pamixer
     yay:
       - ttf-google-fonts-git
       - hyprshade

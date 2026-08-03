@@ -22,6 +22,11 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd(home .. "/.config/rofi/rofi_wide.sh"))
 hl.bind(mod .. " + W", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind("Print", function()
+	local mon = hl.get_active_monitor()
+	local n = mon and mon.id or 0
+	hl.exec_cmd("flameshot screen --number " .. n .. " --edit")
+end)
 
 -- Window Actions
 hl.bind(mod .. " + X", hl.dsp.window.close())
