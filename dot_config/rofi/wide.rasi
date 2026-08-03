@@ -1,5 +1,5 @@
 /**
- * Rofi - DARK 
+ * Rofi - DARK
  * by @snes19xx
  **/
 
@@ -12,7 +12,7 @@ configuration {
     display-filebrowser:        "  Files";
     display-window:             "  Windows";
     display-shaders:            "󰓠  Shaders";
-    
+
     drun-display-format:        "{name}";
     window-format:              "{c}";
     icon-theme:                 "Papirus-Dark";
@@ -45,15 +45,15 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "JetBrains Mono Nerd Font 10";
-    
-    background:                  #141719; 
+
+    background:                  #141719;
     background-alt:              #1E2428;
     foreground:                  #E3DED1;
     selected:                    #7898679d;
     active:                      #2E3F34;
     urgent:                      #D08261;
-    
-    tile-bg:                     #1e23269e; 
+
+    tile-bg:                     #1e23269e;
     divider:                     #7c797430;
 }
 
@@ -63,10 +63,10 @@ window {
     location:                    southwest;
     anchor:                      southwest;
     fullscreen:                  false;
-    
+
     width:                       950px;
     height:                      500px;
-    
+
     x-offset:                    4px;
     y-offset:                    -10px;
 
@@ -94,7 +94,7 @@ sidebar-box {
     expand:                      false;
     orientation:                 vertical;
     children:                    [ "inputbar", "mode-switcher", "sidebar-spacer", "user-profile" ];
-    
+
     background-color:            @background;
     /* UNCOMMENT THE LINE BELOW IF YOU WANT TO USE AN IMAGE: */
     /* background-image: url("crop2.png", height); */
@@ -107,7 +107,7 @@ inputbar {
     enabled:                     true;
     spacing:                     0px;
     padding:                     2px;
-    background-color:            #1E2326D0; 
+    background-color:            #1E2326D0;
     border-radius:               8px;
     text-color:                  @foreground;
     orientation:                 horizontal;
@@ -126,7 +126,7 @@ textbox-prompt-colon {
 
 entry {
     enabled:                     true;
-    expand:                      true; 
+    expand:                      true;
     padding:                     12px 0px;
     background-color:            transparent;
     text-color:                  inherit;
@@ -142,7 +142,7 @@ mode-switcher{
     spacing:                     15px;
     background-color:            transparent;
     text-color:                  @foreground;
-    orientation:                 vertical; 
+    orientation:                 vertical;
 }
 
 button {
@@ -175,19 +175,19 @@ user-profile {
     children: [ "user-icon", "textbox-user" ];
 }
 
-user-icon { 
-    expand: false; 
-    width: 48px; 
-    height: 48px; 
-    border-radius: 100%; 
-    background-image: url("/home/snes/.config/rofi/profile.jpg",height); 
-    background-color: transparent; 
+user-icon {
+    expand: false;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-image: url("/home/snes/.config/rofi/profile.jpg",height);
+    background-color: transparent;
     padding: 24px;
     }
 
 
 textbox-user {
-    str: "snes";
+    str: "Fabio";
     expand: false;
     background-color: transparent;
     text-color: @foreground;
@@ -211,8 +211,8 @@ listbox {
 
 listview {
     enabled:                     true;
-    columns:                     4; 
-    lines:                       4; 
+    columns:                     4;
+    lines:                       4;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -232,10 +232,10 @@ element {
     spacing:                     10px;
     padding:                     15px 10px;
     border-radius:               8px;
-    background-color:            @tile-bg; 
+    background-color:            @tile-bg;
     text-color:                  @foreground;
     cursor:                      pointer;
-    orientation:                 vertical; 
+    orientation:                 vertical;
 }
 
 element normal.normal {
@@ -252,7 +252,7 @@ element normal.urgent {
 }
 
 element selected.normal {
-    background-color:            @selected; 
+    background-color:            @selected;
     border:                      1px;
     border-color:                @selected;
     text-color:                  @foreground;

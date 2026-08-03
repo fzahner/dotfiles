@@ -5,3 +5,4 @@ Todo for hyprland transition:
 - User profile on users file
 - Symlink desktop, downloads and documents
 - screenshots
+- notification windows

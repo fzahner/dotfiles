@@ -11,7 +11,7 @@ PanelWindow {
     color: "transparent"
     anchors { top: true; bottom: true; left: true; right: true }
 
-        // Hides window borders when the hub is open 
+        // Hides window borders when the hub is open
         function setBordersHidden(hidden) {
             Quickshell.execDetached(["hyprctl", "keyword", "general:border_size", hidden ? "0" : "1"])
         }
@@ -27,11 +27,11 @@ PanelWindow {
 
             if (visible) {
                 root.forceActiveFocus()
-                
+
                 // Instantly move panel off-screen before first render
                 panelTranslate.y = panel.height
                 panel.opacity = 0
-                
+
                 // Start sliding UP
                 enterAnim.start()
             } else {
@@ -40,7 +40,7 @@ PanelWindow {
                 if (header) header.expanded = false
             }
         }
-    
+
     property int barStrip: 2
     property bool isDarkMode: theme.isDarkMode
     readonly property string _themeModePath: Quickshell.env("HOME") + "/.cache/quickshell/theme_mode"
@@ -68,7 +68,7 @@ PanelWindow {
     Lib.ThemeEngine {
         id: theme
     }
-    
+
 // ---------------------------------------------------------------------------------------------------------------------------
     margins { top: barStrip }
     aboveWindows: true
@@ -146,7 +146,7 @@ PanelWindow {
                     property: "y"
                     from: panel.height; to: 0
                     duration: 300
-                    easing.type: Easing.OutCubic 
+                    easing.type: Easing.OutCubic
                 }
                 NumberAnimation {
                     target: panel
@@ -212,7 +212,7 @@ PanelWindow {
                         executeAction(act)
                     }
                 }
-            
+
             // MEDIA CARD
                 MediaCard {
                     id: media
@@ -224,14 +224,14 @@ PanelWindow {
             // CALENDAR | BUTTONS
                 RowLayout {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 250 
+                    Layout.preferredHeight: 250
                     spacing: theme.gapCard
 
                     CalendarWeatherCard {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.preferredWidth: 1
-                        
+
                         active: win.visible
                         theme: theme
                         onCloseRequested: closeAll()
@@ -243,7 +243,7 @@ PanelWindow {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.preferredWidth: 1
-                        
+
                         active: win.visible
                         theme: theme
                         onCloseRequested: closeAll()
@@ -261,7 +261,7 @@ PanelWindow {
                     onActiveChanged: if (!active && !win.visible) win.batteryCardActive = false
                     radius: 10
                 }
-            
+
             // EVENTS FROM VDIR
                 Events {
                     id: eventsCard
