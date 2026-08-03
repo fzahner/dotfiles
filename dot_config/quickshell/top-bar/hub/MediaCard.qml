@@ -102,7 +102,7 @@ Rectangle {
     property bool active: root.hasPlayer && (root.isPlaying || root.recentlyPaused)
 
     // =========================
-    // Metadata 
+    // Metadata
     // =========================
     property string title: "Not Playing"
     property string artist: "System Audio"
@@ -117,7 +117,7 @@ Rectangle {
         running: false
         onRunningChanged: {
             if (!running) {
-                // Cache 
+                // Cache
                 root.artUrl = "file:///tmp/now_playing_firefox.png?t=" + Date.now()
             }
         }
@@ -193,7 +193,7 @@ Rectangle {
     }
 
     // =========================
-    // Time tracking 
+    // Time tracking
     // =========================
     property real lenSec: 0
     property real displayPos: 0
@@ -406,7 +406,7 @@ Rectangle {
     function fmtLen() { return (root.lenSec > 0.5) ? root.fmt(root.lenSec) : "--:--" }
 
     // =========================
-    // Palette sampling 
+    // Palette sampling
     // =========================
     property color accentColor: Qt.rgba(0.85, 0.85, 0.85, 1)
     property color titleColor: Qt.rgba(1, 1, 1, 0.95)
@@ -469,7 +469,7 @@ Rectangle {
     }
 
     // =========================
-    // Blurred Background 
+    // Blurred Background
     // =========================
     Item {
         anchors.fill: parent
@@ -503,7 +503,7 @@ Rectangle {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
         onClicked: {
-            Quickshell.execDetached(["bash", "-lc", "/home/snes/.config/quickshell/top-bar/now_playing/now_playing"])
+            Quickshell.execDetached(["bash", "-lc", "$HOME/.config/quickshell/top-bar/now_playing/now_playing"])
             root.closeRequested()
         }
     }
@@ -600,7 +600,7 @@ Rectangle {
                     // Control the width (smaller = wider)
                     Layout.leftMargin: -10
                     Layout.rightMargin: -10
-                    
+
                     Layout.preferredHeight: 10
                     value: (root.lenSec > 0.5) ? (root.displayPos / root.lenSec) : 0
 

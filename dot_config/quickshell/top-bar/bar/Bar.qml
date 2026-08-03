@@ -19,7 +19,7 @@ PanelWindow {
     height: 40
     color: "transparent"
 
-    // 1. GLOBAL STATE 
+    // 1. GLOBAL STATE
     // Theme mode: default is always dark, false will activate light mode
     property bool isDarkMode: true
     readonly property string _themeModePath: Quickshell.env("HOME") + "/.cache/quickshell/theme_mode"
@@ -47,7 +47,7 @@ PanelWindow {
     function sh(cmd) { return ["bash", "-c", cmd] }
     function det(cmd) { Quickshell.execDetached(sh(cmd)) }
 
-    // get active workspace ID 
+    // get active workspace ID
     property int activeWsId: Hyprland.focusedMonitor?.activeWorkspace?.id ?? 1
 
     // 2. THEME
@@ -304,7 +304,7 @@ PanelWindow {
                 scale: launchPress.pressed ? 0.94 : 1.0
                 Behavior on scale { NumberAnimation { duration: 220; easing.type: Easing.OutBack; easing.overshoot: 1.08 } }
                 HoverHandler { id: hoverLaunch }
-                
+
                 Rectangle {
                     anchors.fill: parent
                     radius: height / 2
@@ -322,7 +322,7 @@ PanelWindow {
                         return win.isDarkMode ? "#89b4fa" : "#1e66f5"
                     }
 
-                    Image { 
+                    Image {
                         id: lImg
                         source: "../lib/arch.svg"
                         visible: false
@@ -355,7 +355,7 @@ PanelWindow {
                         if (mouse.button === Qt.LeftButton) win.det("pkill -x rofi || " + (win.isDarkMode ? "~/.config/rofi/launcher.sh" : "~/.config/rofi/launcher_2.sh"))
                         else if (mouse.button === Qt.RightButton) {
                             win.isDarkMode = !win.isDarkMode
-                            win.det("bash /home/snes/.config/quickshell/top-bar/bar/theme-mode.sh " + (win.isDarkMode ? "dark" : "light"))
+                            win.det("bash ~/.config/quickshell/top-bar/bar/theme-mode.sh " + (win.isDarkMode ? "dark" : "light"))
                         }
                     }
                 }
@@ -540,7 +540,7 @@ PanelWindow {
             }
 //------------------------------------------------- CENTER -----------------------------------------------------
 
-            // 9. MEDIA & TITLE 
+            // 9. MEDIA & TITLE
             Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 36
@@ -708,13 +708,13 @@ PanelWindow {
                 id: clockContainer
                 Layout.preferredHeight: 34
                 Layout.preferredWidth: clockRow.implicitWidth + 30
-                
+
                 scale: clockArea.pressed ? 0.98 : (clockArea.containsMouse ? 1.02 : 1.0)
                 y: clockArea.pressed ? 1 : 0
                 Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack; easing.overshoot: 1.05 } }
                 Behavior on y { NumberAnimation { duration: 140; easing.type: Easing.OutCubic } }
 
-                // MASKED BACKGROUND LAYER 
+                // MASKED BACKGROUND LAYER
                 Item {
                     anchors.fill: parent
                     layer.enabled: true
@@ -725,7 +725,7 @@ PanelWindow {
                         color: palette.bg
                     }
 
-                    // Shimmer 
+                    // Shimmer
                     Rectangle {
                         id: clockShimmer
                         width: 44; height: parent.height * 2; rotation: 20
@@ -737,7 +737,7 @@ PanelWindow {
                             GradientStop { position: 1.0; color: "transparent" }
                         }
                     }
-                    
+
                     Rectangle {
                         anchors.fill: parent
                         color: win.isDarkMode ? "#ffffff" : "#000000"
@@ -769,7 +769,7 @@ PanelWindow {
                 }
 
                 NumberAnimation { id: clockShimmerAnim; target: clockShimmer; property: "x"; from: -60; to: clockContainer.width + 60; duration: 800; easing.type: Easing.InOutQuad }
-                
+
                 MouseArea {
                     id: clockArea
                     anchors.fill: parent; hoverEnabled: true

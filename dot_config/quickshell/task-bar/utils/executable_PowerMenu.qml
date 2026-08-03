@@ -24,12 +24,12 @@ PanelWindow {
 
     // Theme + Images
     property bool isDarkMode: true
-    property url imgDark: Qt.resolvedUrl("dark.png")   
+    property url imgDark: Qt.resolvedUrl("dark.png")
     property url imgLight: Qt.resolvedUrl("light.png")
 
     Process {
         id: themeCheck
-        command: ["cat", "/home/snes/.cache/quickshell/theme_mode"]
+        command: ["cat", "~/.cache/quickshell/theme_mode"]
         running: true
         stdout: StdioCollector {
             onTextChanged: {
@@ -89,11 +89,11 @@ PanelWindow {
         id: root
         width: 400
         height: 300
-        
+
         // To prevent fractional blur
         x: Math.round((parent.width - width) / 2)
         y: Math.round(((parent.height - height) / 2) + ((1 - Math.min(1, intro)) * 60))
-        
+
         focus: true
 
         // Entry animation progress
@@ -159,7 +159,7 @@ PanelWindow {
         }
 
         property int currentIndex: 0
-        property int confirmIndex: 1 
+        property int confirmIndex: 1
         property string pendingCmd: ""
         property string pendingLabel: ""
 
@@ -299,7 +299,7 @@ PanelWindow {
         // Middle Layer: Content
         Item {
             anchors.fill: parent
-            z: 1 
+            z: 1
 
             // Prevent click-through
             MouseArea {

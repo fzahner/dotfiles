@@ -55,7 +55,7 @@ Item {
     id: snapTimer
     interval: 320
     repeat: false
-    onTriggered: Quickshell.execDetached(["bash", "-c", "/home/snes/.config/hypr/screenshots/captureArea.sh"])
+    onTriggered: Quickshell.execDetached(["bash", "-c", "~/.config/hypr/screenshots/captureArea.sh"])
   }
 
   ColumnLayout {

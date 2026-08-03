@@ -45,8 +45,8 @@ Lib.Card {
   }
 
   // --- BLUETOOTH ---
-  property bool _optBt: false       
-  property bool _toggling: false    
+  property bool _optBt: false
+  property bool _toggling: false
   Timer { id: optTimer; interval: 3500; onTriggered: root._toggling = false }
 
   // BT ON
@@ -55,7 +55,7 @@ Lib.Card {
     running: root.active && root.visible; interval: 3000
     command: sh("rfkill list bluetooth")
     parse: function(o) { return String(o).includes("Soft blocked: no") }
-    onUpdated: if (!root._toggling) root._optBt = value 
+    onUpdated: if (!root._toggling) root._optBt = value
   }
 
   // BT Device ID
@@ -67,17 +67,17 @@ Lib.Card {
       var d = String(o).trim();
       if (d.length > 0) return d.length > 9 ? d.slice(0, 9) : d
       // Fallback: Use the strict btOn value.
-      return btOn.value ? "On" : "Off" 
+      return btOn.value ? "On" : "Off"
     }
   }
-  
+
   // BT on/off
-  function toggleBt() { 
+  function toggleBt() {
       root._toggling = true;
       root._optBt = !btOn.value;
       optTimer.restart();
       // 'rfkill unblock' forces the kernel to wake it up.
-      det("rfkill " + (root._optBt ? "unblock" : "block") + " bluetooth") 
+      det("rfkill " + (root._optBt ? "unblock" : "block") + " bluetooth")
   }
 
   // --- VOLUME / BRIGHTNESS ---

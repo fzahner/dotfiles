@@ -50,7 +50,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("dunst")
 	hl.exec_cmd("blueman-applet")
 	hl.exec_cmd("qs -c top-bar")
-	hl.exec_cmd("hyprpaper -c " .. home .. "/.config/hypr/hyprpaper.conf")
+	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("awww-daemon")
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
@@ -132,10 +132,12 @@ hl.config({
 		kb_layout = "ch",
 		kb_model = "pc104",
 		follow_mouse = 1,
-		sensitivity = 0.35,
+		sensitivity = 0.3,
+		accel_profile = "flat",
 		repeat_rate = 50,
 		repeat_delay = 500,
 		touchpad = {
+			scroll_factor = 0.3,
 			natural_scroll = true,
 			disable_while_typing = true,
 		},

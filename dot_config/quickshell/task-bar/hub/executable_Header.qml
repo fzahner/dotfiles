@@ -24,7 +24,7 @@ Item {
   readonly property color _subtleFill: theme.subtleFill
   readonly property color _subtleFillHover: theme.subtleFillHover
   readonly property color _accentRed: theme.accentRed
-  
+
   property real powerContainerHeight: 0
 
   implicitHeight: 52 + powerContainerHeight
@@ -46,7 +46,7 @@ Item {
     if (!expanded) {
         powerContainerHeight = 0
     } else {
-        powerContainerHeight = 240  
+        powerContainerHeight = 240
     }
   }
 
@@ -54,7 +54,7 @@ Item {
     id: snapTimer
     interval: 320
     repeat: false
-    onTriggered: Quickshell.execDetached(["bash", "-c", "/home/snes/.config/hypr/screenshots/captureArea.sh"])
+    onTriggered: Quickshell.execDetached(["bash", "-c", "~/.config/hypr/screenshots/captureArea.sh"])
   }
 
   ColumnLayout {
@@ -119,27 +119,27 @@ Item {
                     color: themeTap.pressed ? root._subtleFillHover
                           : (themeHover.hovered ? root._subtleFillHover : root._subtleFill)
                     border.width: 1; border.color: root._outline
-                    
+
                     scale: themeTap.pressed ? 0.95 : 1.0
                     Behavior on scale { NumberAnimation { duration: 90; easing.type: Easing.OutCubic } }
                     Behavior on color { ColorAnimation { duration: 150 } }
 
-                    Text { 
+                    Text {
                         anchors.centerIn: parent
                         text: root._isDark ? "󰛨" : "󰽥"
                         font.family: theme.iconFont
                         font.pixelSize: 20
-                        color: root._textPrimary 
-                        topPadding: 1 
+                        color: root._textPrimary
+                        topPadding: 1
                     }
-                    
+
                     HoverHandler { id: themeHover; cursorShape: Qt.PointingHandCursor }
-                    TapHandler { 
+                    TapHandler {
                         id: themeTap
-                        onTapped: { 
+                        onTapped: {
                            root.theme.toggle()
-                           
-                        } 
+
+                        }
                     }
                 }
 
@@ -153,14 +153,14 @@ Item {
                     scale: snapTap.pressed ? 0.95 : 1.0
                     Behavior on scale { NumberAnimation { duration: 90; easing.type: Easing.OutCubic } }
                     Behavior on color { ColorAnimation { duration: 150 } }
-                    
-                    Text { 
+
+                    Text {
                         anchors.centerIn: parent
                         text: ""
                         font.family: theme.iconFont
                         font.pixelSize: 16
                         color: root._textPrimary
-                        topPadding: 1 
+                        topPadding: 1
                     }
                     HoverHandler { id: snapHover; cursorShape: Qt.PointingHandCursor }
                     TapHandler { id: snapTap; onTapped: { root.closeRequested(); snapTimer.restart() } }
@@ -181,14 +181,14 @@ Item {
                     Text {
                       anchors.centerIn: parent
                       topPadding: 1
-                      rightPadding: -1 
-                      
+                      rightPadding: -1
+
                       text: root.expanded ? "" : ""
                       font.family: theme.iconFont
-                      font.pixelSize: 12       
+                      font.pixelSize: 12
                       color: (pwrHover.hovered || root.expanded || pwrTap.pressed)
-                      ? (root._isDark ? "#e5e6c5" : "#e1e4bd")  
-                      : root._accentRed       
+                      ? (root._isDark ? "#e5e6c5" : "#e1e4bd")
+                      : root._accentRed
                     }
 
                     HoverHandler { id: pwrHover; cursorShape: Qt.PointingHandCursor }
@@ -218,7 +218,7 @@ Item {
 
               sourceComponent: Component {
                   PowerMenuGrid {
-                      theme: root.theme 
+                      theme: root.theme
                       onCloseRequested: root._closePowerMenu()
                       onActionRequested: function(act, lbl) { root.powerAction(act, lbl) }
                   }

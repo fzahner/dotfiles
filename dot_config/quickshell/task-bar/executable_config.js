@@ -1,7 +1,7 @@
 .pragma library
 
 // hardcoding just for now.
-var PROFILE_IMG = "/home/snes/.config/quickshell/task-bar/profile.jpg"
+var PROFILE_IMG = "~/.config/quickshell/task-bar/profile.jpg"
 var PROFILE_NAME = "Fabio"
 
 var TOP_GAP = 50

@@ -180,7 +180,7 @@ user-icon {
     width: 48px;
     height: 48px;
     border-radius: 100%;
-    background-image: url("/home/snes/.config/rofi/profile.jpg",height);
+    background-image: url("~/.config/rofi/profile.jpg",height);
     background-color: transparent;
     padding: 24px;
     }
