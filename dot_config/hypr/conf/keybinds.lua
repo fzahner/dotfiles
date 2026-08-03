@@ -14,6 +14,7 @@ hl.gesture({ fingers = 3, direction = "vertical", action = "fullscreen" })
 
 -- Hub & Modes
 hl.bind(mod .. " + SPACE", hl.dsp.global("quickshell:hubToggle"))
+hl.bind(mod .. " + B", hl.dsp.exec_cmd("hyprlock"))
 
 -- Apps
 hl.bind(mod .. " + T", hl.dsp.exec_cmd("kitty"))
@@ -21,7 +22,6 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd("thunar"))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd(home .. "/.config/rofi/rofi_wide.sh"))
 hl.bind(mod .. " + W", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
-hl.bind(mod .. " + S", hl.dsp.exec_cmd("lens --no-decorations --sniper"))
 
 -- Window Actions
 hl.bind(mod .. " + X", hl.dsp.window.close())

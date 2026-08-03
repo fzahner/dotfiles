@@ -2,7 +2,7 @@
 
 // hardcoding just for now.
 var PROFILE_IMG = "/home/snes/.config/quickshell/task-bar/profile.jpg"
-var PROFILE_NAME = "snes"
+var PROFILE_NAME = "Fabio"
 
 var TOP_GAP = 50
 var RIGHT_GAP = 10

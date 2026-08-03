@@ -68,6 +68,7 @@ packages:
     - wl-clipboard
     - quickshell
     - hypridle
+    - hyprlock
     - xdg-utils
     - papirus-icon-theme
   # TODO: add screenshot/screen recording

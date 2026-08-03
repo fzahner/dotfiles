@@ -12,7 +12,7 @@ configuration {
     display-filebrowser:        "  Files";
     display-window:             "  Windows";
     display-shaders:            "󰓠  Shaders";
-    
+
     drun-display-format:        "{name}";
     window-format:              "{c}";
     icon-theme:                 "/home/snes/.config/rofi/icons/light";
@@ -45,16 +45,16 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "JetBrains Mono Nerd Font 10";
-    
-    background:                  #F0ECE6;   
+
+    background:                  #F0ECE6;
     background-alt:              #E3DED6;
-    foreground:                  #182025;    
-    selected:                    #6B8B9E;    
-    active:                      #3A5248;   
-    urgent:                      #D08770;    
-    
+    foreground:                  #182025;
+    selected:                    #6B8B9E;
+    active:                      #3A5248;
+    urgent:                      #D08770;
+
     tile-bg:                     #E3DED6;
-    divider:                     #18202508;  
+    divider:                     #18202508;
 }
 
 /*****----- Main Window -----*****/
@@ -63,10 +63,10 @@ window {
     location:                    southwest;
     anchor:                      southwest;
     fullscreen:                  false;
-    
+
     width:                       950px;
     height:                      500px;
-    
+
     x-offset:                    4px;
     y-offset:                    -10px;
 
@@ -93,7 +93,7 @@ sidebar-box {
     expand:                      false;
     orientation:                 vertical;
     children:                    [ "inputbar", "mode-switcher", "sidebar-spacer", "user-profile" ];
-    
+
     background-color:            @background-alt;
     spacing:                     20px;
     padding:                     25px;
@@ -104,7 +104,7 @@ inputbar {
     enabled:                     true;
     spacing:                     0px;
     padding:                     2px;
-    background-color:            #FFFFFF80; 
+    background-color:            #FFFFFF80;
     border-radius:               8px;
     text-color:                  @foreground;
     orientation:                 horizontal;
@@ -123,7 +123,7 @@ textbox-prompt-colon {
 
 entry {
     enabled:                     true;
-    expand:                      true; 
+    expand:                      true;
     padding:                     12px 0px;
     background-color:            transparent;
     text-color:                  inherit;
@@ -139,13 +139,13 @@ mode-switcher {
     spacing:                     15px;
     background-color:            transparent;
     text-color:                  @foreground;
-    orientation:                 vertical; 
+    orientation:                 vertical;
 }
 
 button {
     padding:                     12px;
     border-radius:               8px;
-    background-color:            #FFFFFF60; 
+    background-color:            #FFFFFF60;
     text-color:                  inherit;
     font:                        "JetBrains Mono Nerd Font 11";
     cursor:                      pointer;
@@ -154,7 +154,7 @@ button {
 
 button selected {
     background-image:            linear-gradient(to right, #D08770, #6B8B9E);
-    text-color:                  #EAF4F9; 
+    text-color:                  #EAF4F9;
     border:                      0px;
 }
 
@@ -172,18 +172,18 @@ user-profile {
     children:                    [ "user-icon", "textbox-user" ];
 }
 
-user-icon { 
-    expand:                      false; 
-    width:                       48px; 
-    height:                      48px; 
-    border-radius:               100%; 
+user-icon {
+    expand:                      false;
+    width:                       48px;
+    height:                      48px;
+    border-radius:               100%;
     background-image:            url("/home/snes/.config/rofi/profile.jpg", height);
-    background-color:            transparent; 
+    background-color:            transparent;
     padding:                     24px;
 }
 
 textbox-user {
-    str:                         "snes";
+    str:                         "Fabio";
     expand:                      false;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -204,8 +204,8 @@ listbox {
 
 listview {
     enabled:                     true;
-    columns:                     4; 
-    lines:                       4; 
+    columns:                     4;
+    lines:                       4;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -225,10 +225,10 @@ element {
     spacing:                     10px;
     padding:                     15px 10px;
     border-radius:               8px;
-    background-color:            @tile-bg; 
+    background-color:            @tile-bg;
     text-color:                  @foreground;
     cursor:                      pointer;
-    orientation:                 vertical; 
+    orientation:                 vertical;
 }
 
 element normal.normal {
@@ -241,11 +241,11 @@ element normal.active {
 }
 element normal.urgent {
     background-color:            @urgent;
-    text-color:                  #EAF4F9; 
+    text-color:                  #EAF4F9;
 }
 
 element selected.normal {
-    background-color:            @selected; 
+    background-color:            @selected;
     border:                      1px;
     border-color:                @active;
     text-color:                  #EAF4F9;

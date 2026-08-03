@@ -29,15 +29,6 @@ hl.window_rule({
 	opacity = "0.95 0.95",
 	border_color = "rgb(87b158)",
 })
-hl.window_rule({
-	match = { class = "^com.snes.evercal$" },
-	float = true,
-	size = "1000 650",
-	center = true,
-	border_size = 1,
-	rounding = 8,
-})
-hl.window_rule({ match = { class = "^org.gnome.Lollypop$" }, float = true, size = "900 600" })
 hl.window_rule({ match = { class = "^org.kde.plasma-systemmonitor$" }, float = true, size = "1000 700", rounding = 14 })
 hl.window_rule({
 	match = { class = "^lens$" },
@@ -64,16 +55,6 @@ hl.window_rule({
 	center = true,
 	rounding = 10,
 	border_color = "rgb(87b158)",
-})
-hl.window_rule({
-	match = { class = "^com.snes.nowplaying$" },
-	float = true,
-	pin = true,
-	border_size = 1,
-	border_color = "rgb(1e2327)",
-	animation = "slide",
-	move = "1425 16",
-	opacity = "0.9 0.9",
 })
 hl.window_rule({ match = { class = "^xdg-desktop-portal-gtk$" }, float = true, center = true, size = "700 400" })
 
