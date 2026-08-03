@@ -5,7 +5,7 @@ hc() {
 }
 
 # Wallpaper
-feh --bg-fill ~/.config/herbstluftwm/wallpaper/trees.jpg
+feh --bg-fill ~/.config/wallpaper/trees.jpg
 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
