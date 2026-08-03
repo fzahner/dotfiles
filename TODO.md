@@ -7,3 +7,4 @@ Todo for hyprland transition:
 - notification windows
 - brightness and audio control
 - find and execute nm tui on network click
+- remove herbstluft and other old remains
