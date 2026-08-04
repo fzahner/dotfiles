@@ -38,6 +38,7 @@ return {
 					"pylsp", -- requires flake8 linter installed
 					"gopls",
 					"omnisharp",
+					"stylua",
 					"jdtls",
 
 					-- "sqls",

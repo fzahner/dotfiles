@@ -16,12 +16,18 @@ packages:
       - lazygit
       - neovim
       - ttf-jetbrains-mono-nerd
+      - blueman
       - ttf-nerd-fonts-symbols
       - ttf-iosevka-nerd
-      - flameshot
       - dunst
+      - trash-cli
+      - grim
+      - satty
+      - slurp
       - fisher
       - yazi
+      - ufw
+      - zathura-pdf-poppler
       - hyprland
       - hyprpaper
       - wl-clipboard
@@ -33,7 +39,10 @@ packages:
       - papirus-icon-theme
       - xdg-desktop-portal-hyprland
       - pamixer
+      - tree-sitter-cli
+      - go
     yay:
       - ttf-google-fonts-git
       - hyprshade
       - volantes_cursors
+      # - wlctl-git # security
