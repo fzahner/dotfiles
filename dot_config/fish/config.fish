@@ -40,7 +40,7 @@ function clone-term
     if test -z "$count"; set count 1; end
     set cwd (pwd)
     for i in (seq $count)
-        herbstclient spawn kitty $cwd
+        hyprctl dispatch 'hl.dsp.exec_cmd("kitty -d '"$cwd"'")'
     end
 end
 

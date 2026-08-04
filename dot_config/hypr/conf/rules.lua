@@ -2,17 +2,10 @@
 -- Window Rules
 -- =========================================================================
 hl.window_rule({
-	match = { class = "^kitty$" },
-	float = false,
-	rounding = 8,
-	opacity = "0.9 0.9",
-})
-hl.window_rule({ match = { class = "^org.pwmt.zathura$" }, float = true, size = "750 1000" })
-hl.window_rule({
 	match = { class = "^blueman-manager$" },
 	float = true,
 	size = "500 300",
-	move = "1165 777",
+	move = "40 60",
 	rounding = 10,
 	opacity = "0.90 0.90",
 	border_size = 1,
@@ -20,62 +13,15 @@ hl.window_rule({
 	animation = "popin",
 	dim_around = true,
 })
-hl.window_rule({
-	match = { class = "^nm-connection-editor$" },
-	float = true,
-	size = "500 600",
-	center = true,
-	rounding = 10,
-	opacity = "0.95 0.95",
-	border_color = "rgb(87b158)",
-})
-hl.window_rule({ match = { class = "^org.kde.plasma-systemmonitor$" }, float = true, size = "1000 700", rounding = 14 })
-hl.window_rule({
-	match = { class = "^lens$" },
-	float = true,
-	center = true,
-	size = "1000 700",
-	rounding = 10,
-	border_color = "rgb(374527)",
-})
 hl.window_rule({ match = { class = "^code$" }, opacity = "0.9 0.9" })
-hl.window_rule({ match = { class = "^thunar$" }, float = true, opacity = "0.9 0.9", size = "900 600", center = true })
 hl.window_rule({
-	match = { class = "^xdm-app$" },
+	match = { class = ".*Nautilus.*" },
 	float = true,
-	size = "700 400",
-	rounding = 10,
-	opacity = "0.8 0.8",
+	opacity = "0.9 0.9",
+	size = "900 600",
 	center = true,
-})
-hl.window_rule({
-	match = { class = "^org.gnome.FileRoller$" },
-	float = true,
-	size = "500 350",
-	center = true,
-	rounding = 10,
-	border_color = "rgb(87b158)",
 })
 hl.window_rule({ match = { class = "^xdg-desktop-portal-gtk$" }, float = true, center = true, size = "700 400" })
--- Flameshot window rules
-hl.window_rule({
-	match = { class = "flameshot" },
-	no_anim = true,
-	pin = true,
-	float = true,
-	decorate = false,
-	no_blur = true,
-	no_shadow = true,
-})
-hl.window_rule({
-	match = { class = "flameshot", title = "flameshot" },
-	move = { 0, 0 },
-})
-hl.window_rule({
-	match = { class = "flameshot", title = "flameshot-pin" },
-	move = { "cursor_x-(window_w*0.5)", "cursor_y-(window_h*0.5)" },
-})
-
 local portals = {
 	"^(xdg-desktop-portal-gtk|xdg-desktop-portal-kde|xdg-desktop-portal-hyprland|org.freedesktop.impl.portal.desktop.gtk|org.freedesktop.impl.portal.desktop.kde)$",
 	"^(org.kde.polkit-kde-authentication-agent-1|polkit-gnome-authentication-agent-1|lxqt-policykit-agent|mate-polkit)$",

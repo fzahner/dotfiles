@@ -1,6 +1,6 @@
 local mod = "SUPER"
 local alt = "ALT"
-local home = "/home/fabio-hypr/"
+local home = "~" -- TODO: Maybe replace with "/home/username" for better compatibility
 local scripts = home .. "/.config/hypr/scripts"
 -- =========================================================================
 -- Gestures
@@ -23,9 +23,9 @@ hl.bind(mod .. " + R", hl.dsp.exec_cmd(home .. "/.config/rofi/rofi_wide.sh"))
 hl.bind(mod .. " + W", hl.dsp.exec_cmd("firefox"))
 hl.bind(mod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind("Print", function()
-	local mon = hl.get_active_monitor()
-	local n = mon and mon.id or 0
-	hl.exec_cmd("flameshot screen --number " .. n .. " --edit")
+	hl.exec_cmd(
+		'grim -g "$(slurp)" - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'
+	)
 end)
 
 -- Window Actions
@@ -40,6 +40,10 @@ hl.bind(mod .. " + M", function()
 	hl.dispatch(hl.dsp.window.fullscreen())
 end)
 hl.bind(mod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mod .. " + " .. alt .. "+ P", function()
+	hl.dsp.window.pin()
+	-- TODO: change border color
+end)
 hl.bind(mod .. " + DOWN", hl.dsp.layout("togglesplit"))
 hl.bind(mod .. " + UP", hl.dsp.layout("togglesplit"))
 hl.bind(mod .. " + G", hl.dsp.group.toggle())
