@@ -5,6 +5,5 @@ Todo for hyprland transition:
 - Symlink desktop, downloads and documents
 - screenshots
 - notification windows
-- brightness and audio control
 - find and execute nm tui on network click
 - remove herbstluft and other old remains

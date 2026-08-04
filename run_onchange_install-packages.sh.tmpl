@@ -24,3 +24,8 @@ fi
 
 # Enable firewall
 sudo ufw enable
+
+# Download fisher plugins
+/usr/bin/fish -c "fisher update"
+
+sudo systemctl enable --now sddm.service

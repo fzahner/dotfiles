@@ -74,14 +74,15 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(scripts .. "/mediacontrol.sh"))
 -- Workspace Binds
 -- =========================================================================
 for i = 1, 9 do
-	hl.bind(mod .. " + " .. tostring(i), hl.dsp.focus({ workspace = i }))
+	hl.bind(mod .. " + " .. tostring(i), hl.dsp.focus({ workspace = i, on_current_monitor = true }))
 	hl.bind(mod .. " + SHIFT + " .. tostring(i), hl.dsp.window.move({ workspace = i }))
 end
-hl.bind(mod .. " + 0", hl.dsp.focus({ workspace = 10 }))
+
+hl.bind(mod .. " + 0", hl.dsp.focus({ workspace = 10, on_current_monitor = true }))
 hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
-hl.bind(mod .. " + PERIOD", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mod .. " + COMMA", hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mod .. " + PERIOD", hl.dsp.focus({ workspace = "+1", on_current_monitor = true }))
+hl.bind(mod .. " + COMMA", hl.dsp.focus({ workspace = "-1", on_current_monitor = true }))
 
 hl.bind(mod .. " + SHIFT + PERIOD", hl.dsp.window.move({ workspace = "+1" }))
 hl.bind(mod .. " + SHIFT + COMMA", hl.dsp.window.move({ workspace = "-1" }))

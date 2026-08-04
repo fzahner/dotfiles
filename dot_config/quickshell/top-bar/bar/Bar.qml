@@ -135,6 +135,7 @@ PanelWindow {
     }
 
     // POLLERS
+
     // 6.1 UPDATE POLLER
     Lib.CommandPoll {
         id: updates
@@ -218,6 +219,22 @@ PanelWindow {
         onValueChanged: batLogic.check(batCap.value, value)
     }
     QtObject { id: acOnline; property var value: (powerPoll.value ? powerPoll.value.ac : "") }
+
+    Lib.CommandPoll {
+        id: ramPoll
+        interval: 3000 // Polls every 3 seconds
+
+        // Calculates real used RAM via MemAvailable in /proc/meminfo
+        command: ["bash", "-c", "awk '/MemTotal:/ {t=$2} /MemAvailable:/ {a=$2} END {u=t-a; printf \"%.1f|%.0f\", u/1048576, (u/t)*100}' /proc/meminfo"]
+
+        parse: function(o) {
+            var parts = String(o ?? "").trim().split("|")
+            return {
+                usedGb: parts[0] || "0.0",
+                percent: Number(parts[1]) || 0
+            }
+        }
+    }
 
     // --- ICON MAP ---
     function getIcon(cls) {
@@ -575,9 +592,30 @@ PanelWindow {
                 }
             }
 
-//----------------------------------------------------------------------------------------RIGHT----------
+            //----------------------------------------------------------------------------------------RIGHT----------
+            // 10. RAM WIDGET
+            BarItem {
+                id: ramWidget
+                property string usedGb: ramPoll.value ? ramPoll.value.usedGb : "0.0"
+                property int usagePercent: ramPoll.value ? ramPoll.value.percent : 0
+                property bool isCritical: usagePercent >= 90
 
-            // 10. UPDATES
+                property color activeColor: {
+                    if (isCritical) return win.isDarkMode ? "#ff0004" : "#ff001e"
+                    return palette.textPrimary
+                }
+
+                icon: "󰍛"
+                text: usedGb + " GB"
+                bgColor: palette.bg
+                iconColor: isCritical ? activeColor : palette.accent
+                textColor: activeColor
+                borderWidth: 0
+                borderColor: "transparent"
+                hoverColor: palette.hoverSpotlight
+            }
+
+            // 11. UPDATES
             BarItem {
                 property color updatesBg: win.isDarkMode ? '#ce829469' : '#be7f9b58'
                 property color updatesFg: win.isDarkMode ? "#2d353b" : "#1e2326"
@@ -607,7 +645,7 @@ PanelWindow {
                 }
             }
 
-            // 11. TRAY
+            // 12. TRAY
             Rectangle {
                 visible: SystemTray.items.length > 0
                 height: 30
@@ -647,7 +685,7 @@ PanelWindow {
                 }
             }
 
-            // 12. BATTERY
+            // 13. BATTERY
             BarItem {
                 Layout.preferredWidth: 74
                 property string status: String(batStatus.value).trim()
@@ -703,7 +741,7 @@ PanelWindow {
                 }
             }
 
-            // 13. CLOCK/DATE
+            // 14. CLOCK/DATE
             Item {
                 id: clockContainer
                 Layout.preferredHeight: 34

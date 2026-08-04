@@ -27,6 +27,7 @@ packages:
       - fisher
       - yazi
       - ufw
+      - sddm
       - zathura-pdf-poppler
       - hyprland
       - hyprpaper

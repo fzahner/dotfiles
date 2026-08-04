@@ -12,20 +12,13 @@ local scripts = home .. "/.config/hypr/scripts"
 -- =========================================================================
 -- Monitors
 -- =========================================================================
--- hl.monitor({ TODO: monitors
--- 	output = "eDP-1",
--- 	mode = "2256x1504@60",
--- 	position = "0x0",
--- 	scale = 1,
--- 	bitdepth = 10,
--- 	icc = home .. "/.config/hypr/SR4.icm",
--- })
--- hl.monitor({
--- 	output = "DP-2",
--- 	mode = "3840x2160@60",
--- 	position = "2256x0",
--- 	scale = 2,
--- })
+hl.monitor({
+	output = "eDP-1",
+	mode = "2560x1600@60",
+	position = "0x0",
+	scale = 1.33,
+})
+hl.monitor({ output = "", mode = "preferred", position = "auto-up", scale = 1 })
 
 -- =========================================================================
 -- Environment Variables
