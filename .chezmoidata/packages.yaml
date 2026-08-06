@@ -17,13 +17,13 @@ packages:
     - git-delta
     - xdotool # TODO: check for ubuntu support
     - autorandr
+    - lazygit
+    - neovim
+    - xclip
   linux:
     arch:
       pacman:
       - docker
-      - lazygit
-      - neovim
-      - xclip
       - ttf-jetbrains-mono-nerd
       - dunst
       - fisher
@@ -34,13 +34,11 @@ packages:
     debian:
       apt:
         - trash-cli
-        - xclip
+        - i3lock
       manual:
         - docker
-        - lazygit
         - tldr
         - jetbrains mono nerdfonts
-        - neovim
         - eww
         - betterlockscreen
         - fisher
