@@ -63,6 +63,12 @@ hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
+-- Resize windows (vim)
+hl.bind(mod .. " + CTRL + H", hl.dsp.window.resize({ x = -60, y = 0, relative = true }))
+hl.bind(mod .. " + CTRL + J", hl.dsp.window.resize({ x = 0, y = -60, relative = true }))
+hl.bind(mod .. " + CTRL + K", hl.dsp.window.resize({ x = 0, y = 60, relative = true }))
+hl.bind(mod .. " + CTRL + L", hl.dsp.window.resize({ x = 60, y = 0, relative = true }))
+
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(scripts .. "/brightnesscontrol.sh d"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(scripts .. "/brightnesscontrol.sh i"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scripts .. "/audiocontrol.sh i"))
@@ -75,11 +81,11 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(scripts .. "/mediacontrol.sh"))
 -- =========================================================================
 for i = 1, 9 do
 	hl.bind(mod .. " + " .. tostring(i), hl.dsp.focus({ workspace = i, on_current_monitor = true }))
-	hl.bind(mod .. " + SHIFT + " .. tostring(i), hl.dsp.window.move({ workspace = i }))
+	hl.bind(mod .. " + SHIFT + " .. tostring(i), hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 hl.bind(mod .. " + 0", hl.dsp.focus({ workspace = 10, on_current_monitor = true }))
-hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
+hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10, follow = false }))
 
 hl.bind(mod .. " + PERIOD", hl.dsp.focus({ workspace = "+1", on_current_monitor = true }))
 hl.bind(mod .. " + COMMA", hl.dsp.focus({ workspace = "-1", on_current_monitor = true }))

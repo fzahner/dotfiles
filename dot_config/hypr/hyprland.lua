@@ -57,9 +57,11 @@ hl.config({
 	general = {
 		gaps_in = 5,
 		gaps_out = 10,
-		border_size = 1,
-		["col.active_border"] = "rgba(87b158aa)",
-		["col.inactive_border"] = "rgba(595959aa)",
+		border_size = 3,
+		col = {
+			active_border = { colors = { "rgba(87b158aa)", "rgba(87b199aa)" }, angle = 45 },
+			inactive_border = "rgba(00000000)",
+		},
 		resize_on_border = false,
 		allow_tearing = false,
 		layout = "dwindle",
@@ -67,7 +69,7 @@ hl.config({
 	decoration = {
 		rounding = 7,
 		active_opacity = 1.0,
-		inactive_opacity = 0.9,
+		inactive_opacity = 0.8,
 		dim_inactive = false,
 		dim_strength = 0.19,
 		dim_around = 0.6,
