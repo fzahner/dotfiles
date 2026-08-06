@@ -3,6 +3,6 @@ quitOnTopLevelReturn: true
 notARepository: 'skip'
 # delta as pager
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never
+      command: delta --dark --paging=never
