@@ -40,7 +40,7 @@ function clone-term
     if test -z "$count"; set count 1; end
     set cwd (pwd)
     for i in (seq $count)
-        herbstclient spawn kitty $cwd
+        hyprctl dispatch 'hl.dsp.exec_cmd("kitty -d '"$cwd"'")'
     end
 end
 
@@ -71,10 +71,3 @@ source ~/.config/env/env.fish
 
 # Add path variables like this:
 # set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths  # Neovim
-
-# pnpm
-set -gx PNPM_HOME "/home/fabio-arch/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end

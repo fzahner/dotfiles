@@ -20,9 +20,6 @@ return {
 			latex = {
 				enabled = false,
 			},
-			injections = {
-				enabled = false,
-			},
 		})
 	end,
 }
