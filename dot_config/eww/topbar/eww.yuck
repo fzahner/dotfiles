@@ -25,15 +25,15 @@
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
 
-    (label :class "metric-label" :text "  ${round(EWW_RAM.used_mem / 1000000000, 1)}G")
+    (label :class "metric-label" :text "  ${round(eww_ram.used_mem / 1000000000, 1)}g")
     (label :class "metric-label" :text "${
         (
-            EWW_BATTERY.BAT0.status == "Charging" ? "󰂄" :
+            EWW_BATTERY.total_avg == "Charging" ? "󰂄" :
             ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][round(EWW_BATTERY.total_avg/10,0)]
         )
         + " " + round(EWW_BATTERY.total_avg, 0) + "%"
     }")
-    (label :class "metric-label" :text " ${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}C")
+    (label :class "metric-label" :text " ${EWW_TEMPS.AMDGPU_EDGE}C")
 
     (label :class "spacer" :text " | ")
     (metric :label ""

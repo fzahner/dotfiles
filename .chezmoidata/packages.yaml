@@ -15,7 +15,7 @@ packages:
     - nautilus
     - brightnessctl
     - git-delta
-    - xdotool # TODO: check for ubuntu support
+    - xdotool
     - autorandr
     - lazygit
     - neovim
@@ -31,15 +31,20 @@ packages:
       yay:
       - eww
       - betterlockscreen
+      - xautolock
     debian:
       apt:
         - trash-cli
-        - i3lock
+        - golang
+        - xautolock
+        - python3 # also python3.14-venv
+        - wmctrl
       manual:
         - docker
         - tldr
         - jetbrains mono nerdfonts
         - eww
+        - i3lock-color
         - betterlockscreen
         - fisher
         - yazi

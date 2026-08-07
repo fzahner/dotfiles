@@ -8,4 +8,5 @@
 # ~/.config/herbstluftwm/scripts/spotify/playerctl_launcher.sh
 ~/.config/herbstluftwm/scripts/late_monitor_detect.sh &
 dunst & # notification manager
+xautolock -time 5 -locker "betterlockscreen --lock blur" & # Autolock after 5 minutes of inactivity
 ~/.config/herbstluftwm/services/start_services.sh
