@@ -28,7 +28,7 @@
     (label :class "metric-label" :text "  ${round(EWW_RAM.used_mem / 1000000000, 1)}g")
     (label :class "metric-label" :text "${
         (
-            EWW_BATTERY.total_avg == "Charging" ? "󰂄" :
+            EWW_BATTERY.BAT1.status == "Charging" ? "󰂄" :
             ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"][round(EWW_BATTERY.total_avg/10,0)]
         )
         + " " + round(EWW_BATTERY.total_avg, 0) + "%"

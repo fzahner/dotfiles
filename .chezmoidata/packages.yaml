@@ -20,12 +20,12 @@ packages:
     - lazygit
     - neovim
     - xclip
+    - dunst
   linux:
     arch:
       pacman:
       - docker
       - ttf-jetbrains-mono-nerd
-      - dunst
       - fisher
       - yazi
       yay:
@@ -37,7 +37,9 @@ packages:
         - trash-cli
         - golang
         - xautolock
-        - python3 # also python3.14-venv
+        - python3
+        - python3.14-venv
+        - python3-pip
         - wmctrl
       manual:
         - docker

@@ -2,7 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 
     # Abbreviations
-    abbr --add ost "cd ~/OneDrive/OST/"
     abbr --add pdf --set-cursor "zathura % & disown"
     abbr --add pdfe --set-cursor "xournalpp % > /dev/null 2>&1 & && disown" # since xournalapp prints to stdout, we redirect it to keep the console clean
     abbr --add rm "trash"
