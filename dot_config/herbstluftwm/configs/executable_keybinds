@@ -18,7 +18,7 @@ hc keybind $Mod-Shift-q quit
 # Launch apps
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
 hc keybind $Mod-t spawn kitty
-hc keybind $Mod-w spawn firefox
+hc keybind $Mod-w spawn flatpak run com.google.Chrome
 hc keybind $Mod-Shift-e spawn nautilus .
 hc keybind $Mod-e spawn kitty -e yazi
 hc keybind $Mod-r spawn ~/.config/rofi/launchers/type-1/launcher.sh

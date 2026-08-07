@@ -31,7 +31,6 @@ return {
 					"clangd",
 					"html",
 					"rust_analyzer",
-					"texlab",
 					"ts_ls",
 					"marksman",
 					"cssls",
