@@ -9,6 +9,10 @@
     gap_size = 1
     format = "<b>󰁕 %a</b>\n%s\n<i>%b</i>"
     highlight = "#a7c080"
+    # Tells Dunst to use rofi in dmenu mode to display notification actions
+    dmenu = /usr/bin/rofi -dmenu -p Dunst
+    mouse_left_click = context, close_current
+    mouse_right_click = close_current
 
 [urgency_low]
     background = "#2d353b"
