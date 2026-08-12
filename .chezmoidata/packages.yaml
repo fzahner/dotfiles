@@ -20,16 +20,18 @@ packages:
     - lazygit
     - curl
     - kitty
-    - rustup # needed for eww
+    - rustup
     - xclip
     - dunst
     - nomacs
     - btop
     - luarocks
     - zathura-pdf-poppler
+    - qalculate-gtk # Check arch compliance
+    - fastfetch
     # Latex
     - latexmk
-    - texlive-full
+    - texlive-latex-extra
   linux:
     arch:
       pacman:
@@ -72,3 +74,4 @@ packages:
         - fisher
         - yazi
         - neovim # sudo snap install nvim --classic
+        - texlive-full # if required

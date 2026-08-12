@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export BROWSER=firefox
+export BROWSER="flatpak run com.google.Chrome"
 
 
 # Added by Toolbox App
