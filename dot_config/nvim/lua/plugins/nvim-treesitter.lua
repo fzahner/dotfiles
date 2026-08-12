@@ -1,11 +1,30 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master", -- Keep using master branch for compatibility
+		branch = "main",
 		build = ":TSUpdate",
 		lazy = false,
 		config = function()
-			require("nvim-treesitter").setup({})
+			require("nvim-treesitter").setup({
+
+				require("nvim-treesitter").install({
+					"c",
+					"lua",
+					"vim",
+					"vimdoc",
+					"query",
+					"javascript",
+					"typescript",
+					"tsx",
+					"html",
+					"lua",
+					"bash",
+					"markdown",
+					"markdown_inline",
+					"yaml",
+					"go",
+				}),
+			})
 		end,
 	},
 	{
