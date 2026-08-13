@@ -1,0 +1,9 @@
+{
+  "theme": "moonstone",
+  "cssTheme": "Primary",
+  "baseFontSize": 19,
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": [
+    "Image Align"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "limitHeadingFrom": 1,
+  "overrideTab": true,
+  "styleToRemove": {
+    "beginning": {
+      "ul": true,
+      "ol": true,
+      "userDefined": []
+    },
+    "surrounding": {
+      "bold": false,
+      "italic": false,
+      "userDefined": []
+    }
+  },
+  "autoOutdent": {
+    "enable": true,
+    "hotKey": {
+      "key": "Tab",
+      "shift": true,
+      "ctrl": false,
+      "alt": false
+    }
+  }
+}
