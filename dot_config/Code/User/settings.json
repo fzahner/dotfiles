@@ -1,0 +1,63 @@
+{
+  // General settings
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "editor.lineNumbers": "relative",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Vim extension settings
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.incsearch": true,
+  "vim.enableNeovim": true, // For neovim features
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "ee"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["s"],
+      "commands": ["vscodevim.showEasyMotion"]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      "before": ["o"],
+      "after": ["$", "a", "<enter>", "<escape>"]
+    },
+    {
+      "before": ["O"],
+      "after": ["0", "i", "<enter>", "<escape>", "k"]
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ]
+}
