@@ -13,6 +13,7 @@ elif command -v apt >/dev/null; then
 fi
 
 
+sudo usermod -aG docker,video,input $USER # add user to groups
 chsh -s /usr/bin/fish       # set fish as default shell
 playerctld daemon       # start playerctl
 betterlockscreen -u ~/.config/wallpaper/mountain.jpg # render lockscreen image
