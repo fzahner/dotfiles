@@ -1,5 +1,5 @@
 # xrandr --dpi 118
-xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
+xrandr --output eDP --mode 2560x1600 --pos 440x1440 --primary
 
 # OST Widescreen setup
 # above +
@@ -7,7 +7,7 @@ xrandr --output eDP-1 --mode 2560x1440 --pos 440x1440 --primary
 
 # Home Setup
 # above +
-xrandr --output DP-2 --scale 1.25x1.25 --mode 1920x1080 --pos 0x0
+xrandr --output DisplayPort-0 --scale 1.25x1.25 --mode 1920x1080 --pos 0x0
 
 # OST SA Room
 # above +

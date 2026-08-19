@@ -1,27 +1,44 @@
-output HDMI-1
+output HDMI-A-0
 off
-output DP-2
+output DisplayPort-1
 off
-output DP-1
+output DisplayPort-2
+off
+output DisplayPort-3
+off
+output DisplayPort-4
+off
+output DisplayPort-5
+off
+output DisplayPort-6
+off
+output DisplayPort-0
 crtc 1
 filter bilinear
 mode 1920x1080
 pos 0x0
 rate 60.00
 transform 1.250000,0.000000,0.000000,0.000000,1.250000,0.000000,0.000000,0.000000,1.000000
-x-prop-audio auto
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default
-x-prop-max_bpc 12
+x-prop-max_bpc 16
 x-prop-non_desktop 0
-output eDP-1
+x-prop-scaling_mode None
+x-prop-tearfree auto
+x-prop-underscan off
+x-prop-underscan_hborder 0
+x-prop-underscan_vborder 0
+output eDP
 crtc 0
-mode 2560x1440
+mode 2560x1600
 pos 440x1440
 primary
-rate 59.96
-x-prop-broadcast_rgb Automatic
+rate 60.00
 x-prop-colorspace Default
-x-prop-max_bpc 12
+x-prop-max_bpc 16
 x-prop-non_desktop 0
-x-prop-scaling_mode Full aspect
+x-prop-scaling_mode None
+x-prop-tearfree auto
+x-prop-underscan off
+x-prop-underscan_hborder 0
+x-prop-underscan_vborder 0
