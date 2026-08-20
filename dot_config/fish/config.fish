@@ -32,17 +32,6 @@ set fzf_fd_opts --hidden --no-ignore
 ## sudo the last command
 function sudo_last; echo "sudo $history[1]"; end
 
-## open new terminal at same path as current terminal
-## optional parameter: number which defines how many should be cloned
-function clone-term
-    set count (math "$argv[1]" 2>/dev/null)
-    if test -z "$count"; set count 1; end
-    set cwd (pwd)
-    for i in (seq $count)
-        hyprctl dispatch 'hl.dsp.exec_cmd("kitty -d '"$cwd"'")'
-    end
-end
-
 ## Yazi File manager shell wrapper
 ## see https://yazi-rs.github.io/docs/quick-start#shell-wrapper
 function y
@@ -64,9 +53,17 @@ function cd --argument dir
     ls -A
 end
 
+
 # Load additional environment variables (secrets)
 source ~/.config/env/env.fish
+
+# Source custom functions
+set -p fish_function_path ~/.config/fish/custom_functions
 
 
 # Add path variables like this:
 # set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths  # Neovim
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/fabioz/.local/bin" $PATH
