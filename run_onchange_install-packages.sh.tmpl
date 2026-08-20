@@ -14,7 +14,10 @@ fi
 
 
 sudo usermod -aG docker,video,input $USER # add user to groups
+sudo ufw enable
 chsh -s /usr/bin/fish       # set fish as default shell
 playerctld daemon       # start playerctl
-betterlockscreen -u ~/.config/wallpaper/mountain.jpg # render lockscreen image
 sudo npm install -g tree-sitter-cli # install tree-sitter-cli globally because apt does not have the latest version
+
+# Will fail at first because this needs to be manually installed:
+betterlockscreen -u ~/.config/wallpaper/mountain.jpg # render lockscreen image
