@@ -30,6 +30,8 @@ packages:
     - qalculate-gtk # Check arch compliance
     - fastfetch
     - tlp
+    - flatpak
+    - gnome-software-plugin-flatpak
     # Latex
     - latexmk
     - texlive-latex-extra
@@ -68,7 +70,7 @@ packages:
         - imagemagick
       manual:
         - docker
-        - tldr
+        - tldr # sudo snap install tldr
         - jetbrains mono nerdfonts
         - eww
         - i3lock-color
@@ -77,3 +79,4 @@ packages:
         - yazi
         - neovim # sudo snap install nvim --classic
         - texlive-full # if required
+        - dragon-drop
