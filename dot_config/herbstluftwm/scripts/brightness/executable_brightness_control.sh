@@ -53,7 +53,7 @@ i | -i)
 d | -d)
   brightness=$(get_brightness)
 
-  if [[ brightness -le 1 ]]; then
+  if [[ brightness -le 0 ]]; then
     # do nothing
     delta="..."
   else

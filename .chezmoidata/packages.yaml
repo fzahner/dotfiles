@@ -29,6 +29,7 @@ packages:
     - zathura-pdf-poppler
     - qalculate-gtk # Check arch compliance
     - fastfetch
+    - tlp
     # Latex
     - latexmk
     - texlive-latex-extra
@@ -62,8 +63,9 @@ packages:
         - libdbusmenu-gtk3-dev
         - libcairo2-dev
         - libglib2.0-dev
-        - libgcc-dev
         - libc6-dev
+        # Betterlockscreen dependencies
+        - imagemagick
       manual:
         - docker
         - tldr

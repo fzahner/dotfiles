@@ -13,11 +13,12 @@ elif command -v apt >/dev/null; then
 fi
 
 
-sudo usermod -aG docker,video,input $USER # add user to groups
+sudo usermod -aG video,input $USER # add user to groups
+sudo usermod -aG docker $USER || true # add user to groups which might not exist on first run
 sudo ufw enable
 chsh -s /usr/bin/fish       # set fish as default shell
 playerctld daemon       # start playerctl
 sudo npm install -g tree-sitter-cli # install tree-sitter-cli globally because apt does not have the latest version
 
 # Will fail at first because this needs to be manually installed:
-betterlockscreen -u ~/.config/wallpaper/mountain.jpg # render lockscreen image
+betterlockscreen -u ~/.config/wallpaper/mountain.jpg || true # render lockscreen image
