@@ -5,3 +5,6 @@ export BROWSER="flatpak run com.google.Chrome"
 # Added by Toolbox App
 export PATH="$PATH:/home/fabioz/.local/share/JetBrains/Toolbox/scripts"
 export PATH="$PATH:$HOME/go/bin"
+
+# Added by Antigravity CLI installer
+export PATH="/home/fabioz/.local/bin:$PATH"

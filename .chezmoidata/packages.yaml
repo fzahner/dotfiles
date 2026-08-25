@@ -32,6 +32,7 @@ packages:
     - tlp
     - flatpak
     - gnome-software-plugin-flatpak
+    - blueman
     # Latex
     - latexmk
     - texlive-latex-extra
