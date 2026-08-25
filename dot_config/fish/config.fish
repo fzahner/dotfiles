@@ -6,6 +6,7 @@ if status is-interactive
     abbr --add pdfe --set-cursor "xournalpp % > /dev/null 2>&1 & && disown" # since xournalapp prints to stdout, we redirect it to keep the console clean
     abbr --add rm "trash"
     abbr --add k "kubectl"
+    abbr --add tf "terraform"
     abbr --add --position anywhere ... "../.."
     abbr --add --position anywhere .... "../../.."
     abbr --add --position anywhere ..... "../../../.."
