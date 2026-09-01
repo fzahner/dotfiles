@@ -157,6 +157,18 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help 
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 map("n", "<leader>gm", "<cmd>Telescope notifications<CR>", { desc = "telescope git status" })
+map(
+	"n", -- search for all files, including hidden, but excluding specific folders
+	"<leader>fWa",
+	"<cmd>lua require('telescope.builtin').live_grep({ additional_args = function() return { '--hidden', '--no-ignore', '--glob', '!.git/*' } end })<CR>",
+	{ desc = "telescope live grep almost everything" }
+)
+map( -- live grep with all files, excluding .gitignored files
+	"n",
+	"<leader>fWg",
+	"<cmd>lua require('telescope.builtin').live_grep({ additional_args = function() return { '--hidden' } end })<CR>",
+	{ desc = "telescope live grep (hidden only)" }
+)
 
 -- File Specific
 map("n", "<leader>cf", "<cmd>Format<CR>", { desc = "Format file" })
