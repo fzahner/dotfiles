@@ -93,7 +93,7 @@ map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], { noremap = true, silent = true })
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], { noremap = true, silent = true })
 
 -- windows & window navigation
-map("n", "<leader>wd", "<cmd>:windo diffthis", { desc = "Diff all visible windows" })
+map("n", "<leader>wd", "<cmd>:windo diffthis<CR>", { desc = "Diff all visible windows" })
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
@@ -131,8 +131,9 @@ map("n", "<leader>sdz", "<cmd>NoNeckPain<CR>", { desc = "Center currently focued
 -- Git
 map("n", "<leader>gl", "<cmd>LazyGit<cr>", { desc = "Open lazy git" }) -- also configured with plugin
 map("n", "<leader>gb", "<cmd>ToggleGitBlame<cr>", { desc = "Show git blame" })
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
+map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
+map("n", "<leader>gh", "<cmd>LazyGitFilterCurrentFile<CR>", { desc = "View file history" })
 wk.add({
 	{ "<leader>gd", group = "Git diff" },
 })
@@ -142,6 +143,7 @@ map({ "n" }, "<leader>gdr", "<cmd>diffget 3<cr>", { desc = "diff get 3 (remote)"
 map({ "v" }, "<leader>gdp", "<Esc><cmd>'<,'>diffput 2<cr>", { desc = "diff put (to buffer 2)" })
 map({ "v" }, "<leader>gdl", "<Esc><cmd>'<,'>diffget 1<cr>", { desc = "diff get 1 (local)" })
 map({ "v" }, "<leader>gdr", "<Esc><cmd>'<,'>diffget 3<cr>", { desc = "diff get 3 (remote)" })
+map("n", "<leader>gdt", "<cmd>Gitsigns diffthis HEAD<CR>", { desc = "Diff file to HEAD" })
 
 -- telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
@@ -156,7 +158,7 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find bu
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
-map("n", "<leader>gm", "<cmd>Telescope notifications<CR>", { desc = "telescope git status" })
+map("n", "<leader>fn", "<cmd>Telescope notifications<CR>", { desc = "telescope notifications" })
 map(
 	"n", -- search for all files, including hidden, but excluding specific folders
 	"<leader>fWa",
