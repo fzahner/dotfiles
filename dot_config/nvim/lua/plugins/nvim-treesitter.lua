@@ -23,6 +23,7 @@ return {
 					"markdown_inline",
 					"yaml",
 					"go",
+					"json",
 				}),
 			})
 		end,

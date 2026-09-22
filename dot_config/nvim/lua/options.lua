@@ -50,5 +50,11 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -------------- Folding ---------------
--- Allow function/class folding
-opt.foldmethod = syntax
+-- Use Treesitter for function/class folding
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- Keep folds open when opening a buffer
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
