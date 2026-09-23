@@ -1,0 +1,92 @@
+;; Control menu: drops down in the top-right corner when hovering the bar's right side.
+
+(defpoll control :interval "2s"
+  :initial '{"vol":0,"vol_muted":false,"mic_muted":false,"bright":0,"wifi":false,"ssid":"","bt":false,"dnd":false,"osk":false,"player":"","title":"","artist":""}'
+  "~/.config/eww/control/scripts/status.sh")
+
+(defvar control-reveal false)
+(defvar control-hover-trigger false)
+(defvar control-hover-menu false)
+
+(defwidget control-trigger []
+  (eventbox :onhover "~/.config/eww/control/scripts/toggle.sh enter trigger &"
+            :onhoverlost "~/.config/eww/control/scripts/toggle.sh leave trigger &"
+    (children)))
+
+;; left click runs `action`, right click runs `right` (if given)
+(defwidget control-toggle [on icon label sub action ?right]
+  (button :class "control-toggle ${on ? 'on' : ''}"
+          :onclick "~/.config/eww/control/scripts/action.sh ${action} &"
+          :onrightclick {right == "" ? "" : "~/.config/eww/control/scripts/action.sh ${right} &"}
+    (box :orientation "h" :space-evenly false :spacing 10
+      (label :class "control-toggle-icon" :text icon)
+      (box :orientation "v" :space-evenly false :valign "center"
+        (label :class "control-toggle-label" :xalign 0 :text label)
+        (label :class "control-toggle-sub" :xalign 0 :limit-width 12 :text sub)))))
+
+(defwidget control-slider [icon value action]
+  (box :class "control-slider" :orientation "h" :space-evenly false
+    (label :class "control-slider-icon" :text icon)
+    (scale :hexpand true :min 0 :max 101 :value value
+           :onchange "~/.config/eww/control/scripts/action.sh ${action} {}")
+    (label :class "control-slider-value" :text "${value}%")))
+
+(defwidget control-menu []
+  (box :class "control-panel" :orientation "v" :space-evenly false :spacing 16
+    (box :orientation "v" :spacing 8
+      (box :orientation "h" :spacing 8
+        (control-toggle :on {control.wifi} :action "wifi" :label "Wi-Fi"
+                        :icon {control.wifi ? "󰖩" : "󰖪"}
+                        :sub {control.wifi ? (control.ssid != "" ? control.ssid : "On") : "Off"})
+        (control-toggle :on {control.bt} :action "blueman" :right "bt" :label "Bluetooth"
+                        :icon {control.bt ? "󰂯" : "󰂲"}
+                        :sub {control.bt ? "On" : "Off"}))
+      (box :orientation "h" :spacing 8
+        (control-toggle :on {!control.vol_muted} :action "mute" :label "Sound"
+                        :icon {control.vol_muted ? "󰖁" : "󰕾"}
+                        :sub {control.vol_muted ? "Muted" : "On"})
+        (control-toggle :on {!control.mic_muted} :action "mic" :label "Mic"
+                        :icon {control.mic_muted ? "󰍭" : "󰍬"}
+                        :sub {control.mic_muted ? "Muted" : "On"}))
+      (box :orientation "h" :spacing 8
+        (control-toggle :on {control.dnd} :action "dnd" :label "Silent"
+                        :icon {control.dnd ? "󰂛" : "󰂚"}
+                        :sub {control.dnd ? "On" : "Off"})
+        (control-toggle :on {control.osk} :action "osk" :label "Keyboard"
+                        :icon "󰌌" :sub {control.osk ? "On" : "Off"})))
+    (box :orientation "v" :spacing 10
+      (control-slider :icon {control.vol_muted ? "󰖁" : "󰕾"}
+                      :value {control.vol} :action "volume")
+      (control-slider :icon "󰃠" :value {control.bright} :action "bright"))
+    (box :class "control-media" :orientation "v" :space-evenly false :spacing 6
+         :visible {control.player != ""}
+      (label :class "control-media-title" :xalign 0 :limit-width 30 :text {control.title})
+      (label :class "control-media-artist" :xalign 0 :limit-width 34
+             :visible {control.artist != ""} :text {control.artist})
+      (box :orientation "h" :halign "center" :spacing 12
+        (button :class "control-media-btn" :onclick "~/.config/eww/control/scripts/action.sh prev &" "󰒮")
+        (button :class "control-media-btn" :onclick "~/.config/eww/control/scripts/action.sh play-pause &"
+          {control.player == "Playing" ? "󰏤" : "󰐊"})
+        (button :class "control-media-btn" :onclick "~/.config/eww/control/scripts/action.sh next &" "󰒭")))
+    (calendar :class "control-calendar" :show-week-numbers false)))
+
+(defwidget control-window []
+  (box :halign "end" :valign "start"
+    (revealer :reveal control-reveal :transition "slidedown" :duration "250ms"
+      ;; the panel's margin (same offsets as the power menu) is inside the
+      ;; eventbox, so crossing the gap from the bar doesn't count as leaving
+      (eventbox :onhover "~/.config/eww/control/scripts/toggle.sh enter menu &"
+                :onhoverlost "~/.config/eww/control/scripts/toggle.sh leave menu &"
+        (control-menu)))))
+
+(defwindow control
+  :monitor 0
+  :windowtype "dock"
+  :wm-ignore true
+  :stacking "fg"
+  :geometry (geometry :x "0px"
+                      :y "54px"
+                      :width "400px"
+                      :height "10px"
+                      :anchor "top right")
+  (control-window))

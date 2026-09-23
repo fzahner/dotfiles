@@ -2,7 +2,7 @@
     (centerbox :orientation "h"
         (workspaces)
         (music)
-        (sidestuff)))
+        (control-trigger (sidestuff))))
 
 (defvar tag-1 "tag-passive")
 (defvar tag-2 "tag-passive")
@@ -33,7 +33,7 @@
         )
         + " " + round(EWW_BATTERY.total_avg, 0) + "%"
     }")
-    (label :class "metric-label" :text " ${EWW_TEMPS.THINKPAD_CPU}C")
+    (label :class "metric-label" :text " ${EWW_TEMPS.AMDGPU_EDGE}C")
 
     (label :class "spacer" :text " | ")
     (metric :label ""
