@@ -57,6 +57,7 @@ packages:
         - python3.14-venv
         - python3-pip
         - wmctrl
+        - picom                   # Compositor
         # Eww dependencies
         - build-essential
         - pkg-config
