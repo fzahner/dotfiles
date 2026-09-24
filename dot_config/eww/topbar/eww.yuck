@@ -2,7 +2,7 @@
     (centerbox :orientation "h"
         (workspaces)
         (music)
-        (control-trigger (sidestuff))))
+        (sidestuff)))
 
 (defvar tag-1 "tag-passive")
 (defvar tag-2 "tag-passive")
@@ -13,7 +13,6 @@
 (defvar tag-7 "tag-passive")
 (defvar tag-8 "tag-passive")
 (defvar tag-9 "tag-passive")
-(defvar powermenu-visible "invisible-powermenu")
 (defvar audio-volume "0")
 
 (defpoll time :interval "10s" :class "dateTime" "date '+%H:%M %d.%m.%Y'")
@@ -44,10 +43,7 @@
             :onchange "")
 
     time
-    (box :class "powermenu-box {powermenu-visible}"
-        (button :class "powermenu-toggle hover-effect {powermenu-visible}"  :onclick "~/.config/eww/powermenu/toggle_powermenu" "⏻")
-
-    )
+    (control-button)
     ))
 
 (defwidget workspaces []
@@ -65,10 +61,6 @@
     (button :class tag-7 :onclick "wmctrl -s 6" 7)
     (button :class tag-8 :onclick "wmctrl -s 7" 8)
     (button :class tag-9 :onclick "wmctrl -s 8" 9)
-    (label :class "spacer" :text " |")
-    (button :class "virtual-keyboard"
-        :onclick "~/.config/eww/topbar/scripts/toggle-keyboard.sh"
-        "󰌌")
     ))
 
 (defwidget music []

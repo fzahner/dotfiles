@@ -1,28 +1,28 @@
-;; Control menu: drops down in the top-right corner when hovering the bar's right side.
+;; Control menu: opens in the top-right corner, toggled by the bar button.
 
 (defpoll control :interval "2s"
-  :initial '{"vol":0,"vol_muted":false,"mic_muted":false,"bright":0,"wifi":false,"ssid":"","bt":false,"dnd":false,"osk":false,"player":"","title":"","artist":""}'
+  :initial '{"vol":0,"vol_muted":false,"bright":0,"wifi":false,"ssid":"","bt":false,"dnd":false,"osk":false,"player":"","title":"","artist":"","notifs":[],"calendar":{"title":"","weekdays":[],"weeks":[]}}'
   "~/.config/eww/control/scripts/status.sh")
 
-(defvar control-reveal false)
-(defvar control-hover-trigger false)
-(defvar control-hover-menu false)
+(defvar control-open false)
+(defvar calendar-offset 0)  ; months from now, see scripts/month.py
+(defvar control-confirm "")  ; "reboot" / "poweroff" while asking for confirmation
 
-(defwidget control-trigger []
-  (eventbox :onhover "~/.config/eww/control/scripts/toggle.sh enter trigger &"
-            :onhoverlost "~/.config/eww/control/scripts/toggle.sh leave trigger &"
-    (children)))
+(defwidget control-button []
+  (button :class "control-button hover-effect ${control-open ? 'open' : ''}"
+          :onclick "~/.config/eww/control/scripts/toggle.sh &"
+    ""))
 
 ;; left click runs `action`, right click runs `right` (if given)
-(defwidget control-toggle [on icon label sub action ?right]
+(defwidget control-toggle [on icon label action ?sub ?right]
   (button :class "control-toggle ${on ? 'on' : ''}"
           :onclick "~/.config/eww/control/scripts/action.sh ${action} &"
           :onrightclick {right == "" ? "" : "~/.config/eww/control/scripts/action.sh ${right} &"}
-    (box :orientation "h" :space-evenly false :spacing 10
-      (label :class "control-toggle-icon" :text icon)
-      (box :orientation "v" :space-evenly false :valign "center"
-        (label :class "control-toggle-label" :xalign 0 :text label)
-        (label :class "control-toggle-sub" :xalign 0 :limit-width 12 :text sub)))))
+    (box :orientation "v" :space-evenly false :spacing 2 :halign "center" :valign "center"
+      (label :class "control-toggle-icon" :halign "center" :text icon)
+      (label :class "control-toggle-label" :halign "center" :text label)
+      (label :class "control-toggle-sub" :halign "center" :limit-width 10
+             :visible {sub != ""} :text sub))))
 
 (defwidget control-slider [icon value action]
   (box :class "control-slider" :orientation "h" :space-evenly false
@@ -33,27 +33,15 @@
 
 (defwidget control-menu []
   (box :class "control-panel" :orientation "v" :space-evenly false :spacing 16
-    (box :orientation "v" :spacing 8
-      (box :orientation "h" :spacing 8
-        (control-toggle :on {control.wifi} :action "wifi" :label "Wi-Fi"
-                        :icon {control.wifi ? "󰖩" : "󰖪"}
-                        :sub {control.wifi ? (control.ssid != "" ? control.ssid : "On") : "Off"})
-        (control-toggle :on {control.bt} :action "blueman" :right "bt" :label "Bluetooth"
-                        :icon {control.bt ? "󰂯" : "󰂲"}
-                        :sub {control.bt ? "On" : "Off"}))
-      (box :orientation "h" :spacing 8
-        (control-toggle :on {!control.vol_muted} :action "mute" :label "Sound"
-                        :icon {control.vol_muted ? "󰖁" : "󰕾"}
-                        :sub {control.vol_muted ? "Muted" : "On"})
-        (control-toggle :on {!control.mic_muted} :action "mic" :label "Mic"
-                        :icon {control.mic_muted ? "󰍭" : "󰍬"}
-                        :sub {control.mic_muted ? "Muted" : "On"}))
-      (box :orientation "h" :spacing 8
-        (control-toggle :on {control.dnd} :action "dnd" :label "Silent"
-                        :icon {control.dnd ? "󰂛" : "󰂚"}
-                        :sub {control.dnd ? "On" : "Off"})
-        (control-toggle :on {control.osk} :action "osk" :label "Keyboard"
-                        :icon "󰌌" :sub {control.osk ? "On" : "Off"})))
+    (box :orientation "h" :spacing 8
+      (control-toggle :on {control.wifi} :action "wlctl" :right "wifi" :label "Wi-Fi"
+                      :icon {control.wifi ? "󰖩" : "󰖪"}
+                      :sub {control.wifi ? control.ssid : ""})
+      (control-toggle :on {control.bt} :action "blueman" :right "bt" :label "Bluetooth"
+                      :icon {control.bt ? "󰂯" : "󰂲"})
+      (control-toggle :on {control.dnd} :action "dnd" :label "Silent"
+                      :icon {control.dnd ? "󰂛" : "󰂚"})
+      (control-toggle :on {control.osk} :action "osk" :label "Keyboard" :icon "󰌌"))
     (box :orientation "v" :spacing 10
       (control-slider :icon {control.vol_muted ? "󰖁" : "󰕾"}
                       :value {control.vol} :action "volume")
@@ -68,16 +56,65 @@
         (button :class "control-media-btn" :onclick "~/.config/eww/control/scripts/action.sh play-pause &"
           {control.player == "Playing" ? "󰏤" : "󰐊"})
         (button :class "control-media-btn" :onclick "~/.config/eww/control/scripts/action.sh next &" "󰒭")))
-    (calendar :class "control-calendar" :show-week-numbers false)))
+    (box :class "control-power" :orientation "v" :space-evenly false :spacing 8
+      (box :orientation "h" :spacing 8 :visible {control-confirm == ""}
+        (button :class "control-power-btn" :tooltip "Lock" :onclick "~/.config/eww/control/scripts/action.sh lock &" "")
+        (button :class "control-power-btn" :tooltip "Suspend" :onclick "~/.config/eww/control/scripts/action.sh suspend &" "󰤄")
+        (button :class "control-power-btn" :tooltip "Restart" :onclick "eww update control-confirm=reboot" "")
+        (button :class "control-power-btn" :tooltip "Shut down" :onclick "eww update control-confirm=poweroff" ""))
+      (box :class "control-confirm" :orientation "h" :space-evenly false :spacing 8
+           :visible {control-confirm != ""}
+        (label :hexpand true :xalign 0
+               :text {control-confirm == "reboot" ? "Restart now?" : "Shut down now?"})
+        (button :class "control-confirm-btn yes" :onclick "~/.config/eww/control/scripts/action.sh ${control-confirm} &" "Yes")
+        (button :class "control-confirm-btn" :onclick "eww update control-confirm=''" "Cancel")))
+    (control-calendar)
+    (control-notifications)))
 
-(defwidget control-window []
-  (box :halign "end" :valign "start"
-    (revealer :reveal control-reveal :transition "slidedown" :duration "250ms"
-      ;; the panel's margin (same offsets as the power menu) is inside the
-      ;; eventbox, so crossing the gap from the bar doesn't count as leaving
-      (eventbox :onhover "~/.config/eww/control/scripts/toggle.sh enter menu &"
-                :onhoverlost "~/.config/eww/control/scripts/toggle.sh leave menu &"
-        (control-menu)))))
+(defwidget control-notifications []
+  (box :class "control-notifs" :orientation "v" :space-evenly false :spacing 8
+    (box :class "notifs-header" :orientation "h" :space-evenly false
+      (label :class "notifs-title" :hexpand true :xalign 0
+             :text "Notifications${arraylength(control.notifs) > 0 ? '  ' + arraylength(control.notifs) : ''}")
+      (button :class "notifs-clear" :visible {arraylength(control.notifs) > 0}
+              :onclick "~/.config/eww/control/scripts/action.sh notif-clear &" "Clear all"))
+    ;; fixed height so the menu (and the windows docked next to it) keep their size
+    (scroll :vscroll true :hscroll false :height 190
+      (box :orientation "v" :space-evenly false :spacing 6
+        (label :class "notifs-empty" :visible {arraylength(control.notifs) == 0}
+               :text "No notifications")
+        (for n in {control.notifs}
+          (box :class "notif" :orientation "h" :space-evenly false :spacing 10
+            (image :class "notif-icon" :visible {n.icon != ""} :valign "start"
+                   :path {n.icon} :image-width 24 :image-height 24)
+            (box :orientation "v" :space-evenly false :hexpand true
+              (box :orientation "h" :space-evenly false
+                (label :class "notif-app" :hexpand true :xalign 0 :limit-width 22 :text {n.app})
+                (label :class "notif-ago" :text {n.ago}))
+              (label :class "notif-summary" :xalign 0 :limit-width 30 :text {n.summary})
+              (label :class "notif-body" :xalign 0 :wrap true :limit-width 90
+                     :visible {n.body != "" && n.body != n.summary} :text {n.body}))
+            (button :class "notif-close" :valign "start"
+                    :onclick "~/.config/eww/control/scripts/action.sh notif-rm ${n.id} &" "")))))))
+
+;; Own calendar instead of GTK's, whose day numbers can't be centered in their cells
+(defwidget control-calendar []
+  (box :class "control-calendar" :orientation "v" :space-evenly false :spacing 4
+    (box :class "calendar-header" :orientation "h" :space-evenly false
+      (button :class "calendar-nav" :onclick "~/.config/eww/control/scripts/month.py -1 &" "")
+      (button :class "calendar-title" :hexpand true :tooltip "Back to today"
+              :onclick "~/.config/eww/control/scripts/month.py reset &"
+        {control.calendar.title})
+      (button :class "calendar-nav" :onclick "~/.config/eww/control/scripts/month.py +1 &" ""))
+    (box :class "calendar-weekdays" :orientation "h"
+      (for name in {control.calendar.weekdays}
+        (label :class "calendar-weekday" :text name)))
+    (for week in {control.calendar.weeks}
+      (box :orientation "h"
+        (for day in week
+          (box :class "calendar-day ${day.class}" :halign "center" :valign "center"
+            (label :halign "center" :valign "center" :hexpand true :vexpand true
+                   :text {day.day})))))))
 
 (defwindow control
   :monitor 0
@@ -86,7 +123,8 @@
   :stacking "fg"
   :geometry (geometry :x "0px"
                       :y "54px"
-                      :width "400px"
+                      :width "340px"
                       :height "10px"
                       :anchor "top right")
-  (control-window))
+  (box :halign "end" :valign "start"
+    (control-menu)))

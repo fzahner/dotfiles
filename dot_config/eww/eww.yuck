@@ -1,3 +1,2 @@
 (include "./topbar/eww.yuck")
-(include "./powermenu/eww.yuck")
 (include "./control/eww.yuck")

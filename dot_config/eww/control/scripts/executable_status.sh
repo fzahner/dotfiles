@@ -2,13 +2,22 @@
 # Print the control menu's state as one JSON object.
 
 vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
-mic=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ 2>/dev/null)
+# dunst history, newest first; timestamps are microseconds of uptime
+notifs=$(dunstctl history 2>/dev/null | jq -c --argjson now "$(awk '{printf "%d", $1 * 1000000}' /proc/uptime)" '
+  [.data[0][:30][] | ((($now - .timestamp.data) / 1000000) | floor) as $s | {
+    id: .id.data,
+    app: .appname.data,
+    summary: .summary.data,
+    body: (.body.data | gsub("<[^>]*>"; "") | gsub("\\s+"; " ")),
+    icon: .icon_path.data,
+    ago: (if $s < 60 then "now" elif $s < 3600 then "\($s / 60 | floor)m"
+          elif $s < 86400 then "\($s / 3600 | floor)h" else "\($s / 86400 | floor)d" end)
+  }]' || echo '[]')
 ssid=$(nmcli -t -f NAME,TYPE connection show --active 2>/dev/null | awk -F: '$2 ~ /wireless/ {print $1; exit}')
 
 jq -nc \
   --arg vol "$(awk '{printf "%d", $2 * 100 + 0.5}' <<<"$vol")" \
   --arg vol_muted "$([[ $vol == *MUTED* ]] && echo true || echo false)" \
-  --arg mic_muted "$([[ $mic == *MUTED* ]] && echo true || echo false)" \
   --arg bright "$(brightnessctl -m 2>/dev/null | cut -d, -f4 | tr -d %)" \
   --arg wifi "$([[ $(nmcli radio wifi) == enabled ]] && echo true || echo false)" \
   --arg ssid "$ssid" \
@@ -18,6 +27,8 @@ jq -nc \
   --arg player "$(playerctl status 2>/dev/null)" \
   --arg title "$(playerctl metadata title 2>/dev/null)" \
   --arg artist "$(playerctl metadata artist 2>/dev/null)" \
-  '{vol: ($vol|tonumber? // 0), vol_muted: ($vol_muted == "true"), mic_muted: ($mic_muted == "true"),
+  --argjson notifs "${notifs:-[]}" \
+  --argjson calendar "$(~/.config/eww/control/scripts/month.py)" \
+  '{vol: ($vol|tonumber? // 0), vol_muted: ($vol_muted == "true"),
     bright: ($bright|tonumber? // 0), wifi: ($wifi == "true"), ssid: $ssid, bt: ($bt == "true"),
-    dnd: ($dnd == "true"), osk: ($osk == "true"), player: $player, title: $title, artist: $artist}'
+    dnd: ($dnd == "true"), osk: ($osk == "true"), player: $player, title: $title, artist: $artist, notifs: $notifs, calendar: $calendar}'

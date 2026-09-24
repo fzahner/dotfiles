@@ -1,26 +1,38 @@
 @import "../_variables.scss";
 
+// Bar button (sits where the power menu button used to be)
+.control-button {
+  margin: 0 4px 0 8px;
+  padding: 6px 17px 6px 11px;  // the Ubuntu glyph sits ~3px right of its cell
+  font-size: 18px;
+  border-radius: 12px;
+
+  &.open {
+    background-color: $primary-accent;
+    color: $background-color;
+  }
+}
+
 // eww gives the window itself the class "control"
 .control {
   background-color: transparent;
 }
 
-// Spacing and shape follow the power menu (x -50px, y 70px, 8px radius)
 .control-panel {
   background-color: $background-color;
   font-family: 'JetBrainsMono Nerd Font';
   color: $primary;
-  border: solid 1px $background-color;
+  border: solid 1px $primary;
   border-radius: 8px;
   padding: 12px;
-  margin: 16px 50px 0 0;
-  min-width: 316px;
+  margin: 6px 6px 0 0;
+  min-width: 300px;
 }
 
 .control-toggle {
   border: solid 1px $primary;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 10px 4px;
 
   &:hover {
     background-color: $primary-accent;
@@ -40,8 +52,8 @@
   }
 }
 
-.control-toggle-icon  { font-size: 20px; min-width: 24px; }
-.control-toggle-label { font-size: 13px; }
+.control-toggle-icon  { font-size: 20px; }
+.control-toggle-label { font-size: 12px; }
 .control-toggle-sub   { font-size: 11px; opacity: 0.7; }
 
 .control-slider {
@@ -92,15 +104,113 @@
   border-radius: 8px;
   padding: 8px;
   font-size: 13px;
+}
 
-  &.header { font-weight: bold; border: none; }            // month / year row
-  &.button { color: $primary; padding: 0 6px; }             // month arrows
-  &.button:hover { color: $primary-accent; }
-  &.highlight { color: $primary-accent; font-weight: bold; } // weekday names
-  &:indeterminate { color: rgba($primary, 0.3); }           // other months' days
-  &:selected {
+.calendar-header { margin-bottom: 4px; }
+.calendar-title  { font-weight: bold; border-radius: 6px; }
+.calendar-nav    { padding: 2px 10px; border-radius: 6px; }
+.calendar-title:hover,
+.calendar-nav:hover { color: $primary-accent; }
+
+.calendar-weekday {
+  color: $primary-accent;
+  font-weight: bold;
+}
+
+.calendar-day {
+  min-width: 32px;
+  min-height: 28px;
+  border-radius: 6px;
+
+  &.other { color: rgba($primary, 0.3); }
+  &.today {
     background-color: $primary-accent;
     color: $background-color;
-    border-radius: 6px;
+  }
+}
+
+// Notification history (dunst)
+.control-notifs {
+  border: solid 1px rgba($primary, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.notifs-title { font-size: 13px; font-weight: bold; color: $primary-accent; }
+
+.notifs-clear {
+  font-size: 11px;
+  padding: 2px 8px;
+  border: solid 1px $primary;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $primary-accent;
+    border-color: $primary-accent;
+    color: $background-color;
+  }
+}
+
+.notifs-empty { font-size: 12px; opacity: 0.5; margin-top: 70px; }
+
+.notif {
+  background-color: rgba($primary, 0.06);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.notif-app     { font-size: 11px; opacity: 0.6; }
+.notif-ago     { font-size: 11px; opacity: 0.6; margin-left: 6px; }
+.notif-summary { font-size: 12px; font-weight: bold; }
+.notif-body    { font-size: 11px; opacity: 0.85; }
+
+.notif-close {
+  font-size: 11px;
+  padding: 0 4px;
+  margin-left: 2px;
+  opacity: 0.6;
+  border-radius: 4px;
+
+  &:hover { opacity: 1; color: $primary-accent; }
+}
+
+// Power actions (replaces the old separate power menu)
+.control-power-btn {
+  border: solid 1px $primary;
+  border-radius: 8px;
+  padding: 6px 0;
+  font-size: 20px;
+
+  &:hover {
+    background-color: $primary-accent;
+    border-color: $primary-accent;
+    color: $background-color;
+  }
+}
+
+.control-confirm {
+  font-size: 13px;
+  min-height: 36px;
+}
+
+.control-confirm-btn {
+  border: solid 1px $primary;
+  border-radius: 8px;
+  padding: 4px 12px;
+
+  &:hover {
+    background-color: $primary-accent;
+    border-color: $primary-accent;
+    color: $background-color;
+  }
+
+  &.yes {
+    border-color: #e67e80;
+    color: #e67e80;
+  }
+
+  &.yes:hover {
+    background-color: #e67e80;
+    color: $background-color;
   }
 }
