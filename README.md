@@ -76,6 +76,9 @@ sudo chmod +x exampleFile.sh
   - Custom `clone-term` command to open one or multiple terminals at the same directory location
 - **File Manager:** Yazi with custom vim-based keybinds and gruvbox colorscheme.
 
+## Dotfile guides
+Under `dotfile-guides/` are documented processes related to setting up your laptop with linux.
+
 ## More Screenshots
 
 ![Screenshot File Manager](./screenshots/filemanager.png)
