@@ -81,6 +81,7 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 -- nvimtree
 map("n", "<leader>ee", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
 map("n", "<leader>ex", "<cmd>NvimTreeClose<CR>", { desc = "nvimtree close" })
+map("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "open tree at current buffer" })
 
 -- terminal
 map("t", "<Esc>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })

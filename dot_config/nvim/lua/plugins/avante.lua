@@ -1,4 +1,5 @@
 return {
+	enabled = false, -- Remove to enable avante
 	"yetone/avante.nvim",
 	event = "VeryLazy",
 	version = false, -- Never set this value to "*"! Never!

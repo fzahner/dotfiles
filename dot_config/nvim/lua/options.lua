@@ -25,10 +25,10 @@ opt.clipboard = "unnamedplus"
 opt.wrap = false
 
 -- Specify size of an indent when using >> and <<
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 
 -- Number of spaces a tab counts for
-opt.tabstop = 4
+opt.tabstop = 2
 
 -- Convert tabs to spaces
 opt.expandtab = true

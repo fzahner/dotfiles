@@ -9,6 +9,13 @@ return {
 	},
 	config = function()
 		require("telescope").setup({
+			defaults = {
+				wrap_results = true, -- Wrap the file names if too long
+				path_display = {
+					"truncate", -- Shorten the path display in the results window
+					-- "tail", "smart", "shorten", "filename_first"
+				},
+			},
 			pickers = {
 				colorscheme = {
 					enable_preview = true,
@@ -23,5 +30,13 @@ return {
 			},
 		})
 		require("telescope").load_extension("ui-select")
+
+		-- Wrap preview window
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TelescopePreviewerLoaded",
+			callback = function()
+				vim.wo.wrap = true
+			end,
+		})
 	end,
 }
