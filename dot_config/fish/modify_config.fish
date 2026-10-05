@@ -1,3 +1,4 @@
+{{- /* chezmoi:modify-template */ -}}
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
@@ -65,6 +66,10 @@ set -p fish_function_path ~/.config/fish/custom_functions
 # Add path variables like this:
 # set -Ux fish_user_paths /opt/nvim-linux64/bin $fish_user_paths  # Neovim
 
-
-# Added by Antigravity CLI installer
 set -gx PATH "/home/fabioz/.local/bin" $PATH
+set -gx PATH "/home/fabioz/.cargo/bin" $PATH
+
+# ---- Unmanaged below: installers may append PATH exports here (not tracked by chezmoi) ----
+{{- $parts := splitList "# ---- Unmanaged below: installers may append PATH exports here (not tracked by chezmoi) ----" .chezmoi.stdin }}
+{{- if gt (len $parts) 1 }}{{ last $parts }}{{ else }}
+{{ end -}}
