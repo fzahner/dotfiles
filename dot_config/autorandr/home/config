@@ -1,6 +1,6 @@
 output HDMI-A-0
 off
-output DisplayPort-1
+output DisplayPort-0
 off
 output DisplayPort-2
 off
@@ -12,13 +12,11 @@ output DisplayPort-5
 off
 output DisplayPort-6
 off
-output DisplayPort-0
+output DisplayPort-1
 crtc 1
-filter bilinear
 mode 1920x1080
 pos 0x0
 rate 60.00
-transform 1.250000,0.000000,0.000000,0.000000,1.250000,0.000000,0.000000,0.000000,1.000000
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default
 x-prop-max_bpc 16
@@ -31,7 +29,7 @@ x-prop-underscan_vborder 0
 output eDP
 crtc 0
 mode 2560x1600
-pos 440x1440
+pos 0x1080
 primary
 rate 60.00
 x-prop-colorspace Default
