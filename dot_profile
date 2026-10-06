@@ -1,4 +1,6 @@
 export EDITOR=nvim
+export XCURSOR_SIZE=32
+export XCURSOR_THEME=Adwaita
 export BROWSER="flatpak run com.google.Chrome"
 
 

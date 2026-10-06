@@ -48,6 +48,7 @@ packages:
       - eww
       - betterlockscreen
       - xautolock
+      - wlctl-bin
     debian:
       apt:
         - trash-cli
@@ -57,6 +58,9 @@ packages:
         - python3.14-venv
         - python3-pip
         - wmctrl
+        - texlive-latex-extra
+        - pipewire-audio
+        - libspa-0.2-bluetooth
         - picom                   # Compositor
         # Eww dependencies
         - build-essential
@@ -82,3 +86,4 @@ packages:
         - neovim # sudo snap install nvim --classic
         - texlive-full # if required
         - dragon-drop
+        - wlctl # cargo install wlctl
