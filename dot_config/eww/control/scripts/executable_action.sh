@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # Run a control menu action, then refresh the menu state immediately.
+
+# closing the window alone leaves the bar button's "open" highlight on
+close_menu() { eww close control; eww update control-open=false control-confirm=""; }
+
 case $1 in
     wifi)   [[ $(nmcli radio wifi) == enabled ]] && nmcli radio wifi off || nmcli radio wifi on ;;
     bt)     if bluetoothctl show | grep -q 'Powered: yes'; then bluetoothctl power off
@@ -8,8 +12,8 @@ case $1 in
     osk)    ~/.config/eww/topbar/scripts/toggle-keyboard.sh; sleep 0.3 ;;
     blueman) setsid -f blueman-manager ;;
     wlctl)  setsid -f kitty --class wlctl -e wlctl ;;
-    lock)     eww close control; setsid -f betterlockscreen --lock blur; exit ;;
-    suspend)  eww close control; setsid -f betterlockscreen --suspend blur; exit ;;
+    lock)     close_menu; setsid -f betterlockscreen --lock blur; exit ;;
+    suspend)  close_menu; setsid -f betterlockscreen --suspend blur; exit ;;
     reboot)   systemctl reboot; exit ;;
     poweroff) systemctl poweroff; exit ;;
     volume) wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ "$2%" ;;

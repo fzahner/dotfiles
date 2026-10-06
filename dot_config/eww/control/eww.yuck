@@ -33,6 +33,10 @@
 
 (defwidget control-menu []
   (box :class "control-panel" :orientation "v" :space-evenly false :spacing 16
+    ;; tray icons (Gitify, Blueman, ...); eww hosts the StatusNotifier tray here
+    (box :class "control-tray" :orientation "h" :space-evenly false :spacing 8
+      (label :class "control-tray-icon" :text "󰀻")
+      (systray :class "control-tray-items" :spacing 6 :icon-size 18 :prepend-new true))
     (box :orientation "h" :spacing 8
       (control-toggle :on {control.wifi} :action "wlctl" :right "wifi" :label "Wi-Fi"
                       :icon {control.wifi ? "󰖩" : "󰖪"}

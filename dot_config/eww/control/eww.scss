@@ -29,6 +29,23 @@
   min-width: 300px;
 }
 
+// System tray (top of the menu)
+.control-tray {
+  border: solid 1px rgba($primary, 0.3);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.control-tray-icon { font-size: 16px; color: $primary-accent; }
+
+.control-tray-items menuitem,
+.control-tray-items > * {
+  padding: 2px 4px;
+  border-radius: 6px;
+}
+
+.control-tray-items > *:hover { background-color: rgba($primary-accent, 0.2); }
+
 .control-toggle {
   border: solid 1px $primary;
   border-radius: 8px;
