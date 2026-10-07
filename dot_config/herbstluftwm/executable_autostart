@@ -14,4 +14,6 @@ dunst & # notification manager
 blueman-applet & # bluetooth manager
 
 xautolock -time 5 -locker "betterlockscreen --lock blur" & # Autolock after 5 minutes of inactivity
+xrdb -merge ~/.Xresources # Load xresources
+xsetroot -cursor_name left_ptr # Load pointer for desktop background
 ~/.config/herbstluftwm/services/start_services.sh

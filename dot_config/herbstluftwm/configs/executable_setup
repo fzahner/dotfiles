@@ -32,8 +32,10 @@ hc rule class="Gnome-screenshot" floating=on # float screenshot app
 hc rule class="Onboard" floating=on # float virtual keyboard app
 hc rule title="Qalculate!" floating=on # float calculator app
 hc rule title="splash" floating=on # jetbrains splash screens
-hc rule class="Blueman-manager" floating=on # floating blueman manager
+hc rule class="Blueman-manager" floating=on floatplacement=none floating_geometry=1031x753+1175+30
+hc rule class="wlctl" floating=on floatplacement=none floating_geometry=1031x753+1175+30
 hc rule class="Dragon-drop" floating=on floatplacement=center # floating dragon-drop
+hc rule class="gitify" floating=on floatplacement=none floating_geometry=500x400+1706+30 # Gitify popup, docked left of the control menu like Blueman/wlctl
 hc rule instance="Toolkit" sticky=on # sticky PIP app
 
 
