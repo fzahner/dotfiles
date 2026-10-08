@@ -1,6 +1,6 @@
 # My Linux Desktop Dotfiles
 
-![Screenshot Neofetch/Spotify](./screenshots/spotify.png)
+![Screenshot 1](./screenshots/lazygit-fastfetch-bonsai.png)
 
 My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I have used this configuration actively on Arch Linux and Linux Mint (Ubuntu), both on X11. For these Operating Systems, the chezmoi config can also automatically install required packages.
 
@@ -48,39 +48,40 @@ sudo chmod +x exampleFile.sh
 ## Features
 
 - Productivity focused setup for school and work
-- Lightweight and performant desktop environement
-- [Everforest](https://github.com/sainnhe/everforest)/[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) based colors (green and dark) have been used throughout: In window manager, widgets, neovim, yazi file explorer, spotify, ...
+- Lightweight and performant desktop environment
+- [Everforest](https://github.com/sainnhe/everforest)/[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) based colors (green and dark) have been used throughout: In window manager, widgets, neovim, yazi file explorer, spotify, …
 
 ### Desktop Environment
 
-![Screenshot Powermenu](./screenshots/powermenu.png)
+![Screenshot Powermenu](./screenshots/rofi-and-menu.png)
 
 - Herbstluftwm tiling window manager with custom layouts
 - Eww widgets for bar with tag and system resources overviews
 - Rofi Application Launcher with SSH and window functionality
 
-![Screenshot Rofi](./screenshots/rofi.png)
-
 ### Neovim IDE
 
 ![Screenshot Neovim](./screenshots/nvim.png)
 
-- Out-of-the-box functionality for many languages: Python, JS/TS, Go, HTML/CSS, Lua, Tex, Rust, ...
+- Out-of-the-box functionality for many languages: Python, JS/TS, Go, HTML/CSS, Lua, Tex, Rust, …
 - Lazy-Loaded Plugins to ensure quick startup times
 
-### Other notable Programs
+### Other Notable Programs
 
 - **Terminal:**
   - Alacritty & Kitty configurations
   - Fish shell configuration
   - Custom `clone-term` command to open one or multiple terminals at the same directory location
-- **File Manager:** Yazi with custom vim-based keybinds and gruvbox colorscheme.
+- **File Manager:** Yazi with custom vim-based keybinds and gruvbox color scheme.
 
-## Dotfile guides
+## Dotfile Guides
+
 Under `dotfile-guides/` are documented processes related to setting up your laptop with linux.
 
 ## More Screenshots
 
-![Screenshot File Manager](./screenshots/filemanager.png)
+![Screenshot 4](./screenshots/yazi-btop-xmm.png)
 
-![Screenshot Web](./screenshots/web.png)
+![Screenshot 5](./screenshots/web.png)
+
+![Screenshot 6](./screenshots/filemanager.png)
