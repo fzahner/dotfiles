@@ -1,6 +1,8 @@
 (defwidget bar []
     (centerbox :orientation "h"
-        (workspaces)
+        (box :orientation "h" :space-evenly false :halign "start"
+          (workspaces)
+          (locks))
         (music)
         (sidestuff)))
 
@@ -16,6 +18,9 @@
 (defvar audio-volume "0")
 
 (defpoll time :interval "10s" :class "dateTime" "date '+%H:%M %d.%m.%Y'")
+
+(deflisten lock-state :initial '{"caps":false}'
+  "~/.config/eww/topbar/scripts/lock_state.sh")
 
 (deflisten music :initial ""
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
@@ -62,6 +67,10 @@
     (button :class tag-8 :onclick "wmctrl -s 7" 8)
     (button :class tag-9 :onclick "wmctrl -s 8" 9)
     ))
+
+(defwidget locks []
+  (box :class "locks" :orientation "h" :space-evenly false
+    (label :class "lock" :visible {lock-state.caps} :text "󰘲")))
 
 (defwidget music []
   (box :class "music"
