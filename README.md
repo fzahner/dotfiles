@@ -2,7 +2,7 @@
 
 ![Screenshot 1](./screenshots/lazygit-fastfetch-bonsai.png)
 
-My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I have used this configuration actively on Arch Linux and Linux Mint (Ubuntu), both on X11. For these Operating Systems, the chezmoi config can also automatically install required packages.
+My collection of dotfiles with Herbstluftwm window manager and Neovim config, as well as multiple other small files. I have used this configuration actively on Arch Linux, Xubuntu and Linux Mint, all on X11. For Operating Systems, using `apt` or `pacman`/`yay` package managers, the chezmoi config can also automatically install required packages.
 
 > [!IMPORTANT]
 > To use the herbstluftwm and/or eww config, supporting software is needed. See _Installation_ for more information.
@@ -49,14 +49,15 @@ sudo chmod +x exampleFile.sh
 
 - Productivity focused setup for school and work
 - Lightweight and performant desktop environment
-- [Everforest](https://github.com/sainnhe/everforest)/[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) based colors (green and dark) have been used throughout: In window manager, widgets, neovim, yazi file explorer, spotify, …
+- [Everforest](https://github.com/sainnhe/everforest)/[Gruvbox Material](https://github.com/sainnhe/gruvbox-material) based colors (green and dark) have been used throughout: In window manager, widgets, neovim, yazi, spotify (with spicetify), …
 
 ### Desktop Environment
 
 ![Screenshot Powermenu](./screenshots/rofi-and-menu.png)
 
 - Herbstluftwm tiling window manager with custom layouts
-- Eww widgets for bar with tag and system resources overviews
+- Eww bar with tag and system resources overviews
+- Eww Power menu with system tray, calendar, notifications overview, togglable buttons
 - Rofi Application Launcher with SSH and window functionality
 
 ### Neovim IDE

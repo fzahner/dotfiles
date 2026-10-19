@@ -77,7 +77,9 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
-    {music != "" ? "󰝚 ${music}" : ""}))
+    (label :limit-width 50
+           :tooltip music
+           :text {music != "" ? "󰝚 ${music}" : ""})))
 
 
 (defwidget metric [label value onchange]
