@@ -23,6 +23,7 @@ jq -nc \
   --arg ssid "$ssid" \
   --arg bt "$(bluetoothctl show 2>/dev/null | grep -q 'Powered: yes' && echo true || echo false)" \
   --arg dnd "$(dunstctl is-paused 2>/dev/null)" \
+  --arg autolock_paused "$([[ -e $XDG_RUNTIME_DIR/autolock-paused ]] && echo true || echo false)" \
   --arg osk "$(pgrep -x onboard >/dev/null && echo true || echo false)" \
   --arg player "$(playerctl status 2>/dev/null)" \
   --arg title "$(playerctl metadata title 2>/dev/null)" \
@@ -31,4 +32,4 @@ jq -nc \
   --argjson calendar "$(~/.config/eww/control/scripts/month.py)" \
   '{vol: ($vol|tonumber? // 0), vol_muted: ($vol_muted == "true"),
     bright: ($bright|tonumber? // 0), wifi: ($wifi == "true"), ssid: $ssid, bt: ($bt == "true"),
-    dnd: ($dnd == "true"), osk: ($osk == "true"), player: $player, title: $title, artist: $artist, notifs: $notifs, calendar: $calendar}'
+    dnd: ($dnd == "true"), osk: ($osk == "true"), autolock_paused: ($autolock_paused == "true"), player: $player, title: $title, artist: $artist, notifs: $notifs, calendar: $calendar}'

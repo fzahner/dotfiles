@@ -1,7 +1,7 @@
 ;; Control menu: opens in the top-right corner, toggled by the bar button.
 
 (defpoll control :interval "2s"
-  :initial '{"vol":0,"vol_muted":false,"bright":0,"wifi":false,"ssid":"","bt":false,"dnd":false,"osk":false,"player":"","title":"","artist":"","notifs":[],"calendar":{"title":"","weekdays":[],"weeks":[]}}'
+  :initial '{"vol":0,"vol_muted":false,"bright":0,"wifi":false,"ssid":"","bt":false,"dnd":false,"osk":false,"autolock_paused":false,"player":"","title":"","artist":"","notifs":[],"calendar":{"title":"","weekdays":[],"weeks":[]}}'
   "~/.config/eww/control/scripts/status.sh")
 
 (defvar control-open false)
@@ -45,7 +45,9 @@
                       :icon {control.bt ? "󰂯" : "󰂲"})
       (control-toggle :on {control.dnd} :action "dnd" :label "Silent"
                       :icon {control.dnd ? "󰂛" : "󰂚"})
-      (control-toggle :on {control.osk} :action "osk" :label "Keyboard" :icon "󰌌"))
+      (control-toggle :on {control.osk} :action "osk" :label "Keyboard" :icon "󰌌")
+      (control-toggle :on {!control.autolock_paused} :action "autolock" :label "Autolock"
+                      :icon {control.autolock_paused ? "󰌿" : "󰌾"}))
     (box :orientation "v" :spacing 10
       (control-slider :icon {control.vol_muted ? "󰖁" : "󰕾"}
                       :value {control.vol} :action "volume")

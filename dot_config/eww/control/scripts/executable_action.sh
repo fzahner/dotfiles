@@ -12,6 +12,19 @@ case $1 in
     osk)    ~/.config/eww/topbar/scripts/toggle-keyboard.sh; sleep 0.3 ;;
     blueman) setsid -f blueman-manager ;;
     wlctl)  setsid -f kitty --class wlctl -e wlctl ;;
+    # marker lives in the runtime dir, so a fresh login starts with autolock on again.
+    # Pausing also stops screen blanking and DPMS; the marker keeps their old values.
+    autolock) f=$XDG_RUNTIME_DIR/autolock-paused
+              if [[ -e $f ]]; then
+                  read -r timeout cycle dpms < "$f"
+                  xset s "${timeout:-600}" "${cycle:-600}"
+                  [[ $dpms == Enabled ]] && xset +dpms
+                  xautolock -enable && rm -f "$f"
+              else
+                  xset q | awk '/timeout:/ {t=$2; c=$4} /DPMS is/ {d=$3} END {print t, c, d}' > "$f"
+                  xset s off -dpms
+                  xautolock -disable
+              fi ;;
     lock)     close_menu; setsid -f betterlockscreen --lock blur; exit ;;
     suspend)  close_menu; setsid -f betterlockscreen --suspend blur; exit ;;
     reboot)   systemctl reboot; exit ;;

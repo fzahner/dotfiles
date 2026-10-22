@@ -7,5 +7,5 @@ while true; do
     echo "$state"
     last=$state
   fi
-  sleep 0.4
+  sleep 0.2
 done
