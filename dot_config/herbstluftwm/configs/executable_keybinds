@@ -17,10 +17,11 @@ hc keybind $Mod-Shift-q quit
 
 # Launch apps
 hc keybind $Mod-Return spawn "${TERMINAL:-xterm}" # use your $TERMINAL with xterm as fallback
-hc keybind $Mod-t spawn kitty
+hc keybind $Mod-t spawn kitty --single-instance
+hc keybind $Mod-Shift-t spawn kitty   # separate, independent kitty process (slower start)
 hc keybind $Mod-w spawn flatpak run com.google.Chrome
 hc keybind $Mod-Shift-e spawn nautilus .
-hc keybind $Mod-e spawn kitty -e yazi
+hc keybind $Mod-e spawn kitty --single-instance -e yazi
 hc keybind $Mod-r spawn ~/.config/rofi/launchers/type-1/launcher.sh
 # hc keybind $Mod-r spawn rofi -show combi -combi-modes "window,run,ssh,drun" -modes combi
 hc keybind $Mod-Shift-s spawn flameshot gui

@@ -8,7 +8,7 @@ function clone-term
         if set -q HYPRLAND_INSTANCE_SIGNATURE; or test "$XDG_CURRENT_DESKTOP" = "Hyprland"
             hyprctl dispatch 'hl.dsp.exec_cmd("kitty -d '"$cwd"'")'
         else if test "$DESKTOP_SESSION" = "herbstluftwm"; or command -q herbstclient
-            herbstclient spawn kitty $cwd
+            herbstclient spawn kitty --single-instance $cwd
         end
     end
 end
