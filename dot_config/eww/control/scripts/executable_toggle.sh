@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Open/close the control menu (bar button).
-EWW=eww
+# --no-daemonize: if the daemon answers too slowly, a plain `eww open` starts a
+# second daemon, which leaves the first one's window stuck open
+EWW="eww --no-daemonize"
 
 if $EWW active-windows | grep -q '^control:'; then
     $EWW close control

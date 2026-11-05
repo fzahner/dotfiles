@@ -13,6 +13,10 @@ notifs=$(dunstctl history 2>/dev/null | jq -c --argjson now "$(awk '{printf "%d"
     ago: (if $s < 60 then "now" elif $s < 3600 then "\($s / 60 | floor)m"
           elif $s < 86400 then "\($s / 3600 | floor)h" else "\($s / 86400 | floor)d" end)
   }]' || echo '[]')
+# drop icons that no longer exist (Chrome's temp icons); each one slows down opening the menu
+missing=()
+while read -r p; do [[ -e $p ]] || missing+=("$p"); done < <(jq -r '.[].icon | select(. != "")' <<<"$notifs")
+(( ${#missing[@]} )) && notifs=$(jq -c 'map(if .icon | IN($ARGS.positional[]) then .icon = "" else . end)' --args "${missing[@]}" <<<"$notifs")
 ssid=$(nmcli -t -f NAME,TYPE connection show --active 2>/dev/null | awk -F: '$2 ~ /wireless/ {print $1; exit}')
 
 jq -nc \

@@ -2,7 +2,7 @@
 # Run a control menu action, then refresh the menu state immediately.
 
 # closing the window alone leaves the bar button's "open" highlight on
-close_menu() { eww close control; eww update control-open=false control-confirm=""; }
+close_menu() { eww --no-daemonize close control; eww --no-daemonize update control-open=false control-confirm=""; }
 
 case $1 in
     wifi)   [[ $(nmcli radio wifi) == enabled ]] && nmcli radio wifi off || nmcli radio wifi on ;;
