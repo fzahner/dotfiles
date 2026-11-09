@@ -1,0 +1,34 @@
+{{- /* chezmoi:modify-template */ -}}
+# SSH client config. Hosts go in the unmanaged section below (local only, not tracked).
+# Hosts must stay above "Host *" (first match wins).
+#
+# Example:
+# Host my-server
+#     # Name (.fritz.box / .local) or IP
+#     HostName my-server.fritz.box
+#     # Check the host key by this name, not by IP
+#     HostKeyAlias my-server
+#     User fabioz
+
+# ---- Unmanaged hosts start (not tracked by chezmoi) ----
+{{- $start := "# ---- Unmanaged hosts start (not tracked by chezmoi) ----" }}
+{{- $end := "# ---- Unmanaged hosts end ----" }}
+{{- $parts := splitList $start .chezmoi.stdin }}
+{{- if gt (len $parts) 1 }}{{ first (splitList $end (last $parts)) }}{{ else }}
+
+{{ end -}}
+# ---- Unmanaged hosts end ----
+
+Host *
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    ControlMaster auto
+    ControlPath ~/.ssh/cm-%r@%h:%p
+    ControlPersist 10m
+    HashKnownHosts yes
+    StrictHostKeyChecking ask
+    UpdateHostKeys yes
+    ForwardAgent no

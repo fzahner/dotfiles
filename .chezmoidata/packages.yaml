@@ -44,6 +44,7 @@ packages:
       - fisher
       - yazi
       - neovim
+      - openssh
       yay:
       - eww
       - betterlockscreen
@@ -74,6 +75,7 @@ packages:
         - libc6-dev
         # Betterlockscreen dependencies
         - imagemagick
+        - openssh-server
       manual:
         - docker
         - tldr # sudo snap install tldr
