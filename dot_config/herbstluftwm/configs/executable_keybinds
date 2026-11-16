@@ -41,6 +41,11 @@ hc keybind $Mod-j     focus down
 hc keybind $Mod-k     focus up
 hc keybind $Mod-l     focus right
 
+hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind $Mod-Tab         cycle_all +1
+hc keybind $Mod-Shift-Tab   cycle_all -1
+hc keybind $Mod-i jumpto urgent
+
 # moving clients in tiling and floating mode
 hc keybind $Mod-Shift-Left  shift left
 hc keybind $Mod-Shift-Down  shift down
@@ -50,6 +55,7 @@ hc keybind $Mod-Shift-h     shift left
 hc keybind $Mod-Shift-j     shift down
 hc keybind $Mod-Shift-k     shift up
 hc keybind $Mod-Shift-l     shift right
+hc keybind $Mod-Shift-BackSpace  shift_to_monitor +1
 
 # Move the focused window to a tag
 for i in $(seq 1 9); do
@@ -106,12 +112,6 @@ hc mouseunbind --all
 hc mousebind $Mod-Button1 move
 hc mousebind $Mod-Button2 zoom
 hc mousebind $Mod-Button3 resize
-
-# focus
-hc keybind $Mod-BackSpace   cycle_monitor
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-i jumpto urgent
 
 # Fn Keys and other buttons
 hc keybind XF86AudioRaiseVolume     spawn ~/.config/herbstluftwm/scripts/volume/volume.sh i 5
