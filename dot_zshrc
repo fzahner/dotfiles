@@ -1,0 +1,80 @@
+# zsh as fish-like second shell (fish stays the login shell)
+#
+
+
+# ---- Plugin manager bootstrap
+ANTIDOTE_HOME_DIR=${ZDOTDIR:-$HOME}/.antidote
+if [[ ! -d $ANTIDOTE_HOME_DIR ]]; then
+  git clone --depth=1 https://github.com/mattmc3/antidote.git "$ANTIDOTE_HOME_DIR"
+fi
+
+# ---- Powerlevel10k
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ---- General
+bindkey -e
+
+# ---- PATH
+typeset -U path
+path=(
+  $HOME/.terragrunt/bin
+  $HOME/.cargo/bin
+  $HOME/.local/bin
+  $path
+)
+
+# ---- History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS EXTENDED_HISTORY HIST_VERIFY
+
+# ---- Completion
+[[ -z $LS_COLORS ]] && (( $+commands[dircolors] )) && eval "$(dircolors -b)"
+setopt AUTO_MENU COMPLETE_IN_WORD
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+
+# ---- Plugin settings
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+HISTORY_SUBSTRING_SEARCH_PREFIXED=1
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+# ---- Load plugins (see ~/.zsh_plugins.txt)
+source $ANTIDOTE_HOME_DIR/antidote.zsh
+antidote load
+
+# ---- Key bindings
+WORDCHARS=${WORDCHARS//\/}   # Ctrl-W / Alt-Backspace stop at "/" like fish
+
+# Up/Down: search history for what is already typed
+bindkey '^[[A' history-substring-search-up
+bindkey '^[OA' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[OB' history-substring-search-down
+[[ -n ${terminfo[kcuu1]} ]] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
+[[ -n ${terminfo[kcud1]} ]] && bindkey "${terminfo[kcud1]}" history-substring-search-down
+
+# Home / End / Delete
+bindkey '^[[H'  beginning-of-line
+bindkey '^[OH'  beginning-of-line
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[F'  end-of-line
+bindkey '^[OF'  end-of-line
+bindkey '^[[4~' end-of-line
+bindkey '^[[3~' delete-char
+
+# Ctrl-Left / Ctrl-Right: move by word; Alt-Right: accept one word of the suggestion
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+# Right / End / Ctrl-F accept the whole suggestion (autosuggestions default)
+
+# ---- Prompt: run `p10k configure` to change it
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

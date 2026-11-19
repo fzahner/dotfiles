@@ -1,0 +1,11 @@
+# zsh plugins, managed by antidote
+
+mattmc3/ez-compinit
+zsh-users/zsh-completions path:src kind:fpath
+
+romkatv/powerlevel10k
+hlissner/zsh-autopair
+zsh-users/zsh-autosuggestions
+# syntax-highlighting must come before history-substring-search
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search

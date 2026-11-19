@@ -5,6 +5,7 @@ packages:
     - feh
     - firefox
     - fish
+    - zsh
     - herbstluftwm
     - npm
     - rofi
